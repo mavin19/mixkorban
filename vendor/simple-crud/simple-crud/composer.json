@@ -1,0 +1,35 @@
+{
+	"name": "simple-crud/simple-crud",
+	"type": "library",
+	"description": "Create/Read/Update/Delete easily",
+	"keywords": ["crud", "mysql", "sqlite"],
+	"homepage": "https://github.com/oscarotero/simple-crud",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Oscar Otero",
+			"email": "oom@oscarotero.com",
+			"homepage": "http://oscarotero.com",
+			"role": "Developer"
+		}
+	],
+	"support": {
+		"email": "oom@oscarotero.com",
+		"issues": "https://github.com/oscarotero/simple-crud/issues"
+	},
+	"require": {
+		"php": ">=5.4"
+	},
+	"autoload": {
+		"psr-4": {
+			"SimpleCrud\\": "src"
+		}
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^4.8 || ^5.5",
+		"zendframework/zend-diactoros": "^1.3"
+	},
+    "scripts": {
+        "test": "phpunit"
+    }
+}

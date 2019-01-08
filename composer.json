@@ -1,0 +1,5 @@
+{
+    "require": {
+        "simple-crud/simple-crud": "^6.12"
+    }
+}
