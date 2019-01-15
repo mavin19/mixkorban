@@ -15,7 +15,7 @@ class AddForeignToComments extends Migration
     {
         Schema::table('comments', function (Blueprint $table) {
             $table->foreign('u_id')->references('u_id')->on('users')->onDelete('cascade');
-            $table->foreign('reviews_id')->references('review_id')->on('reviews')->onDelete('cascade');
+            $table->foreign('reviews_id')->references('review_id')->on('reviews')->onDelete('cascade');  
         });
     }
 
