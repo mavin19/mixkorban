@@ -22,7 +22,8 @@ Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/welcome/{id}', 'test\testcontroller@routTesting');
+Route::get('/welcome
+	/{id}', 'test\testcontroller@routTesting');
 // Route::get('/', function () {
 //     return view('welcome');
 // });

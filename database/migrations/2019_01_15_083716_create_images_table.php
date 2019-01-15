@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFeatureRestaurantTable extends Migration
+class CreateImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateFeatureRestaurantTable extends Migration
      */
     public function up()
     {
-        Schema::create('feature_restaurant', function (Blueprint $table) {
-            // $table->increments('id');
-            $table->unsignedInteger('res_id');
-            $table->unsignedInteger('feature_id');
+        Schema::create('images', function (Blueprint $table) {
+            $table->increments('img_id');
+            $table->string('file_loc');
             $table->timestamps();
-            
-            
+            $table->unsignedInteger('res_id');
         });
     }
 
@@ -30,6 +28,6 @@ class CreateFeatureRestaurantTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('feature__restaurant');
+        Schema::dropIfExists('images');
     }
 }

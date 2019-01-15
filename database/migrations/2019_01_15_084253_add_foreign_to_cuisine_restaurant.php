@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCommentsTable extends Migration
+class AddForeignToCuisineRestaurant extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
-            $table->unsignedInteger('u_id');
-            $table->unsignedInteger('reviews_id');
-            $table->timestamps();
-            $table->string('comment');
-
+        Schema::table('cuisine_restaurant', function (Blueprint $table) {
+            $table->foreign('cuisine_id')->references('cuisine_id')->on('cuisine')->onDelete('cascade');
         });
     }
 
@@ -29,6 +25,8 @@ class CreateCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::table('cuisine_restaurant', function (Blueprint $table) {
+            //
+        });
     }
 }
