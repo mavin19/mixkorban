@@ -19,7 +19,6 @@ class CreateFoodsTable extends Migration
             $table->float('prince');
             $table->string('img');
             $table->unsignedInteger('res_id');
-            $table->foreign('res_id')->references('res_id')->on('restaurants')->onDelete('cascade');
             $table->timestamps();
         });
     }

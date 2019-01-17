@@ -14,14 +14,13 @@ class CreateTimePriceTable extends Migration
     public function up()
     {
         Schema::create('time_price', function (Blueprint $table) {
-            $table->increments('time_price_id');
+            $table->increments('id');
             $table->string('currency');
             $table->float('minPrice');
             $table->float('maxPrice');
             $table->time('openTime');
             $table->time('closeTime');
             $table->unsignedInteger('res_id');
-            $table->foreign('res_id')->references('res_id')->on('restaurants')->onDelete('cascade');
             $table->timestamps();
         });
     }
