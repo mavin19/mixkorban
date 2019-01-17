@@ -14,7 +14,7 @@ class CreateCuisinesTable extends Migration
     public function up()
     {
         Schema::create('cuisines', function (Blueprint $table) {
-            $table->increments('cuisine_id');
+            $table->increments('id');
             $table->timestamps();
             $table->string('name');
         });

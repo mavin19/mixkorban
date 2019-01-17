@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateImagesTable extends Migration
+class CreateReviewImgsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateImagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('images', function (Blueprint $table) {
-            $table->increments('img_id');
-            $table->string('file_loc');
+        Schema::create('review_imgs', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('review_id');
+            $table->foreign('review_id')->references('id')->on('reviews')->onDelete('cascade');
             $table->timestamps();
-            $table->unsignedInteger('res_id');
         });
     }
 
@@ -28,6 +28,6 @@ class CreateImagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('images');
+        Schema::dropIfExists('review_imgs');
     }
 }

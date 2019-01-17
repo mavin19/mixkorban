@@ -14,7 +14,7 @@ class CreateMealRestaurantTable extends Migration
     public function up()
     {
         Schema::create('meal_restaurant', function (Blueprint $table) {
-            $table->unsignedInteger('id');
+            $table->unsignedInteger('meal_id');
             $table->unsignedInteger('res_id');
             $table->timestamps();
         });

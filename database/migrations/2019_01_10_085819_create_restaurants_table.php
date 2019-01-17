@@ -18,7 +18,7 @@ class CreateRestaurantsTable extends Migration
             $table->timestamps();
             $table->string('name',25);
             $table->text('detail');
-            $table->text('detail');
+
             $table->unsignedInteger('contact_id');
             $table->unsignedInteger('user_id'); 
         });

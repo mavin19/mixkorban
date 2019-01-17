@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFeatureTable extends Migration
+class CreateRestaurantImgsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateFeatureTable extends Migration
      */
     public function up()
     {
-        Schema::create('feature', function (Blueprint $table) {
-            $table->increments('feature_id');
+        Schema::create('restaurant_imgs', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('file_loc');
             $table->timestamps();
-            $table->string('name');
+            $table->unsignedInteger('res_id');
+            $table->foreign('res_id')->references('id')->on('restaurants')->onDe1ete('cascade');
         });
     }
 
@@ -27,6 +29,6 @@ class CreateFeatureTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('feature');
+        Schema::dropIfExists('restaurant_imgs');
     }
 }

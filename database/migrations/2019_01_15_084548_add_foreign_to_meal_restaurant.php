@@ -14,7 +14,8 @@ class AddForeignToMealRestaurant extends Migration
     public function up()
     {
         Schema::table('meal_restaurant', function (Blueprint $table) {
-            $table->foreign('meal_id')->references('meal_id')->on('meals')->onDelete('cascade');
+            $table->foreign('meal_id')->references('id')->on('meals')->onDelete('cascade');
+            $table->foreign('res_id')->references('id')->on('restaurants')->onDlete('cascade');
         });
     }
 
@@ -26,7 +27,8 @@ class AddForeignToMealRestaurant extends Migration
     public function down()
     {
         Schema::table('meal_restaurant', function (Blueprint $table) {
-            //
+            $table->dropForeign(['meal_id']);
+            $table->dropForeign(['res_id']);
         });
     }
 }

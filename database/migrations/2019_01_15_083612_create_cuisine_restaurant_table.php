@@ -17,7 +17,6 @@ class CreateCuisineRestaurantTable extends Migration
             $table->unsignedInteger('cuisine_id');
             $table->unsignedInteger('res_id');
             $table->timestamps();
-            $table->string('name');
         });
     }
 

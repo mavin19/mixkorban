@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddForeignToReviews extends Migration
+class AddForeignToFeatureRestaurant extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddForeignToReviews extends Migration
      */
     public function up()
     {
-        Schema::table('reviews', function (Blueprint $table) {
-            $table->foreign('u_id')->references('id')->on('users')->onDelete('cascade');
+        Schema::table('feature_restaurant', function (Blueprint $table) {
+            $table->foreign('feature_id')->references('id')->on('features')->onDelete('cascade');
             $table->foreign('res_id')->references('id')->on('restaurants')->onDelete('cascade');
         });
     }
@@ -26,9 +26,9 @@ class AddForeignToReviews extends Migration
      */
     public function down()
     {
-        Schema::table('reviews', function (Blueprint $table) {
-            $table->dropForeign(['u_id']);            
-            $table->dropForeign(['res_id']);            
+        Schema::table('feature_restaurant', function (Blueprint $table) {
+            $table->dropForeign(['feature_id']);
+            $table->dropForeign(['res_id']);
         });
     }
 }
