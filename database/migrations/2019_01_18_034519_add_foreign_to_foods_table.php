@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFeatureTable extends Migration
+class AddForeignToFoodsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateFeatureTable extends Migration
      */
     public function up()
     {
-        Schema::create('feature', function (Blueprint $table) {
-            $table->increments('feature_id');
-            $table->timestamps();
-            $table->string('name');
+        Schema::table('foods', function (Blueprint $table) {
+            $table->foreign('res_id')->references('id')->on('restaurants');
         });
     }
 
@@ -27,6 +25,8 @@ class CreateFeatureTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('feature');
+        Schema::table('foods', function (Blueprint $table) {
+            $table->dropForeign(['res_id']);
+        });
     }
 }

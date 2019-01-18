@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddForeignToReviewLike extends Migration
+class AddForeignToRatingValueTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class AddForeignToReviewLike extends Migration
      */
     public function up()
     {
-        Schema::table('review_like', function (Blueprint $table) {
-            $table->foreign('u_id')->references('id')->on('users')->onDelete('cascade');
+        Schema::table('rating_value', function (Blueprint $table) {
             $table->foreign('review_id')->references('id')->on('reviews')->onDelete('cascade');
+            $table->foreign('rate_id')->references('id')->on('rating_individual')->onDelete('cascade');
         });
     }
 
@@ -26,9 +26,9 @@ class AddForeignToReviewLike extends Migration
      */
     public function down()
     {
-        Schema::table('review_like', function (Blueprint $table) {
-            $table->dropForeign(['u_id']);
+        Schema::table('rating_value', function (Blueprint $table) {
             $table->dropForeign(['review_id']);
+            $table->dropForeign(['rate_id']);
         });
     }
 }
