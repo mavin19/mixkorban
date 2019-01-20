@@ -14,8 +14,12 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <style>
+        .checked {
+        color: orange;
+        }
         .bgnav{
         background-color: #A8F1B7 ;
         }
@@ -123,7 +127,7 @@
             </div>
         </div> 
     </div>
-    <div class="card container mt-3" style="width: 58rem;">
+    <div class="card container mt-3">
         <div class="card-body">
             <h5 class="card-title"><u>Overview</u></h5>
             <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
@@ -194,31 +198,83 @@
         </div>
         
     </div>
-    <div class="card container mt-3" style="width: 58rem;">
+    <div class="card container mt-3">
         <div class="card-body">
             <h5 class="card-title"><u><b>Review :</b></u></h5>
             <button type="button" class="btn btn-success btn-sm float-right">Write a review</button>
+            <p class="pl-5">5.0</p>
+            <h4>Star Rating</h4>
+            <span class="fa fa-star checked pl-2"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <p class="pl-2">Total: 1,890</p>
+            <p class="float-right"> 1 - 10 of 1,890reviews</p><br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5 pl-5">
+                        <div>
+                            <img src="icon.png" alt="..." width="50" height="50">
+                        </div>
+                        <span>username</span>
+                    </div>
+                    <div class="col-md">
+                        <p>review: </p>
+                        <span class="fa fa-star checked pl-2"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <p>food is the food and drink is for drink we can't eat drink.</p>
+                    </div>
+                </div>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination pagination-sm justify-content-center pt-5">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
         </div>
     </div>
     <div class="container">
-        <nav aria-label="Page navigation example">
-            <ul class="pagination pagination-sm justify-content-center pt-5">
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                </a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
+        <h3>Nearby</h3>
+        <div>
+            <img src="map.png" alt="..." class="img-fluid" alt="Responsive image" >
+        </div>
     </div>
-
+    <div class="text-black container-fluid" style=" margin-top:50px; background-color: #A8F1B7;">
+        <div class="row">
+            <div class="col-sm-4">
+                <br>
+                <h5>Mixkorban</h5><br>
+                <p>we make u easy to find something to eat</p>
+            </div>
+            <div class="col-sm-4">
+            <br>
+                <h5>Keep Connected</h5><br>
+                <p>like us on facebook</p>
+            </div>
+            <div class="col-sm-4">
+            <br>
+                <h5>Contact</h5><br>
+                <p>Tel : 012345678</p>
+                <p>Email : mixkorban@gmail.com</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
