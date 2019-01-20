@@ -29,8 +29,6 @@ class AddForeignToCommentsTable extends Migration
         Schema::table('comments', function (Blueprint $table) {
             $table->dropForeign(['u_id']);
             $table->dropForeign(['review_id']);
-            // $table->dropForeign('comments_u_id_foreign');
-            // $table->dropForeign('comments_review_id_foreign');
         });
     }
 }
