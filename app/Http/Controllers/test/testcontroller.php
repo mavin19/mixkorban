@@ -1,18 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\test;
+namespace App\Http\Controllers\Test;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class testcontroller extends Controller
+class TestController extends Controller
 {
     function routTesting($id){
-    	if($id<5){
-    		return "less than 5";
-    	}
-    	else{
-    		return "bigger or equal 5";
-    	}
+        return view('test');
     }
 }
