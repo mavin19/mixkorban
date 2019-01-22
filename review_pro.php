@@ -27,9 +27,13 @@
             background-color: #FF8A8A;
         }
         /* .center{
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            /* text-align: center;
             align-self: center;
-            margin: auto;
+            margin: auto; */
         } */
        
     </style>
@@ -55,13 +59,71 @@
                 </ul>
             </div>
         </nav>
-            <nav class="navbar navbar-expand-lg navbar-light bgsignup col-md">
-                    <ul class="navbar-nav mr-auto col-md">
-                        <li class="nav-item active center">
-                            <a class="nav-link" href="#">Sign Up</a>
-                        </li>
-                    </ul>
-            </nav>
+        <nav class="navbar navbar-expand-lg navbar-light bgsignup col-md">
+                <ul class="navbar-nav mr-auto col-md">
+                    <li class="nav-item active ">
+                    
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">sign up</button>                        </li>
+                    
+                    <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Sign up to continue</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group row">
+                                            <label for="name1" class="col-sm-2 col-form-label">Username:</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="name1" placeholder="Username">
+                                            </div>
+                                        </div> 
+                                        <div class="form-group row">
+                                            <label for="email" class="col-sm-2 col-form-label">Email: </label>
+                                            <div class="col-sm-10">
+                                                <input type="Email" class="form-control" id="email1" placeholder="Email">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputPassword3" class="col-sm-2 col-form-label">Password:</label>
+                                            <div class="col-sm-10">
+                                                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputRe-Password3" class="col-sm-2 col-form-label">Re-Password:</label>
+                                            <div class="col-sm-10">
+                                                <input type="password" class="form-control" id="inputRe-Password3" placeholder="Re-Password">
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                                <div>
+                                    <div style="text-align: center;">
+                                        <button type="button" class="btn btn-primary mb-4">Log in</button>
+                                    </div>
+                                    <div style="text-align: center;">
+                                        <label>Or Sign up with</label>
+                                    </div>
+                                    <div style="text-align: center;" class="pb-5">
+                                        <button class="btn btn-default" style="background-color:white;">
+                                            <img src="fb.png" width="150">
+                                        </button>
+                                        <button class="btn btn-default" style="background-color:white;">
+                                            <img src="1gg.png" width="150" >
+                                        </button>
+                                        
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+        </nav>
     </div>
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -213,7 +275,7 @@
             <p class="float-right"> 1 - 10 of 1,890reviews</p><br>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-5 pl-5">
+                    <div class="col-md-3 pl-5">
                         <div>
                             <img src="icon.png" alt="..." width="50" height="50">
                         </div>
