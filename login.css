@@ -1,0 +1,27 @@
+.text3{
+	margin-left: 50px;
+}
+.login-bottom>div{
+	text-align:center;
+	
+}
+.login-bottom > div > div{
+	display: inline-block;
+}
+.login-bottom > div > div >div{
+	display: inline-block;
+}
+.checked {
+	color: orange;
+}
+.bgnav{
+	background-color: #A8F1B7 ;
+}
+.bgsignup{
+	background-color: #FF8A8A;
+}
+.center{
+	text-align: center;
+	align-self: center;
+	margin: auto;
+}
