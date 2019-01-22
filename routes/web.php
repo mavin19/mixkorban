@@ -24,6 +24,10 @@ Route::get('/web', function(){
     return "hellow world";
 });
 
+Route::get('/test', function(){
+    return view('home');
+});
+
 
 // test controler
 Route::get('/controller/{id}', 'Test\TestController@routTesting');
