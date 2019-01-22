@@ -14,11 +14,12 @@ class CreateContactInfoTable extends Migration
     public function up()
     {
         Schema::create('contact_info', function (Blueprint $table) {
-            $table->increments('contact_id');
+            $table->increments('id');
             $table->timestamps();
             $table->integer('phoneNumber');
             $table->string('address');
             $table->string('website');
+            $table->unsignedInteger('res_id');
         });
     }
 

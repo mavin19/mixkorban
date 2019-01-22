@@ -14,16 +14,24 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/test', function () {
-    return "welcome your majesty";
+
+// Rout::resource('/restaurant');
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/web', function(){
+    return "hellow world";
 });
+
+Route::get('/user', function(){
+    return "hellow world";
+});
+
+
+// test controler
+Route::get('/controller/{id}', 'Test\TestController@routTesting');
 
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/welcome
-	/{id}', 'test\testcontroller@routTesting');
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/home', 'HomeController@index')->name('home');

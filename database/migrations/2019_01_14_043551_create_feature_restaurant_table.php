@@ -14,7 +14,6 @@ class CreateFeatureRestaurantTable extends Migration
     public function up()
     {
         Schema::create('feature_restaurant', function (Blueprint $table) {
-            // $table->increments('id');
             $table->unsignedInteger('res_id');
             $table->unsignedInteger('feature_id');
             $table->timestamps();

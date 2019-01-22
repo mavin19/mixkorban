@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddForeignToCuisineRestaurant extends Migration
+class AddForeignToFoodsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddForeignToCuisineRestaurant extends Migration
      */
     public function up()
     {
-        Schema::table('cuisine_restaurant', function (Blueprint $table) {
-            $table->foreign('cuisine_id')->references('cuisine_id')->on('cuisine')->onDelete('cascade');
+        Schema::table('foods', function (Blueprint $table) {
+            $table->foreign('res_id')->references('id')->on('restaurants');
         });
     }
 
@@ -25,8 +25,8 @@ class AddForeignToCuisineRestaurant extends Migration
      */
     public function down()
     {
-        Schema::table('cuisine_restaurant', function (Blueprint $table) {
-            //
+        Schema::table('foods', function (Blueprint $table) {
+            $table->dropForeign(['res_id']);
         });
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddForeignToComments extends Migration
+class AddForeignToCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,8 @@ class AddForeignToComments extends Migration
     public function up() 
     {
         Schema::table('comments', function (Blueprint $table) {
-            $table->foreign('u_id')->references('u_id')->on('users')->onDelete('cascade');
-            $table->foreign('reviews_id')->references('review_id')->on('reviews')->onDelete('cascade');  
+            $table->foreign('u_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('review_id')->references('id')->on('reviews')->onDelete('cascade')->onUpdate('cascade');  
         });
     }
 
@@ -27,7 +27,8 @@ class AddForeignToComments extends Migration
     public function down()
     {
         Schema::table('comments', function (Blueprint $table) {
-            //
+            $table->dropForeign(['u_id']);
+            $table->dropForeign(['review_id']);
         });
     }
 }

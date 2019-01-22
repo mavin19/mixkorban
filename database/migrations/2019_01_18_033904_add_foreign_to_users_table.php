@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRatingIndividualTable extends Migration
+class AddForeignToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateRatingIndividualTable extends Migration
      */
     public function up()
     {
-        Schema::create('rating_individual', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
-            $table->string('name');
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreign('user_type_id')->references('id')->on('users');
         });
     }
 
@@ -27,6 +25,8 @@ class CreateRatingIndividualTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rating_individual');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign(['user_type_id']);
+        });
     }
 }

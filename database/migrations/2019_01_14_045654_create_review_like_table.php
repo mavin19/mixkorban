@@ -16,7 +16,6 @@ class CreateReviewLikeTable extends Migration
         Schema::create('review_like', function (Blueprint $table) {
             $table->unsignedInteger('review_id');
             $table->unsignedInteger('u_id');
-            // $table->increments('id');
             $table->timestamps();
 
         });

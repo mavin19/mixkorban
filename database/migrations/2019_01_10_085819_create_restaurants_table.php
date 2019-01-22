@@ -14,15 +14,13 @@ class CreateRestaurantsTable extends Migration
     public function up()
     {
         Schema::create('restaurants', function (Blueprint $table) {
-            $table->increments('res_id');
+            $table->increments('id');
             $table->timestamps();
             $table->string('name',25);
             $table->text('detail');
-            $table->integer('minPrice');
-            $table->integer('maxPrice');
-            $table->integer('openTime');
-            $table->integer('closeTime');
-            
+
+            $table->unsignedInteger('contact_id');
+            $table->unsignedInteger('user_id'); 
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddForeignToMealRestaurant extends Migration
+class CreateUserTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class AddForeignToMealRestaurant extends Migration
      */
     public function up()
     {
-        Schema::table('meal_restaurant', function (Blueprint $table) {
-            $table->foreign('meal_id')->references('meal_id')->on('meals')->onDelete('cascade');
+        Schema::create('user_types', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +27,6 @@ class AddForeignToMealRestaurant extends Migration
      */
     public function down()
     {
-        Schema::table('meal_restaurant', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('user_types');
     }
 }

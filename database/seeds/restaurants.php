@@ -12,7 +12,7 @@ class restaurants extends Seeder
     public function run()
     {
         DB::table('restaurants')->insert(
-        	['name',=> "romdoul"],
+        	['name'=> "romdoul"],
         	['detail'=>"this is khmer restaurant"]);
 
     }
