@@ -1,0 +1,16 @@
+#filter{
+
+	width:100%;
+	height: auto;
+	/* background-color: #ff8a8a; */
+	/* border-radius: 20px; */
+	/* color: white; */
+	padding-left: 10px;
+	border-right: 1px solid;
+	padding-right: 30px;
+}
+
+#filter ul{
+	padding-left : 12px;
+}
+

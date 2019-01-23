@@ -2,10 +2,11 @@
     position: absolute;
     top:18%;
     left:12%;
-    background:#FF8A8A;
-    height: 36px;
+    /* background:#FF8A8A; */
+    height: 30px;
     border-radius:38px;
-    padding:10px;
+    padding:6px;
+    border: 1px solid white;
 }
 .search-btn{
     color:#A8F1B7;
@@ -13,8 +14,9 @@
     width: 16px;
     height: 16px;
     border-radius: 50% ;
-    background: #FF8A8A;
+    /* background: #FF8A8A; */
     display: flex;
+    font-size: 13px !important;
     justify-content: center;
     align-items: center;   
 }
@@ -31,7 +33,7 @@
     height:20px; 
     padding: 0;
     color:white;
-    font-size:14px;
+    font-size:10px;
     transition: 0.4s;
     line-height: 13px;
     width: 0px;

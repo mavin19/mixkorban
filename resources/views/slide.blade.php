@@ -35,10 +35,10 @@
 					<img src="https://tympanus.net/Tutorials/PrismEffectSlider/img/masks/cube-b.svg">
 					<img src="ihttps://tympanus.net/Tutorials/PrismEffectSlider/img/masks/cube-c.svg">
 					<!-- photos -->
-					<img src="restaurant1.jpg">
-					<img src="restaurant2.jpg">
-					<img src="restaurant3.jpeg">
-					<img src="cocktail.jpg">
+					<img src="/image/restaurant1.jpg">
+					<img src="/image/restaurant2.jpg">
+					<img src="/image/restaurant3.jpeg">
+					<img src="/image/cocktail.jpg">
 				</div>
 
 				<div class="wrapper">
