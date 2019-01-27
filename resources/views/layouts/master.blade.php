@@ -52,15 +52,16 @@
                 <a class="nav-link" href="#">Food</a>
             </li>
         </ul>
+       
         
         <ul id="login-signup-wrapper">
                 @guest
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}" data-toggle="model" data-target="login">{{ __('Login') }}</a>
+                    <a class="nav-link" href="#" data-toggle="model" data-target="loginModel">{{ __('Login') }}</a>
                 </li>
                 @if (Route::has('register'))
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}" data-toggle="model" data-target="register">{{ __('Register') }}</a>
+                        <a class="nav-link" href="#" data-toggle="model" data-target="registerModel">{{ __('Register') }}</a>
                     </li>
                 @endif
             @else
@@ -110,6 +111,19 @@
             @endguest
         </ul>
 </nav>
+<div class="container under-menu-wrapper">
+    <div class="row justify-content-md-center under-menu">
+        <div class="col-sm-4 menu">
+            <a href="{{url('/home')}}">Home</a>
+        </div>
+        <div class="col-sm-4 menu">
+            <a href="{{url('/restaurant')}}">Restaurant</a>
+        </div>
+        <div class="col-sm menu">
+            <a href="{{url('/home')}}">Food</a>
+        </div>
+    </div>
+</div>s
 
     
 {{-- content --}}
