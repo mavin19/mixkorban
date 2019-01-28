@@ -11,23 +11,27 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 // Rout::resource('/restaurant');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 
 Route::get('/web', function(){
     return "hellow world";
 });
-
-Route::get('/test', function(){
-    return view('home');
+Route::get('/review', function(){
+    return view('review_form');
 });
-
+Route::get('/restaurant', function(){
+    return view('restaurant');
+});
+Route::get('/detail', function(){
+    return view('review_pro');
+});
 
 // test controler
 Route::get('/controller/{id}', 'Test\TestController@routTesting');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

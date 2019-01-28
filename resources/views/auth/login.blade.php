@@ -5,9 +5,16 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header" style="margin-bottom:20px;">{{ __('Login') }}</div>
 
-                <div class="card-body">
+                <div class="panel-body">
+                    <div class="model" id="login" role="dialog">
+                        <div class="model-dialog">
+                            <div class="model-content">
+                                <div class="model-header">
+                                    <div class="model-body">
+
+                                    </div>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -63,6 +70,24 @@
                                     </a>
                                 @endif
                             </div>
+                            <div class="modal-footer container" style="display:unset; border:0;">
+                                    <div style="text-align: center;">
+                                            <label>Or Sign up with</label>
+                                        </div>
+                                        <div style="text-align: center;" >
+                                            <button class="btn btn-default" style="background-color:white;">
+                                                <img src="/image/fb.png" width="150">
+                                            </button>
+                                            <button class="btn btn-default" style="background-color:white;">
+                                                <img src="/image/1gg.png" width="150" >
+                                            </button>
+                                            
+                                        </div>
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -71,3 +96,5 @@
     </div>
 </div>
 @endsection
+
+                    

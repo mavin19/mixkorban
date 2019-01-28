@@ -48,8 +48,7 @@
 
 .wrapper .copy p:first-of-type {
 	color: #b1b6ba;
-	font-size: 1.5em;
-	font-size: 2vw;
+	font-size: 1vw;
 
 }
 
@@ -132,7 +131,7 @@
 	}
 
 	.wrapper .copy h2 {
-		font-size: 8vw;
+		font-size: 7vw;
 	}
 
 	.wrapper .copy p:first-of-type {
