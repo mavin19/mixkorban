@@ -54,21 +54,21 @@ var slideshow = (function(window, undefined) {
    */
   var masks = [
     {
-      source: 'https://tympanus.net/Tutorials/PrismEffectSlider/img/masks/cube-a.svg',
+      
       effects: {
         flip: 'Y',
         rotate: 167 // degrees
       }
     },
     {
-      source: 'https://tympanus.net/Tutorials/PrismEffectSlider/img/masks/cube-b.svg',
+      
       effects: {
         flip: 'X',
         rotate: 90 // degrees
       }
     },
     {
-      source: 'https://tympanus.net/Tutorials/PrismEffectSlider/img/masks/cube-c.svg',
+      
       effects: {
         flip: false,
         rotate: 13 // degrees
