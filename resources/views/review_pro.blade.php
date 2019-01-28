@@ -10,12 +10,6 @@ Restaurant Detail
         .checked {
         color: orange;
         }
-        .bgnav{
-        background-color: #A8F1B7 ;
-        }
-        .bgsignup{
-            background-color: #FF8A8A;
-        }
         /* .center{
             display: flex;
             align-items: center;
@@ -35,22 +29,28 @@ Restaurant Detail
             height:350px;
             width:100%;
         }
-       
+        .picture{
+            margin-left: 120px;
+        }
     </style>
 @stop('staticfiles')
 @section('body')
 <div class="container">
     <H1 class="p-5">Panorama</H1>
     <div class="row">
-        <div class="col-md-7">
-            <img class="img-responsive" src="/image/panorama.jpg" alt="Chania" width="500" height="355">
-        </div>
-        <div class="col-md-5">
-            <img class="/image/img-responsive mb-2" src="/image/chair.jpg" alt="Chania" width="300" height="150">
-            <img class="/image/img-responsive mt-5" src="/image/cocktail.jpg" alt="Chania" width="300" height="150">
-        </div>
-    </div> 
-</div>
+      <div class="col-4 ">
+          <img class="img-responsive" src="/image/panorama.jpg" alt="Chania" width="500" height="355">
+    </div>
+      <div class="col-3 picture">
+        <img class="/image/img-responsive" src="/image/chair.jpg" alt="Chania" width="285" height="180">
+        <img class="/image/img-responsive" src="/image/cocktail.jpg" alt="Chania" width="285" height="175">
+      </div>
+      <div class="col-3 ">
+            <img class="/image/img-responsive" src="/image/chair.jpg" alt="Chania" width="285" height="180">
+            <img class="/image/img-responsive" src="/image/cocktail.jpg" alt="Chania" width="285" height="175">
+      </div>
+    </div>
+  </div>
 <div class="card container mt-3">
     <div class="card-body">
         <h5 class="card-title"><u>Overview</u></h5>
