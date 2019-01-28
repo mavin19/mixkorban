@@ -42,10 +42,10 @@ var slideshow = (function(window, undefined) {
    * @type {Array}
    */
   var slides = [
-    'restaurant1.jpg',
-    'restaurant2.jpg',
-    'restaurant3.jpeg',
-    'cocktail.jpg'
+    '/image/restaurant1.jpg',
+    '/image/restaurant2.jpg',
+    '/image/restaurant3.jpeg',
+    '/image/cocktail.jpg'
   ];
 
   /**

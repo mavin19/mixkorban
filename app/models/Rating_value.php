@@ -1,7 +1,7 @@
 <?php
 	use Illuminate\Database\Eloquent\Model;
 	
-	class Cuisine_res extends Model
+	class Rating_val extends Model
 	{
 		
 		public function review(){

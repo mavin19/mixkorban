@@ -7,5 +7,9 @@
 		public function res(){
     		return $this->belongsTo('App\Restaurant');
     	}
+
+    	public function meal(){
+    		return $this->belongsTo('App\Meal');
+    	}
 	}
 ?>
