@@ -57,11 +57,11 @@
         <ul id="login-signup-wrapper">
                 @guest
                 <li class="nav-item">
-                    <a class="nav-link" href="#" data-toggle="model" data-target="loginModel">{{ __('Login') }}</a>
+                    <a class="nav-link" href="{{ __('login') }}" data-toggle="model" data-target="loginModel">{{ __('Login') }}</a>
                 </li>
                 @if (Route::has('register'))
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-toggle="model" data-target="registerModel">{{ __('Register') }}</a>
+                        <a class="nav-link" href="{{ __('register') }}" data-toggle="model" data-target="registerModel">{{ __('Register') }}</a>
                     </li>
                 @endif
             @else
@@ -80,32 +80,7 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
-                        <div class="panel-body">
-                            <div class="model" id="login" role="dialog">
-                                <div class="model-dialog">
-                                    <div class="model-content">
-                                        <div class="model-header">
-                                            <div class="model-body">
-        
-                                            </div>
-                                            <div class="modal-footer container" style="display:unset; border:0;">
-                                                <div style="text-align: center;">
-                                                        <label>Or Sign up with</label>
-                                                    </div>
-                                                    <div style="text-align: center;" >
-                                                        <button class="btn btn-default" style="background-color:white;">
-                                                            <img src="/image/fb.png" width="150">
-                                                        </button>
-                                                        <button class="btn btn-default" style="background-color:white;">
-                                                            <img src="/image/1gg.png" width="150" >
-                                                        </button>
-                                                        
-                                                    </div>
-                                            </div>
-                                        </div>
-                                        </div>
-                                        </div>
-                                        </div>
+                        
                         </div>
                 </li>
             @endguest
@@ -123,7 +98,7 @@
             <a href="{{url('/home')}}">Food</a>
         </div>
     </div>
-</div>s
+</div>
 
     
 {{-- content --}}
