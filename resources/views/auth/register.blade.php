@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -73,5 +75,7 @@
             </div>
         </div>
     </div>
+</div>
+</div>
 </div>
 @endsection
