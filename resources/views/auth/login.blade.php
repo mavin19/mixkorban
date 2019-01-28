@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
-@section('content')
+@section('body')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -8,13 +8,7 @@
                 <div class="card-header" style="margin-bottom:20px;">{{ __('Login') }}</div>
 
                 <div class="panel-body">
-                    <div class="model" id="login" role="dialog">
-                        <div class="model-dialog">
-                            <div class="model-content">
-                                <div class="model-header">
-                                    <div class="model-body">
-
-                                    </div>
+                    
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
