@@ -6,11 +6,28 @@
 	/* border-radius: 20px; */
 	/* color: white; */
 	padding-left: 10px;
-	border-right: 1px solid;
+	border-right: 1px solid rgba(0,0,0,.1);
 	padding-right: 30px;
 }
 
-#filter ul{
-	padding-left : 12px;
+#filter ul{padding-left : 12px;}
+#filter ul li {margin-bottom: 8px;}
+
+.res_img_crop{
+	width: 235px;
+	height: 170px;
+    overflow: hidden
 }
 
+#all_res_container .row{margin-bottom: 30px;}
+#all_res_container .col-sm-4{text-align: center;}
+#all_res_container .res_container{display: inline-block;}
+#all_res_container p{margin:0;font-size: 16px;}
+#all_res_container p ,.review_res{text-align: left;}
+.checked{color: orange;}
+
+.res_img_crop img{
+	width: 280px;
+	margin: -10px 0 0 -17px;
+}
+.review_res div{display:inline-block;}
