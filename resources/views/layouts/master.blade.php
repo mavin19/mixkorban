@@ -57,12 +57,26 @@
         <ul id="login-signup-wrapper">
                 @guest
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ __('login') }}" data-toggle="model" data-target="loginModel">{{ __('Login') }}</a>
+                    <a class="btn" data-toggle="modal" data-target=".bd-login-modal-md">{{ __('Login') }}</a>
+                    <div class="modal fade bd-login-modal-md" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-md" role="document">
+                            <div class="modal-content">
+                                @include('layouts.login')
+                            </div>
+                        </div>
+                    </div>
                 </li>
                 @if (Route::has('register'))
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ __('register') }}" data-toggle="model" data-target="registerModel">{{ __('Register') }}</a>
-                    </li>
+                <li class="nav-item">
+                    <a class="btn" data-toggle="modal" data-target=".bd-register-modal-md">{{ __('Register') }}</a>                    
+                    <div class="modal fade bd-register-modal-md" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-md" role="document">
+                            <div class="modal-content">
+                                @include('layouts.register')                                        
+                            </div>
+                        </div>
+                    </div>
+                </li>
                 @endif
             @else
                 <li class="nav-item dropdown">
@@ -80,8 +94,34 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
-                        
-                        </div>
+                        {{-- <div class="panel-body">
+                            <div class="model" id="login" role="dialog">
+                                <div class="model-dialog">
+                                    <div class="model-content">
+                                        <div class="model-header">
+                                            <div class="model-body">
+        
+                                            </div>
+                                            <div class="modal-footer container" style="display:unset; border:0;">
+                                                <div style="text-align: center;">
+                                                    <label>Or Sign up with</label>
+                                                </div>
+                                                <div style="text-align: center;" >
+                                                    <button class="btn btn-default" style="background-color:white;">
+                                                        <img src="/image/fb.png" width="150">
+                                                    </button>
+                                                    <button class="btn btn-default" style="background-color:white;">
+                                                        <img src="/image/1gg.png" width="150" >
+                                                    </button>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> --}}
+                    </div>
                 </li>
             @endguest
         </ul>
