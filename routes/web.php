@@ -28,7 +28,9 @@ Route::get('/restaurant', function(){
 Route::get('/detail', function(){
     return view('review_pro');
 });
-
+Route::get('/restaurantForm', function(){
+    return view('restaurant_owner_register');
+});
 // test controler
 Route::get('/controller/{id}', 'Test\TestController@routTesting');
 

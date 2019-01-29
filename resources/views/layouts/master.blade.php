@@ -57,12 +57,26 @@
         <ul id="login-signup-wrapper">
                 @guest
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ __('login') }}" data-toggle="model" data-target="loginModel">{{ __('Login') }}</a>
+                    <a class="btn" data-toggle="modal" data-target=".bd-login-modal-md">{{ __('Login') }}</a>
+                    <div class="modal fade bd-login-modal-md" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-md" role="document">
+                            <div class="modal-content">
+                                @include('layouts.login')
+                            </div>
+                        </div>
+                    </div>
                 </li>
                 @if (Route::has('register'))
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ __('register') }}" data-toggle="model" data-target="registerModel">{{ __('Register') }}</a>
-                    </li>
+                <li class="nav-item">
+                    <a class="btn" data-toggle="modal" data-target=".bd-register-modal-md">{{ __('Register') }}</a>                    
+                    <div class="modal fade bd-register-modal-md" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-md" role="document">
+                            <div class="modal-content">
+                                @include('layouts.register')                                        
+                            </div>
+                        </div>
+                    </div>
+                </li>
                 @endif
             @else
                 <li class="nav-item dropdown">
@@ -72,6 +86,11 @@
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                         </a>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
@@ -80,8 +99,7 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
-                        
-                        </div>
+                    </div>
                 </li>
             @endguest
         </ul>

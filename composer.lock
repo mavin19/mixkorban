@@ -5,10 +5,14 @@
         "This file is @generated automatically"
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "41e24562cdab276fb081e97a810a7521",
 =======
     "content-hash": "8147d419d6d66d9123636d536d885d5a",
 >>>>>>> 0d9b07d97b422c296a8f309702e84694f2eeba7c
+=======
+    "content-hash": "41e24562cdab276fb081e97a810a7521",
+>>>>>>> 6715923566d5f692dd815e4f6c76da8766806ed8
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -4311,6 +4315,7 @@
     "packages-dev": [
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             "name": "almasaeed2010/adminlte",
             "version": "v2.4.3",
@@ -4421,6 +4426,8 @@
         },
         {
 >>>>>>> 0d9b07d97b422c296a8f309702e84694f2eeba7c
+=======
+>>>>>>> 6715923566d5f692dd815e4f6c76da8766806ed8
             "name": "backpack/generators",
             "version": "1.2.6",
             "source": {
@@ -4930,6 +4937,7 @@
         },
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             "name": "jenssegers/date",
             "version": "v3.4.0",
@@ -4997,6 +5005,8 @@
         },
         {
 >>>>>>> 0d9b07d97b422c296a8f309702e84694f2eeba7c
+=======
+>>>>>>> 6715923566d5f692dd815e4f6c76da8766806ed8
             "name": "laracasts/generators",
             "version": "dev-master",
             "source": {

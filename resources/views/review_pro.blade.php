@@ -32,6 +32,22 @@ Restaurant Detail
         .picture{
             margin-left: 120px;
         }
+        .overview{
+            padding-left: 20px;
+            /* display: flex; */
+        }
+        .form{
+            border:1px solid black;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .type_rating{
+            
+            margin-left:-30px;
+        }
+        .star{
+            margin-left:10px;
+        }
     </style>
 @stop('staticfiles')
 @section('body')
@@ -51,15 +67,62 @@ Restaurant Detail
       </div>
     </div>
   </div>
-<div class="card container mt-3">
-    <div class="card-body">
-        <h5 class="card-title"><u>Overview</u></h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
-    </div>
-    
+<div class="form container ">
+    <div>
+        <h3>Overview</h3>
+        <div class="overview">
+            <h6><i class="far fa-clock" style="color:red"></i> Close Now Hour | Cusine</h6>
+            <div>Cambodia, vegetarian, friendly, vegan options</div>
+            <div>Price | $$$$</div>
+            <div class="row">
+                <p style="padding-left:15px;">Rating </p>
+                <p class="overview">Food</p>
+                <div class="col" >
+                    <span class="fa fa-star checked" style="margin-left:40px;"  ></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <div class="row ">
+                        <p style=" margin-left:-30px;">Service</p>
+                        <div class="col">
+                            <span class="fa fa-star checked" style="margin-left:30px;"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <div class="row ">
+                                <p style=" margin-left:-40px;">value</p>
+                                <div class="col star">
+                                    <span class="fa fa-star checked" style="margin-left:30px;"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <div class="row ">
+                                        <p style="margin-left:-40px;">Environment</p>
+                                        <div class="col star">
+                                            <span class="fa fa-star checked" style="margin-left:-9px;"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h6><i class="fas fa-home" style="color:green; display:flex;"></i></h6>
+            <p>Between Phsar Dey Hoy market and Angkor High School | Wat Damnak Villige, Sala Kamreuk
+                Commune Siem Reap 17000, Cambodia
+                All detail improve This Listing
+            </p>
+                
+        </div>
+    </div>    
 </div>
     <div class="container">
         <h3 class="mt-3"><u><b>Detail</b></u></h3>
