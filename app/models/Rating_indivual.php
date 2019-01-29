@@ -5,7 +5,7 @@
 	{
 		
 		public function review(){
-        	return $this->belongsToMany('App\Review');
+        	return $this->belongsToMany('App\Review','rating_value');
     	}
 	}
 ?>

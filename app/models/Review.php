@@ -23,11 +23,11 @@ class Review   extends Model
     	}
 
     	public function user(){
-        	return $this->belongsToMany('App\User');
+        	return $this->belongsToMany('App\User','review_like');
     	}
 
     	public function rating_indiviual(){
-        	return $this->belongsToMany('App\Rating_indiviual');
+        	return $this->belongsToMany('App\Rating_indiviual','rating_value');
     	}
     }
 ?>
