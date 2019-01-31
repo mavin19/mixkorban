@@ -3,8 +3,13 @@
 namespace App\models;
 
 use Illuminate\Database\Eloquent\Model;
+use Backpack\CRUD\CrudTrait;
 
 class Restaurant extends Model
 {
-    protected $model = "restaurants";
+    use CrudTrait;
+    // protected $model = "restaurants";
+    protected $fillable = ['name','detail'];
+    
+
 }
