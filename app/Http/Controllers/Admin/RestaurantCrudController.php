@@ -40,17 +40,17 @@ class RestaurantCrudController extends CrudController
         $this->crud->setRequiredFields(StoreRequest::class, 'create');
         $this->crud->setRequiredFields(UpdateRequest::class, 'edit');
 
-        $this->crud->setColumns(['name', 'detail']);
+        $this->crud->setColumns(['veganOpt', 'isPublish']);
         $this->crud->addField([
-          'name' => 'name',
-          'type' => 'text',
-          'label' => "Restaurant name"
+          'name' => 'veganOpt',
+          'type' => 'checkbox',
+          'label' => "Vegan Option"
         ]);
         
         $this->crud->addField([
-          'name' => 'detail',
-          'type' => 'text',
-          'label' => "Detail"
+          'name' => 'isPublish',
+          'type' => 'checkbox',
+          'label' => "Publish"
         ]);
     }
 

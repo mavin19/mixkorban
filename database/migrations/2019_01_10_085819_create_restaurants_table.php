@@ -18,6 +18,8 @@ class CreateRestaurantsTable extends Migration
             $table->timestamps();
             $table->string('name',25);
             $table->text('detail');
+            $table->boolean('veganOpt');
+            $table->boolean('isPublish');
 
             $table->unsignedInteger('contact_id');
             $table->unsignedInteger('user_id'); 

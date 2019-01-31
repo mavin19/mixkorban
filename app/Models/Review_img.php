@@ -5,8 +5,8 @@ namespace App\Models;
 	class Feature extends Model
 	{
 		
-		public function res(){
-        	return $this->belongsToMany('App\Models\Restaurant');
+		public function review(){
+        	return $this->belongsTo('App\Models\Review');
     	}
 	}
 ?>
