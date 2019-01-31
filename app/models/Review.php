@@ -1,25 +1,19 @@
 <?php
-namespace App\models;
+namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\Model
 	
 class Review   extends Model
 	{
-		public function user(){
-    		return $this->belongsTo('App\User');
-    	}
 	
-
-
     	public function res(){
-    		return $this->belongsTo('App\Restaurant');
+    		return $this->belongsTo('App\Models\Restaurant');
     	}
 
 
     	public function comment()
     	{
-        	return $this->hasOne('App\Comment');
+        	return $this->hasOne('App\Models\Comment');
     	}
 
     	public function user(){
@@ -27,7 +21,7 @@ class Review   extends Model
     	}
 
     	public function rating_indiviual(){
-        	return $this->belongsToMany('App\Rating_indiviual','rating_value');
+        	return $this->belongsToMany('App\Models\Rating_indiviual','rating_value');
     	}
     }
 ?>

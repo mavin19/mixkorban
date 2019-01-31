@@ -29,7 +29,7 @@ class User extends Authenticatable
     ];
 
     public function comment(){
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('App\Models\Comment');
     }
 
     public function res(){
@@ -37,10 +37,12 @@ class User extends Authenticatable
     }
 
     public function review(){
-        return $this->hasMany('App\Review');
-    }
-
-    public function review(){
         return $this->belongsToMany('App\Review', 'review_like');
     }
+
+    public function usertype()
+    {
+        return $this->belongsTo('App\Models\Usertype');
+    }
 }
+?>
