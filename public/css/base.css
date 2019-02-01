@@ -14,7 +14,7 @@
     padding-right : 0;
 }
 .my-nav a{
-    color: white !important;
+    color: white ;
     text-shadow: 2px 2px 2px rgb(87, 87, 87);
     font-size: 18px;
     text-decoration: none;
@@ -55,7 +55,11 @@
     display: block;
 }
 #login-signup-wrapper > li:last-child a{
+<<<<<<< HEAD
     outline: 9px solid #b8620b;
+=======
+    outline: 8.5px solid #b8620b;
+>>>>>>> 8a3f40d7949d69985939a7bc269c3b951e934a68
 }
 
 .under-menu{

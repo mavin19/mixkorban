@@ -84,13 +84,14 @@
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
 
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                         </a>
-                        <a class="dropdown-item" href="{{ route('logout') }}"
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="text-align:center">
+                        <a class="dropdown-item" href="" style="color:black">
+                            {{ __('Restaurant') }}
+                        </a>
+                        <a class="dropdown-item" href="{{ url('/profile') }}" style="color:black">
+                            {{ __('Profile') }}
+                        </a>
+                        <a class="dropdown-item" href="{{ route('logout') }} " style="color:black"
                            onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
@@ -99,7 +100,8 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
-                    </div>
+                        
+                        </div>
                 </li>
             @endguest
         </ul>

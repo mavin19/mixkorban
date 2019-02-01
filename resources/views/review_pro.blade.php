@@ -18,17 +18,12 @@ Restaurant Detail
             /* text-align: center;
             align-self: center;
             margin: auto; */
-        } */
-        .mapouter{
-            height:400px;
-            width:700px;
-        }
-        .gmap_canvas {
+        } 
+        /* .gmap_canvas {
             overflow:hidden;
             background:none!important;
-            height:350px;
-            width:100%;
-        }
+            style="float:right;
+        } */
         .picture{
             margin-left: 120px;
         }
@@ -47,6 +42,11 @@ Restaurant Detail
         }
         .star{
             margin-left:10px;
+        }
+        .icon{
+            color:green; 
+            padding-right:10px;
+            padding-left:10px;
         }
     </style>
 @stop('staticfiles')
@@ -68,7 +68,8 @@ Restaurant Detail
     </div>
   </div>
 <div class="form container ">
-    <div>
+    <div class="row">
+     <div class="col-md-6">
         <h3>Overview</h3>
         <div class="overview">
             <h6><i class="far fa-clock" style="color:red"></i> Close Now Hour | Cusine</h6>
@@ -94,7 +95,7 @@ Restaurant Detail
                             <div class="row ">
                                 <p style=" margin-left:-40px;">value</p>
                                 <div class="col star">
-                                    <span class="fa fa-star checked" style="margin-left:30px;"></span>
+                                    <span class="fa fa-star checked" style="margin-left:31px;"></span>
                                     <span class="fa fa-star checked"></span>
                                     <span class="fa fa-star checked"></span>
                                     <span class="fa fa-star"></span>
@@ -102,7 +103,7 @@ Restaurant Detail
                                     <div class="row ">
                                         <p style="margin-left:-40px;">Environment</p>
                                         <div class="col star">
-                                            <span class="fa fa-star checked" style="margin-left:-9px;"></span>
+                                            <span class="fa fa-star checked" style="margin-left:-7px;"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star"></span>
@@ -115,14 +116,23 @@ Restaurant Detail
                     </div>
                 </div>
             </div>
-            <h6><i class="fas fa-home" style="color:green; display:flex;"></i></h6>
-            <p>Between Phsar Dey Hoy market and Angkor High School | Wat Damnak Villige, Sala Kamreuk
+
+            <h6 ><i class="fas fa-home" style="color:green;"></i>
+                Between Phsar Dey Hoy market and Angkor High School | Wat Damnak Villige, Sala Kamreuk
                 Commune Siem Reap 17000, Cambodia
-                All detail improve This Listing
-            </p>
-                
+                All detail improve This Listing</h6>
+            <h6 ><i class="fas fa-phone"style="color:green; padding-right:10px;"></i>+885 12 546 784  
+                <i class="fas fa-globe-americas icon"></i>WWW.Mixkorban.com.kh 
+                <i class="fas fa-bars icon"></i>Menu</h6>
         </div>
-    </div>    
+    </div>   
+    <div class="col-3" style="float:right; margin-left:230px;"> 
+        
+        <iframe  width="300px" height="200px" id="gmap_canvas" src="https://maps.google.com/maps?q=phnom%20penh&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+        <a href="https://www.pureblack.de/webseite-erstellen-lassen/"></a>
+        
+    </div>
+    </div>
 </div>
     <div class="container">
         <h3 class="mt-3"><u><b>Detail</b></u></h3>
