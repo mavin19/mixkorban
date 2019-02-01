@@ -4,6 +4,7 @@ namespace App\Model;
 	
 	class Food extends Model
 	{
+		protected $fillable = ['name', 'price'];	
 		
 		public function res(){
     		return $this->belongsTo('App\Models\Restaurant');

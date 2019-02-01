@@ -5,6 +5,8 @@
 
 class UserType extends Model{
 
+	protected $fillable = ['usertype'];
+
     public function user(){
         return $this->hasMany('App\User');
     }

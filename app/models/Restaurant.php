@@ -8,6 +8,8 @@ class Restaurant extends Model
 {
     protected $model = "restaurants";
 
+    protected $fillable = ['name','detail','veganOpt'];
+
     public $primaryKey='id';
  
     public function user(){
