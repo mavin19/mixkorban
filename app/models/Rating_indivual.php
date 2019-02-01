@@ -1,5 +1,5 @@
 <?php
-namespace App\Model;
+namespace App\Models;
 	use Illuminate\Database\Eloquent\Model;
 	
 	class Rating_individual extends Model
