@@ -99,9 +99,6 @@
                                 <div class="model-dialog">
                                     <div class="model-content">
                                         <div class="model-header">
-                                            <div class="model-body">
-        
-                                            </div>
                                             <div class="modal-footer container" style="display:unset; border:0;">
                                                 <div style="text-align: center;">
                                                     <label>Or Sign up with</label>
@@ -113,7 +110,6 @@
                                                     <button class="btn btn-default" style="background-color:white;">
                                                         <img src="/image/1gg.png" width="150" >
                                                     </button>
-                                                    
                                                 </div>
                                             </div>
                                         </div>
