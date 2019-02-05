@@ -1,9 +1,10 @@
 <?php
-namespace App\Models;
+namespace App\models;
 use Illuminate\Database\Eloquent\Model;
 	
 class Cuisine_res extends Model
 {
+	protected $fillable = ['comment'];	
 	
 	public function user(){
 		return $this->belongsTo('App\User');
@@ -11,7 +12,7 @@ class Cuisine_res extends Model
 
 	public function review()
 	{
-		return $this->belongsTo('App\Models\Review');
+		return $this->belongsTo('App\models\Review');
 	}
 }
 ?>

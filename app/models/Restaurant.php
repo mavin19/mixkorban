@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\models;
 
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
@@ -19,37 +19,37 @@ class Restaurant extends Model
     } 
 
     public function res_img(){
-        return $this->hasMany('App\Models\Restaurant_img');
+        return $this->hasMany('App\models\Restaurant_img');
     }
 
      public function meal(){
-        return $this->hasMany('App\Models\Meal');
+        return $this->hasMany('App\models\Meal');
     }
 
     public function review(){     
-        return $this->hasMany('App\Models\Review');
+        return $this->hasMany('App\models\Review');
     }
 
     
     public function food(){
-        return $this->hasMany('App\Models\Food');
+        return $this->hasMany('App\models\Food');
     }
 
     public function contact_info()
     {
-        return $this->hasOne('App\Models\Contact_info');
+        return $this->hasOne('App\models\Contact_info');
     }
 
     public function time()
     {
-        return $this->hasOne('App\Models\Time_price');
+        return $this->hasOne('App\models\Time_price');
     }
 
     public function feature(){
-            return $this->hasMany('App\Models\Feature');
+            return $this->hasMany('App\models\Feature');
         }
 
     public function cuisine(){
-            return $this->hasMany('App\Models\Cuisine');
+            return $this->hasMany('App\models\Cuisine');
         }
 }

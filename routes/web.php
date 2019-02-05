@@ -37,8 +37,12 @@ Route::get('/restaurant', function(){
 Route::get('/detail', function(){
     return view('review_pro');
 });
+Route::get('/profile',function(){
+    return view('profile');
+});
 
 // test controler
+
 Route::get('/controller/{id}', 'Test\TestController@routTesting');
 
 Auth::routes();
