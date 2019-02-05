@@ -2,7 +2,7 @@
 namespace App\Models;
 	use Illuminate\Database\Eloquent\Model;
 	
-	class Restaurant_img extends Model
+	class Res_img extends Model
 	{
 		
 		public function res(){
