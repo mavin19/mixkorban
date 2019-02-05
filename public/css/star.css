@@ -1,0 +1,40 @@
+.overall {
+    transform: translate(-5%,-20%) rotateY(180deg);
+    display: inline-flex;
+}
+.overall input{
+    display: none;
+}
+.overall label{
+    display: block;
+    cursor: pointer;
+    width:22px;
+    
+}
+.overall label:before{
+    content: '\f005';
+    font-family: fontAwesome;
+    position:relative;
+    display: block;
+    font-size: 20px;
+    color:rgb(197, 197, 197); 
+    
+}
+.overall label:after{
+    content: '\f005';
+    font-family: fontAwesome;
+    position:absolute;
+    display: block;
+    font-size: 20px;
+    color:yellow;
+    top:0;
+    opacity: 0; 
+    transition:.5s;
+    text-shadow:0 2px 5px rgba(0,0,0,.5)
+}
+.overall label:hover:after,
+.overall label:hover ~ label:after,
+.overall input:checked ~ label:after
+{
+    opacity:1;
+}
