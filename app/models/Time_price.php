@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,6 +11,6 @@ class Time_price extends Model
      */
     public function res()
     {
-        return $this->belongsTo('App\Restaurant');
+        return $this->belongsTo('App\Models\Restaurant');
     }
 }

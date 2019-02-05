@@ -17,9 +17,9 @@ Route::get('/', 'HomeController@index')->name('home');
 
 
 Route::get('/web', function(){
-    return "hellow world";
+    return view("welcome");
 });
-<<<<<<< HEAD
+
 
 
 // // test controler
@@ -27,7 +27,7 @@ Route::get('/web', function(){
 
 Auth::routes();
 
-=======
+
 Route::get('/review', function(){
     return view('review_form');
 });
@@ -43,5 +43,5 @@ Route::get('/controller/{id}', 'Test\TestController@routTesting');
 
 Auth::routes();
 
->>>>>>> ec09a1d0a1949b6286a5b754efae0958b7000d08
+
 Route::get('/home', 'HomeController@index')->name('home');

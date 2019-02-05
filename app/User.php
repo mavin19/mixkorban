@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Backpack\CRUD\CrudTrait;
 
 class User extends Authenticatable
 {
@@ -29,7 +30,7 @@ class User extends Authenticatable
     ];
 
     public function comment(){
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('App\Models\Comment');
     }
 
     public function res(){
@@ -37,10 +38,17 @@ class User extends Authenticatable
     }
 
     public function review(){
-        return $this->hasMany('App\Review');
+        return $this->hasMany('App\Models\Review');
     }
 
-    public function review(){
-        return $this->belongsToMany('App\Review', 'review_like');
+    
+    public function like(){
+        return $this->hasMany('App\Models\Review', 'review_like');
+    }
+
+    public function usertype()
+    {
+        return $this->belongsTo('App\Models\Usertype');
     }
 }
+?>

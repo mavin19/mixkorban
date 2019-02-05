@@ -25,7 +25,7 @@
 <meta charset="utf-8">
 <nav class="navbar navbar-dark navbar-expand-sm my-nav">
 
-    <a class="navbar-brand" id="logo" href="#">MixKorBan</a>
+    <a class="navbar-brand" id="logo" href="{{url('/')}}">MixKorBan</a>
     <form id="search-form">
         <ul class="search-box">
             <input class="search-txt" type="text" name="" placeholder="type to search">
@@ -43,15 +43,16 @@
         <ul class="navbar-nav mr-auto"></ul>
         <ul class="navbar-nav mr-auto" id="top-menu">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Restaurant</a>
+                <a class="nav-link" href="{{url('/restaurant')}}">Restaurant</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Food</a>
             </li>
         </ul>
+       
         
         <ul id="login-signup-wrapper">
                 @guest
@@ -124,7 +125,21 @@
                 </li>
             @endguest
         </ul>
+    </div>
 </nav>
+<div class="container under-menu-wrapper">
+    <div class="row justify-content-md-center under-menu">
+        <div class="col-sm-4 menu">
+            <a href="{{url('/')}}">Home</a>
+        </div>
+        <div class="col-sm-4 menu">
+            <a href="{{url('/restaurant')}}">Restaurant</a>
+        </div>
+        <div class="col-sm menu">
+            <a href="{{url('/home')}}">Food</a>
+        </div>
+    </div>
+</div>
 
     
 {{-- content --}}
