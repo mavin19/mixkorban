@@ -7,7 +7,7 @@ namespace App\models;
 		protected $fillable = ['name'];	
 		
 		public function review(){
-        	return $this->hasMany('App\models\Rating_value');
+			return $this->hasMany('App\models\Rating_value');
     	}
 	}
 ?>
