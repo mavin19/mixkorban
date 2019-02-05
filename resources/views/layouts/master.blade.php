@@ -84,8 +84,14 @@
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
 
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}"
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="text-align:center">
+                        <a class="dropdown-item" href="" style="color:black">
+                            {{ __('Restaurant') }}
+                        </a>
+                        <a class="dropdown-item" href="{{ url('/profile') }}" style="color:black">
+                            {{ __('Profile') }}
+                        </a>
+                        <a class="dropdown-item" href="{{ route('logout') }} " style="color:black"
                            onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
@@ -94,34 +100,8 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
-                        {{-- <div class="panel-body">
-                            <div class="model" id="login" role="dialog">
-                                <div class="model-dialog">
-                                    <div class="model-content">
-                                        <div class="model-header">
-                                            <div class="model-body">
-        
-                                            </div>
-                                            <div class="modal-footer container" style="display:unset; border:0;">
-                                                <div style="text-align: center;">
-                                                    <label>Or Sign up with</label>
-                                                </div>
-                                                <div style="text-align: center;" >
-                                                    <button class="btn btn-default" style="background-color:white;">
-                                                        <img src="/image/fb.png" width="150">
-                                                    </button>
-                                                    <button class="btn btn-default" style="background-color:white;">
-                                                        <img src="/image/1gg.png" width="150" >
-                                                    </button>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
-                    </div>
+                        
+                        </div>
                 </li>
             @endguest
         </ul>
