@@ -55,11 +55,7 @@
     display: block;
 }
 #login-signup-wrapper > li:last-child a{
-<<<<<<< HEAD
-    outline: 9px solid #b8620b;
-=======
     outline: 8.5px solid #b8620b;
->>>>>>> 8a3f40d7949d69985939a7bc269c3b951e934a68
 }
 
 .under-menu{

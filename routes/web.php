@@ -25,8 +25,6 @@ Route::get('/web', function(){
 // // test controler
 // Route::get('/controller/{id}', 'Test\TestController@routTesting');
 
-Auth::routes();
-
 
 Route::get('/review', function(){
     return view('review_form');
@@ -41,11 +39,13 @@ Route::get('/profile',function(){
     return view('profile');
 });
 
+Route::get('/restaurant-form',function(){
+    return view('forms.restaurant');
+});
+
 // test controler
 
 Route::get('/controller/{id}', 'Test\TestController@routTesting');
-
-Auth::routes();
 
 
 Route::get('/home', 'HomeController@index')->name('home');
