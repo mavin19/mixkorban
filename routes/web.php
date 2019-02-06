@@ -13,7 +13,9 @@
 
 // Rout::resource('/restaurant');
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', function(){
+    return view('home');
+})->name('home');
 
 
 Route::get('/web', function(){
@@ -40,12 +42,12 @@ Route::get('/profile',function(){
 });
 
 Route::get('/restaurant-form',function(){
-    return view('forms.restaurant');
+    return view('forms.restaurant_owner_register');
 });
 
 // test controler
 
 Route::get('/controller/{id}', 'Test\TestController@routTesting');
 
+Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
