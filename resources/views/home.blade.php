@@ -63,6 +63,6 @@
     </div>
 </div>
     
-<script src="{{ asset('index.js') }}"></script> 
+<script src="{{ asset('profile_picture.js') }}"></script> 
 
 @stop('body')

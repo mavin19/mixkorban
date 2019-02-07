@@ -13,7 +13,7 @@
 					<table class="table table-stripe">
 						<tr>
 							<th>title</th>
-							<th></h>
+							<th>
 						</tr>
 						@foreach($posts as $post)
 							<tr>

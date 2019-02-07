@@ -124,7 +124,7 @@
 {{-- content --}}
     @yield('body')
 {{--  --}}
-
+    @yield('script')
 {{-- footer --}}
 <footer>
 <div class="container-fluid">
