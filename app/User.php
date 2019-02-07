@@ -33,14 +33,14 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Comment');
     }
 
-    public function res(){
-        return $this->hasMany('App\Restaurant');
-    }
-
     public function review(){
         return $this->hasMany('App\Models\Review');
     }
-
+    
+    public function restaurant_owner()
+    {
+        return $this->hasOne('App\models\Restaurant_owner');
+    }
     
     public function like(){
         return $this->hasMany('App\Models\Review', 'review_like');

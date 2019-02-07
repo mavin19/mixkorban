@@ -14,8 +14,8 @@ class Restaurant extends Model
 
     public $primaryKey='id';
  
-    public function user(){
-    	return $this->belongsTo('App\User');
+    public function restaurant_owner(){
+    	return $this->belongsTo('App\models\Restaurant_owner');
     } 
 
     public function res_img(){
@@ -45,11 +45,18 @@ class Restaurant extends Model
         return $this->hasOne('App\models\Time_price');
     }
 
-    public function feature(){
-            return $this->hasMany('App\models\Feature');
-        }
+    public function feature()
+    {
+        return $this->hasMany('App\models\Feature');
+    }
 
-    public function cuisine(){
-            return $this->hasMany('App\models\Cuisine');
-        }
+    public function cuisine()
+    {
+        return $this->hasMany('App\models\Cuisine');
+    }
+
+    public function province()
+    {
+        return $this->belongsMany('App\models\Province');
+    }
 }

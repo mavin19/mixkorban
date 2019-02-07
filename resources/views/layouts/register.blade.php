@@ -71,7 +71,6 @@
         </form>
     </div>
     <div>
-        
         <div style="text-align: center;">
             <label>Or Sign up with</label>
         </div>

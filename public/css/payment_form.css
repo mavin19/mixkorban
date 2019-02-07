@@ -54,34 +54,34 @@
     font-size: 24px;
   }
   
-  .row-payment .btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px;
-    margin: 10px 0;
-    border: none;
-    width: 100%;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 17px;
-  }
+.row-payment .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
   
-  .row-payment .btn:hover {
-    background-color: #45a049;
-  }
+.row-payment .btn:hover {
+  background-color: #45a049;
+}
   
-  .row-payment a {
-    color: #2196F3;
-  }
-  
-  .row-payment hr {
-    border: 1px solid lightgrey;
-  }
-  
- span.price {
-    float: right;
-    color: grey;
-  }
+.row-payment a {
+  color: #2196F3;
+}
+
+.row-payment hr {
+  border: 1px solid lightgrey;
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
   
   /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
   @media (max-width: 800px) {

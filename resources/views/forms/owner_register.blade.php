@@ -16,7 +16,7 @@ Owner Register
                     <div>
                         <label><b>First Name</b></label>
                         <input type="text" required class="form-control" name="firstname" placeholder="">
-                    </div>
+                    </div> 
                     <div>
                         <label ><b>Last Name</b></label>
                         <input type="text" required class="form-control" name="lastname" placeholder="">
@@ -41,13 +41,13 @@ Owner Register
                         <label><b>Confrim Password</b></label>
                         <input type="password" required class="form-control" name="con-password" placeholder="">
                     </div>
-                    <div>
+                    {{-- <div>
                         <label><b>Profile</b></label>
                         <div id="profile-container">
                         <img id="profileImage" src="{{ asset('image/default-profile.png') }}" />
                         </div>
                         <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" required="" capture>
-                    </div>
+                    </div> --}}
                     <div style="text-align: center;">
                         <button  class="btn btn-success button">Register</button>
                     </div>
@@ -56,7 +56,7 @@ Owner Register
         </div>
     </div>
     @section('scripts')
-    <script>
+    {{-- <script>
         $("#profileImage").click(function(e) {
             $("#imageUpload").click();
         });
@@ -71,6 +71,6 @@ Owner Register
         $("#imageUpload").change(function(){
             fasterPreview( this );
         });
-    </script>
+    </script> --}}
     @endsection
 @endsection
