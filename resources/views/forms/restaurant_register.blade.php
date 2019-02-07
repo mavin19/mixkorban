@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 
-@section('body')
+
 @section("staticfiles")
 <link href="{{ asset('css/button.css') }}" rel="stylesheet">
     <style>
@@ -16,9 +16,11 @@
         
     </style>
 @stop('staticfiles')
-    @section('title')
-        restaurent owner login   
-    @stop('title')
+@section('title')
+Restaurant Register
+@stop('title')
+
+@section('body')
     <div class="container">
         
         <form class="form">

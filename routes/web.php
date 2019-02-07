@@ -41,8 +41,16 @@ Route::get('/profile',function(){
     return view('profile');
 });
 
-Route::get('/restaurant-form',function(){
-    return view('forms.restaurant_owner_register');
+Route::get('/restaurant-register',function(){
+    return view('forms.restaurant_register');
+})->name('res-register');
+
+Route::get('/res-owner-register', function(){
+    return view('forms.owner_register');
+})->name('owner-register');
+
+Route::get('/restaurant-payment',function(){
+    return view('forms.payment_form');
 });
 
 // test controler

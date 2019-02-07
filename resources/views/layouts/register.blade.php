@@ -9,7 +9,9 @@
     <div class="modal-body">
         <form method="POST" action="{{ route('register') }}">
             @csrf
-
+            <div class="row">
+            <a href="{{ route('res-register')}}">I am a restaurant owner</a>
+            </div>
             <div class="form-group row">
                 <label for="name" class="col-sm-4 col-form-label">{{ __('Name') }}</label>
 
