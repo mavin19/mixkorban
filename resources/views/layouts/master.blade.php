@@ -13,7 +13,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="{{ asset('css/search.css') }}" rel="stylesheet">
     <link href="{{ asset('css/base.css') }}" rel="stylesheet">
     @yield('staticfiles')
@@ -85,7 +85,7 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="text-align:center">
-                        <a class="dropdown-item" href="{{route('') }}" style="color:black">Restaurant</a>
+                        <a class="dropdown-item" href="{{route('res-register') }}" style="color:black">Restaurant</a>
                         <a class="dropdown-item" href="{{ url('/profile') }}" style="color:black">
                             {{ __('Profile') }}
                         </a>
@@ -121,7 +121,7 @@
 
     
 {{-- content --}}
-    @yield('body')
+@yield('body')
 {{--  --}}
 @yield('scripts')
 {{-- footer --}}

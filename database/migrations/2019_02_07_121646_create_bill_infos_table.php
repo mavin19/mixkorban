@@ -24,8 +24,8 @@ class CreateBillInfosTable extends Migration
             $table->string('city');
             $table->string('state_region');
             $table->unsignedSmallInteger('postal_code');
-            $table->string('country');
-            $table->unsignedSmallInteger('phone');
+            $table->string('country')->nullable();
+            $table->unsignedSmallInteger('phone')->nullable();
             $table->unsignedInteger('owner_id');
             $table->timestamps();
 

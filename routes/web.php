@@ -43,28 +43,30 @@ Route::get('/profile',function(){
     return view('profile');
 });
 
-Route::get('/restaurant-register',function(){
-    return view('forms.restaurant_register');
 
-})->name('res-register');
-
+// restaurant owner
 Route::get('/res-owner-register', function(){
     if(!Auth::check())
+        // if owner is not login 
         return view('forms.owner_register');
     else
         return redirect('');
-
 })->name('owner-register');
-
 Route::post('/res-owner-store','RestaurantOwnerController@ownerRegisterStore')->name('owner-reg-store');
 
-Route::get('/restaurant-payment',function(){
+
+// payment
+Route::get('/payment',function(){
     return view('forms.payment_form');
-});
+})->name('payment_form');
+Route::post('/payment-store','BillInfoController@bill_info_store')->name('payment_store');
 
-// test controler
 
-// Route::get('/controller/{id}', 'Test\TestController@routTesting');
+// restaurant 
+Route::get('/restaurant-register','RestaurantController@create_restaurant')->name('res-register');
+
+
+
 
 Auth::routes();
 

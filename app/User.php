@@ -30,11 +30,11 @@ class User extends Authenticatable
     ];
 
     public function comment(){
-        return $this->hasMany('App\Models\Comment');
+        return $this->hasMany('App\models\Comment');
     }
 
     public function review(){
-        return $this->hasMany('App\Models\Review');
+        return $this->hasMany('App\models\Review');
     }
     
     public function restaurant_owner()
@@ -43,11 +43,11 @@ class User extends Authenticatable
     }
     
     public function like(){
-        return $this->hasMany('App\Models\Review', 'review_like');
+        return $this->hasMany('App\models\Review', 'review_like');
     }
 
     public function usertype()
     {
-        return $this->belongsTo('App\Models\Usertype');
+        return $this->belongsTo('App\models\Usertype');
     }
 }

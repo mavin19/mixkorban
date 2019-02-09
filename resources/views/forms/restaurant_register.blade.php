@@ -5,7 +5,7 @@
 @section("staticfiles")
 <link href="{{ asset('css/button.css') }}" rel="stylesheet">
     <style>
-        .form{
+        #my-form{
             border:1px solid black;
             margin:50px;
             padding: 30px;
@@ -13,8 +13,14 @@
         .word{
             margin: 20px;
         }
-        
+        #map {
+            height: 100%;
+            /* width: 60%; */
+            margin:auto;
+        }
+
     </style>
+<link rel="stylesheet" href="{{ asset('snippets/css/upload_img.css')}}">
 @stop('staticfiles')
 @section('title')
 Restaurant Register
@@ -23,7 +29,7 @@ Restaurant Register
 @section('body')
     <div class="container">
         
-        <form class="form">
+        <form action="{{ route('payment_store') }}" method="POST" id="my-form" enctype='multipart/form-data'>
             <h3>Retaurant information</h3>
             <div class="word">
                 <label><b>Retaurant name</b></label>
@@ -55,10 +61,10 @@ Restaurant Register
                 <label><b>Prince range (KHR)</b></label>
                 <div class="form-row">
                     <div class="col-sm-2 mr-2 ml-5  ">
-                        <input type="number" class="form-control" name="From_KHR" placeholder="From">
+                        <input type="number" class="form-control" name="from_khr" placeholder="From">
                     </div>
                     <div class="col-sm-2 ">
-                        <input type="number" class="form-control" name="to_KHR" placeholder="To">
+                        <input type="number" class="form-control" name="to_khr"  placeholder="To">
                     </div>
                 </div>
             </div>
@@ -66,10 +72,10 @@ Restaurant Register
                 <label><b>Time range</b></label>
                 <div class="form-row">
                     <div class="col-sm-2 mr-2 ml-5  ">
-                        <input type="time" class="form-control" name="From_time" placeholder="From">
+                        <input type="time" class="form-control" name="from_time" value="08:56" placeholder="From">
                     </div>
                     <div class="col-sm-2 ">
-                        <input type="time" class="form-control" name="to_time" placeholder="To">
+                        <input type="time" class="form-control" name="to_time" value="08:56" placeholder="To">
                     </div>
                 </div>
             </div>
@@ -87,13 +93,36 @@ Restaurant Register
                 <input type="url" class="form-control" name="website" placeholder="Enter your website's link">
                 <input type="file" id="real-file" hidden="hidden" />
             </div>
-            <div style="margin-left:20px">
-                <button type="button" id="custom-button" name="picture">Add Photo</button><span id="custom-text">(Optional)</span>
+            <div id="map"></div>
+            <div class="word">
+                <label for=""><b>Photo</b></label>
+                <div id="wrapper" class="wrapper">
+                    <div class="sections">
+                    
+                        <section class="active">                    
+                            <div class="images">
+                                <div class="pic">
+                                    add photo
+                                </div>
+                            </div> 
+                        </section>                    
+                    </div>
+                </div>
             </div>
+            <div class="notification"></div>
+            {{-- <div style="margin-left:20px">
+                <button type="button" id="custom-button" name="picture">Add Photo</button><span id="custom-text">(Optional)</span>
+            </div> --}}
             <div style="margin-left:50%;">
-                <button type="button" class="btn btn-success button">Submit</button>
+                <button type="submit" class="btn btn-success button">Submit</button>
             </div>
         </form>
     </div>
-    <script src="{{ asset('js/button.js ') }}"></script> 
+@section('scripts')
+    
+    <script src="{{ asset('snippets/js/upload_img.js')}}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeobNlpB8Ew1yG-wP739q37ISheMulafI&callback=initMap" async defer></script>
+
+    <script src="{{asset('js/restaurant_form.js')}}"></script>
+    @endsection
 @endsection

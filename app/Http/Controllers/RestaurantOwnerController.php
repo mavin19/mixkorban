@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\ Support\ Facades\ Log;
 
 // Models
-use App;
 use App\models;
 
 class RestaurantOwnerController extends Controller
@@ -29,9 +28,10 @@ class RestaurantOwnerController extends Controller
             return redirect('res-owner-register')->withErrors($validatedData)->withInput();
         }
 
-        $user_type_id = App\models\UserType::where('name','Restaurant owner')->first()->id;
-
-        $user = new App\User;
+        $user_type_id = \App\models\UserType::where('name','Restaurant owner')->first()->id;
+        
+        // first, create user 
+        $user = new \App\User;
         $user->first_name = $request->firstname;
         $user->last_name = $request->lastname;
         $user->email = $request->email;
@@ -39,13 +39,15 @@ class RestaurantOwnerController extends Controller
         $user->profile_img = 'Change this column to nullable later';
         $user->user_type_id = $user_type_id;
         $user->save();
-
-        $owner = App\models\Restaurant_owner::create([
+        
+        // then restaurant owner
+        $owner = \App\models\Restaurant_owner::create([
             'phone' => $request->phone,
             'address' => $request->address,
             'u_id' => $user->id
         ]);
         
+        // after the owner has register we login immedietly
         $credential = $request->only('email','password');
 
         if(Auth::attempt($credential))
@@ -54,8 +56,4 @@ class RestaurantOwnerController extends Controller
         }
     }
 
-    public function create_restaurant()
-    {
-        
-    }
 }
