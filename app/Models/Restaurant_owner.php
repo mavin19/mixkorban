@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 	
 class Restaurant_owner extends Model
 {
-	protected $fillable = ['phone','address'];	
+	protected $fillable = ['phone','address','u_id'];	
     
     public function user()
     {

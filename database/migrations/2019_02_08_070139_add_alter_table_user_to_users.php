@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddForeignToRestaurantsTable extends Migration
+class AddAlterTableUserToUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AddForeignToRestaurantsTable extends Migration
      */
     public function up()
     {
-        Schema::table('restaurants', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+        Schema::table('users', function (Blueprint $table) {
+            $table->renameColumn('name','first_name');
+            $table->string('last_name');
         });
     }
 
@@ -25,8 +26,9 @@ class AddForeignToRestaurantsTable extends Migration
      */
     public function down()
     {
-        Schema::table('restaurants', function (Blueprint $table) {
-            $table->dropForeign(['user_id']);
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn(['last_name']);
+            $table->renameColumn('first_name','name');
         });
     }
 }

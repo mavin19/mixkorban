@@ -12,11 +12,13 @@
 */
 
 // Rout::resource('/restaurant');
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function(){
     return view('home');
 })->name('home');
 
+// Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/web', function(){
     return view("welcome");
@@ -43,11 +45,18 @@ Route::get('/profile',function(){
 
 Route::get('/restaurant-register',function(){
     return view('forms.restaurant_register');
+
 })->name('res-register');
 
 Route::get('/res-owner-register', function(){
-    return view('forms.owner_register');
+    if(!Auth::check())
+        return view('forms.owner_register');
+    else
+        return redirect('');
+
 })->name('owner-register');
+
+Route::post('/res-owner-store','RestaurantOwnerController@ownerRegisterStore')->name('owner-reg-store');
 
 Route::get('/restaurant-payment',function(){
     return view('forms.payment_form');
@@ -55,7 +64,7 @@ Route::get('/restaurant-payment',function(){
 
 // test controler
 
-Route::get('/controller/{id}', 'Test\TestController@routTesting');
+// Route::get('/controller/{id}', 'Test\TestController@routTesting');
 
 Auth::routes();
 

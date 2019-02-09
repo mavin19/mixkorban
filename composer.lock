@@ -2042,14 +2042,6 @@
             ],
             "authors": [
                 {
-<<<<<<< HEAD
-                    "name": "frankdejonge",
-                    "email": "info@frenky.net"
-                }
-            ],
-            "description": "An adapter decorator to enable meta-data caching.",
-            "time": "2018-07-09T20:51:04+00:00"
-=======
                     "name": "Ben Corlett",
                     "email": "bencorlett@me.com",
                     "homepage": "http://www.webcomm.com.au",
@@ -2072,7 +2064,6 @@
                 "twitter"
             ],
             "time": "2016-08-17T00:36:58+00:00"
->>>>>>> f3011b8cdfca2a256bc0eb0ef7859cdbaaf833b4
         },
         {
             "name": "monolog/monolog",

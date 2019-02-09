@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRestaurantOwnerTable extends Migration
+class CreateRestaurantOwnersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateRestaurantOwnerTable extends Migration
      */
     public function up()
     {
-        Schema::create('restaurant_owner', function (Blueprint $table) {
+        Schema::create('restaurant_owners', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('phone');
+            $table->string('phone');
             $table->string('address');
             $table->float('total_cost')->default('0.0');
             $table->unsignedInteger('u_id');
@@ -32,6 +32,6 @@ class CreateRestaurantOwnerTable extends Migration
     public function down()
     {
         // $table->dropForeign(['u_id']);
-        Schema::dropIfExists('restaurant_owner');
+        Schema::dropIfExists('restaurant_owners');
     }
 }

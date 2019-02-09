@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBillInfoTable extends Migration
+class CreateBillInfosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateBillInfoTable extends Migration
      */
     public function up()
     {
-        Schema::create('bill_info', function (Blueprint $table) {
+        Schema::create('bill_infos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('first_name');
             $table->string('last_name');
@@ -29,7 +29,7 @@ class CreateBillInfoTable extends Migration
             $table->unsignedInteger('owner_id');
             $table->timestamps();
 
-            $table->foreign('owner_id')->references('id')->on('restaurant_owner')->onDelete('cascade');
+            $table->foreign('owner_id')->references('id')->on('restaurant_owners')->onDelete('cascade');
         });
     }
 
@@ -41,6 +41,6 @@ class CreateBillInfoTable extends Migration
     public function down()
     {
         // $table->dropForeign(['owner_id']);
-        Schema::dropIfExists('bill_info');
+        Schema::dropIfExists('bill_infos');
     }
 }

@@ -1,8 +1,9 @@
 @extends('layouts.master')
 
-
-
-@section('body')
+@section('title')
+Home
+@endsection
+@section('staticfiles')
 
 <style>
     .picture{
@@ -20,6 +21,8 @@
         width:600px;
         }
 </style>
+@endsection
+@section('body')
 @include('slide')
 <div class="container-fluid">
     <div class="card-deck">
