@@ -4,6 +4,7 @@
   $(document).ready(function () {
     
     var img_id = 0
+    var num_of_img = 0;
     var uploader;
 
     generateID()
@@ -28,7 +29,7 @@
     function submitCheck(){
       $('#my-form').submit(function(e){
         // if not img in the form, then intercept the submit
-        if(img_id <= 0)
+        if(num_of_img <= 0)
           e.preventDefault(e);
       })
     }
@@ -102,7 +103,7 @@
       var images = $('.images')
       
       button.on('click', function () {
-        uploader = $('<input type="file" style="display:none" accept="image/*" name="imgs.'+ img_id +'"/>')
+        uploader = $('<input type="file" style="display:none" accept="image/*" name="imgs[]"/>')
         setImg(uploader,images)
         uploader.click()
       })
@@ -119,7 +120,7 @@
       
       images.on('click', '.img', function () {
         $(this).remove()
-        img_id--;
+        num_of_img--;
       })
     
     }
@@ -139,6 +140,7 @@
         reader.readAsDataURL(uploader[0].files[0])
         $('#wrapper').append(uploader);
         img_id++;
+        num_of_img ++;
       })
     }
     

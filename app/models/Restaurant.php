@@ -10,7 +10,7 @@ class Restaurant extends Model
     use CrudTrait;
     protected $model = "restaurants";
 
-    protected $fillable = ['name','detail','veganOpt','isPublish'];
+    protected $fillable = ['name','detail','phoneNumber','address','website','veganOpt','isPublish'];
 
     public $primaryKey='id';
  

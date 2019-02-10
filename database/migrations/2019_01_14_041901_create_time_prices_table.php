@@ -1,10 +1,8 @@
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
-class CreateContactInfoTable extends Migration
+class CreateTimePricesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +11,16 @@ class CreateContactInfoTable extends Migration
      */
     public function up()
     {
-        Schema::create('contact_info', function (Blueprint $table) {
+        Schema::create('time_prices', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
-            $table->integer('phoneNumber');
-            $table->string('address');
-            $table->string('website');
+            $table->float('minPrice')->nullable();
+            $table->float('maxPrice')->nullable();
+            $table->time('openTime');
+            $table->time('closeTime');
             $table->unsignedInteger('res_id');
+            $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -30,6 +28,6 @@ class CreateContactInfoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contact_info');
+        Schema::dropIfExists('time_prices');
     }
 }

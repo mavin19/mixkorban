@@ -64,6 +64,7 @@ Route::post('/payment-store','BillInfoController@bill_info_store')->name('paymen
 
 // restaurant 
 Route::get('/restaurant-register','RestaurantController@create_restaurant')->name('res-register');
+Route::post('/restaurant-store','RestaurantController@store_restaurant')->name('res_store');
 
 
 
