@@ -6,7 +6,7 @@
   <title>Prism Effect Slider</title>
   
   
-  <link rel='stylesheet' href='https://tympanus.net/Tutorials/PrismEffectSlider/css/demo.css'>
+<!-- <link rel='stylesheet' href='https://tympanus.net/Tutorials/PrismEffectSlider/css/demo.css'> -->
 <link rel='stylesheet' href='https://tympanus.net/Tutorials/PrismEffectSlider/css/component.css'>
 
 <link href="{{ asset('css/style.css') }}" rel="stylesheet">

@@ -17,7 +17,7 @@ Route::get('/', 'HomeController@index')->name('home');
 
 
 Route::get('/web', function(){
-    return "hellow world";
+    return view("welcome");
 });
 
 

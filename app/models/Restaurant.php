@@ -3,12 +3,18 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Backpack\CRUD\CrudTrait;
 
 class Restaurant extends Model
 {
+    use CrudTrait;
     protected $model = "restaurants";
 
+<<<<<<< HEAD
     protected $fillable = ['name','detail','veganOpt'];
+=======
+    protected $fillable = ['name','detail','veganOpt','isPublish'];
+>>>>>>> 6a973977e78ff5dced1be9e6cdf295a81bdfbd63
 
     public $primaryKey='id';
  
@@ -16,13 +22,12 @@ class Restaurant extends Model
     	return $this->belongsTo('App\User');
     } 
 
-
     public function res_img(){
-        return $this->hasMany('App\Models\res_img');
+        return $this->hasMany('App\Models\Restaurant_img');
     }
 
      public function meal(){
-        return $this->hasMany('App\Models\meal');
+        return $this->hasMany('App\Models\Meal');
     }
 
     public function review(){     
@@ -44,14 +49,11 @@ class Restaurant extends Model
         return $this->hasOne('App\Models\Time_price');
     }
 
-    public function meal(){
-            return $this->belongsToMany('App\Models\Meal');
-        }
     public function feature(){
-            return $this->belongsToMany('App\Models\Feature');
+            return $this->hasMany('App\Models\Feature');
         }
 
     public function cuisine(){
-            return $this->belongsToMany('App\Models\Cuisine');
+            return $this->hasMany('App\Models\Cuisine');
         }
 }
