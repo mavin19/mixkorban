@@ -46,10 +46,75 @@ class RestaurantController extends Controller
         return view('forms.restaurant_register', $data);
     }
 
-    public function store_restaurant(Request $request)
-    {
-        // $request->validated();
-        dd($request->all());
-        // return redirect()->route('res-register')->withInput();
+    public function getArrayOfIndex($table , $array ,$field)
+    {   
+        $ids = array();
+        foreach($array as $value)
+        {
+            $id = $table->where($field, $value)->first()->id;
+            if($id == null)
+                return null;
+            $ids[] = $id;
+        }
+
+        return $ids;
     }
+
+    public function store_restaurant(RestaurantRequest $request)
+    {
+        $request->validated();
+        $cuisine_table = \App\models\Cuisine::all();
+        $meal_table = \App\models\Meal::all();
+        $province_table = \App\models\Province::all();
+        $feature_table = \App\models\Feature::all();
+
+        $owner_id = \App\models\Restaurant_owner::where('u_id',Auth::user()->id)->first()->id;
+
+        // dd($request->all());
+        // id arry for attaching many to many 
+        $cusine_IDs = $this->getArrayOfIndex($cuisine_table, $request->cusine, 'name');
+        $meal_IDs = $this->getArrayOfIndex($meal_table, $request->meal, 'name');
+        $province_IDs = $this->getArrayOfIndex($province_table, $request->location, 'name');
+        $feature_IDs = $this->getArrayOfIndex($feature_table, $request->feature, 'name');
+
+        // dd();
+        // dd(count($request->input('location')));
+        $restaurant = new \App\models\Restaurant;
+        $restaurant->name = $request->restaurantName;
+        $restaurant->detail = $request->description;
+        $restaurant->veganOpt = $request->has('vegan');
+        $restaurant->isPublish = $request->has('publish');
+        $restaurant->phoneNumber = $request->phonenumber;
+        $restaurant->address = $request->address;
+        $restaurant->website = $request->website;
+        $restaurant->owner_id = $owner_id;
+
+        // // saving the images
+        if($request->hasFile('imgs'))
+        {
+            foreach($request->file('imgs') as $file)
+            {
+                $fileNameWithExt = $file->getClientOriginalName();
+                $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+                $extension = $file->getClientOriginalExtension();
+                $fileNameToStore = $fileName.'_'.time().'.'.$extension;
+                $path = $file->storeAs('public/restaurant_imgs', $fileNameToStore);
+
+            }   
+        }else
+        {
+            $fileNameToStore = 'no_restaurant_img.jpg';
+        }
+
+        
+        $restaurant->save();
+
+        // attach many to many 
+        $restaurant->cuisines()->attach($cusine_IDs);
+        $restaurant->meals()->attach($meal_IDs);
+        $restaurant->provinces()->attach($province_IDs);
+        $restaurant->features()->attach($feature_IDs);
+
+        return redirect('');
+    }   
 }

@@ -17,7 +17,7 @@ class CreateTimePricesTable extends Migration
             $table->float('maxPrice')->nullable();
             $table->time('openTime');
             $table->time('closeTime');
-            $table->unsignedInteger('res_id');
+            $table->unsignedInteger('restaurant_id');
             $table->timestamps();
         });
     }

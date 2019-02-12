@@ -15,9 +15,9 @@ class CreateProvinceRestaurantTable extends Migration
     {
         Schema::create('province_restaurant', function (Blueprint $table) {
             $table->unsignedInteger('province_id');
-            $table->unsignedInteger('res_id');
+            $table->unsignedInteger('restaurant_id');
             $table->foreign('province_id')->references('id')->on('provinces');
-            $table->foreign('res_id')->references('id')->on('restaurants');
+            $table->foreign('restaurant_id')->references('id')->on('restaurants');
             $table->timestamps();
         });
     }

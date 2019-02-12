@@ -20,7 +20,7 @@ class CreateReviewsTable extends Migration
             $table->text('description');
             $table->integer('overallRating');
             $table->date('reviewDate');
-            $table->unsignedInteger('res_id');
+            $table->unsignedInteger('restaurant_id');
             $table->unsignedInteger('u_id');
         });
     }

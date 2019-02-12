@@ -85,7 +85,7 @@ Restaurant Register
             <div  class="custom-control custom-checkbox ml-4">
                 <input class="form-check-input" type="checkbox" value="{{ old('vegan') }}"  name="vegan" id="checkbox">
                 <label class="form-check-label" for="checkbox">
-                    &nbsp;&nbsp;&nbsp; Availble for vegan
+                    &nbsp;&nbsp; Availble for vegan
                 </label>    
             </div>
             <div class=" word">
@@ -123,7 +123,12 @@ Restaurant Register
                 <label><b>Website</b></label>
                 <input type="url" class="form-control" value="{{ old('website') }}" name="website" placeholder="Enter your website's link">
             </div>
-            <div id="map"></div>
+            <div  class="custom-control custom-checkbox ml-4">
+                <input class="form-check-input" type="checkbox" value="{{ old('publish') }}"  name="publish" id="checkbox">
+                <label class="form-check-label" for="checkbox">
+                    &nbsp;&nbsp; Publish
+                </label>    
+            </div>
             <div class="word">
                 <label for=""><b>Photo *</b></label>
                 <div id="wrapper" class="wrapper">
