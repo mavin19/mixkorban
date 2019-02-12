@@ -14,7 +14,7 @@ class AddForeignToFoodsTable extends Migration
     public function up()
     {
         Schema::table('foods', function (Blueprint $table) {
-            $table->foreign('res_id')->references('id')->on('restaurants');
+            $table->foreign('restaurant_id')->references('id')->on('restaurants');
         });
     }
 
@@ -26,7 +26,7 @@ class AddForeignToFoodsTable extends Migration
     public function down()
     {
         Schema::table('foods', function (Blueprint $table) {
-            $table->dropForeign(['res_id']);
+            $table->dropForeign(['restaurant_id']);
         });
     }
 }

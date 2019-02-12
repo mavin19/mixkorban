@@ -17,8 +17,8 @@ class CreateRestaurantImgsTable extends Migration
             $table->increments('id');
             $table->string('file_loc');
             $table->timestamps();
-            $table->unsignedInteger('res_id');
-            $table->foreign('res_id')->references('id')->on('restaurants')->onDe1ete('cascade');
+            $table->unsignedInteger('restaurant_id');
+            $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDe1ete('cascade');
         });
     }
 
