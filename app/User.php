@@ -30,25 +30,24 @@ class User extends Authenticatable
     ];
 
     public function comment(){
-        return $this->hasMany('App\Models\Comment');
-    }
-
-    public function res(){
-        return $this->hasMany('App\Restaurant');
+        return $this->hasMany('App\models\Comment');
     }
 
     public function review(){
-        return $this->hasMany('App\Models\Review');
+        return $this->hasMany('App\models\Review');
     }
-
+    
+    public function restaurant_owner()
+    {
+        return $this->hasOne('App\models\Restaurant_owner');
+    }
     
     public function like(){
-        return $this->hasMany('App\Models\Review', 'review_like');
+        return $this->hasMany('App\models\Review', 'review_like');
     }
 
     public function usertype()
     {
-        return $this->belongsTo('App\Models\Usertype');
+        return $this->belongsTo('App\models\Usertype');
     }
 }
-?>

@@ -1,5 +1,5 @@
 <?php
-namespace App\Models;
+namespace App\models;
 	use Illuminate\Database\Eloquent\Model;
 	
 	class Cuisine extends Model
@@ -7,7 +7,7 @@ namespace App\Models;
 		protected $fillable = ['name'];	
 		
 		public function res(){
-        	return $this->belongsToMany('App\Models\Restaurant');
+        	return $this->belongsToMany('App\models\Restaurant');
     	}
 	}
 ?>

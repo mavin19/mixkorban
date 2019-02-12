@@ -12,9 +12,13 @@
 */
 
 // Rout::resource('/restaurant');
+use Illuminate\Support\Facades\Auth;
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', function(){
+    return view('home');
+})->name('home');
 
+// Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/web', function(){
     return view("welcome");
@@ -24,8 +28,6 @@ Route::get('/web', function(){
 
 // // test controler
 // Route::get('/controller/{id}', 'Test\TestController@routTesting');
-
-Auth::routes();
 
 
 Route::get('/review', function(){
@@ -37,11 +39,39 @@ Route::get('/restaurant', function(){
 Route::get('/detail', function(){
     return view('review_pro');
 });
+Route::get('/profile',function(){
+    return view('profile');
+});
 
-// test controler
-Route::get('/controller/{id}', 'Test\TestController@routTesting');
+
+// restaurant owner
+Route::get('/res-owner-register', function(){
+    if(!Auth::check())
+        // if owner is not login 
+        return view('forms.owner_register');
+    else
+        return redirect('');
+})->name('owner-register');
+Route::post('/res-owner-store','RestaurantOwnerController@ownerRegisterStore')->name('owner-reg-store');
+
+
+// payment
+Route::get('/payment',function(){
+    return view('forms.payment_form');
+})->name('payment_form');
+Route::post('/payment-store','BillInfoController@bill_info_store')->name('payment_store');
+
+
+// restaurant 
+Route::get('/restaurant-register','RestaurantController@create_restaurant')->name('res-register');
+Route::post('/restaurant-store','RestaurantController@store_restaurant')->name('res_store');
+
+
+Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
+Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
+
+
+
 
 Auth::routes();
 
-
-Route::get('/home', 'HomeController@index')->name('home');

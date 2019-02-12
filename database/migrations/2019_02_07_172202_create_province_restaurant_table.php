@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTimePriceTable extends Migration
+class CreateProvinceRestaurantTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateTimePriceTable extends Migration
      */
     public function up()
     {
-        Schema::create('time_price', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('currency');
-            $table->float('minPrice');
-            $table->float('maxPrice');
-            $table->time('openTime');
-            $table->time('closeTime');
+        Schema::create('province_restaurant', function (Blueprint $table) {
+            $table->unsignedInteger('province_id');
             $table->unsignedInteger('res_id');
+            $table->foreign('province_id')->references('id')->on('provinces');
+            $table->foreign('res_id')->references('id')->on('restaurants');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class CreateTimePriceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('time_price');
+        Schema::dropIfExists('province_restaurant');
     }
 }
