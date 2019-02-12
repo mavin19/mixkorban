@@ -22,22 +22,17 @@ class Restaurant extends Model
         return $this->hasMany('App\models\Restaurant_img');
     }
 
-     public function meal(){
-        return $this->hasMany('App\models\Meal');
+     public function meals(){
+        return $this->belongsToMany('App\models\Meal');
     }
 
-    public function review(){     
+    public function reviews(){     
         return $this->hasMany('App\models\Review');
     }
 
     
-    public function food(){
+    public function foods(){
         return $this->hasMany('App\models\Food');
-    }
-
-    public function contact_info()
-    {
-        return $this->hasOne('App\models\Contact_info');
     }
 
     public function time()
@@ -45,18 +40,18 @@ class Restaurant extends Model
         return $this->hasOne('App\models\Time_price');
     }
 
-    public function feature()
+    public function features()
     {
-        return $this->hasMany('App\models\Feature');
+        return $this->belongsToMany('App\models\Feature');
     }
 
-    public function cuisine()
+    public function cuisines()
     {
-        return $this->hasMany('App\models\Cuisine');
+        return $this->belongsToMany('App\models\Cuisine');
     }
 
-    public function province()
+    public function provinces()
     {
-        return $this->belongsMany('App\models\Province');
+        return $this->belongsToMany('App\models\Province');
     }
 }

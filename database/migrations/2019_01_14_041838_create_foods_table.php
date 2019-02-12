@@ -18,7 +18,7 @@ class CreateFoodsTable extends Migration
             $table->string('name','50');
             $table->float('prince');
             $table->string('img');
-            $table->unsignedInteger('res_id');
+            $table->unsignedInteger('restaurant_id');
             $table->timestamps();
         });
     }

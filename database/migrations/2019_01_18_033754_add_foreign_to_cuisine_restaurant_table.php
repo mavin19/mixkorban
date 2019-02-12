@@ -15,7 +15,7 @@ class AddForeignToCuisineRestaurantTable extends Migration
     {
         Schema::table('cuisine_restaurant', function (Blueprint $table) {
             $table->foreign('cuisine_id')->references('id')->on('cuisines')->onDelete('cascade');
-            $table->foreign('res_id')->references('id')->on('restaurants')->onDelete('cascade');
+            $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');
         });
     }
 
@@ -27,8 +27,8 @@ class AddForeignToCuisineRestaurantTable extends Migration
     public function down()
     {
         Schema::table('cuisine_restaurant', function (Blueprint $table) {
-            $table->dropForeign('cuisine_restaurant_cuisine_id_foreign');
-            $table->dropForeign('cuisine_restaurant_res_id_foreign');
+            $table->dropForeign(['cuisine_id']);
+            $table->dropForeign(['restaurant_id']);
         });
     }
 }

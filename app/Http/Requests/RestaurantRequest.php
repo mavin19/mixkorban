@@ -28,15 +28,15 @@ class RestaurantRequest extends FormRequest
             'description' => 'required',
             'cusine' => 'required|array|min:1',
             'location' => 'required|array|min:1',
+            'feature' => 'required|array|min:1',
             'meal' => 'required|array|min:1',
-            'vegan' => 'boolean',
             'from_khr' => 'numeric',
             'to_khr' => 'numeric',
             'from_time' => 'required|date_format:H:i',
             'to_time' => 'required|date_format:H:i',
             'phonenumber' => 'required|numeric|min:9',
             'address' => 'required|min:7',
-            'website' => 'url',
+            'website' => 'url|nullable',
             'imgs.*'=> 'file|mimes:jpeg,png,webp'
         ];
     }

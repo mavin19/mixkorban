@@ -15,7 +15,7 @@ class AddForeignToFeatureRestaurantTable extends Migration
     {
         Schema::table('feature_restaurant', function (Blueprint $table) {
             $table->foreign('feature_id')->references('id')->on('features')->onDelete('cascade');
-            $table->foreign('res_id')->references('id')->on('restaurants')->onDelete('cascade');
+            $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');
         });
     }
 
@@ -28,7 +28,7 @@ class AddForeignToFeatureRestaurantTable extends Migration
     {
         Schema::table('feature_restaurant', function (Blueprint $table) {
             $table->dropForeign(['feature_id']);
-            $table->dropForeign(['res_id']);
+            $table->dropForeign(['restaurant_id']);
         });
     }
 }

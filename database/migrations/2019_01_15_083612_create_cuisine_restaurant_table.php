@@ -15,7 +15,7 @@ class CreateCuisineRestaurantTable extends Migration
     {
         Schema::create('cuisine_restaurant', function (Blueprint $table) {
             $table->unsignedInteger('cuisine_id');
-            $table->unsignedInteger('res_id');
+            $table->unsignedInteger('restaurant_id');
             $table->timestamps();
         });
     }

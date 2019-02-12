@@ -15,7 +15,7 @@ class AddForeignToReviewsTable extends Migration
     {
         Schema::table('reviews', function (Blueprint $table) {
             $table->foreign('u_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('res_id')->references('id')->on('restaurants')->onDelete('cascade');
+            $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');
         });
     }
 
@@ -28,7 +28,7 @@ class AddForeignToReviewsTable extends Migration
     {
         Schema::table('reviews', function (Blueprint $table) {
             $table->dropForeign(['u_id']);            
-            $table->dropForeign(['res_id']);            
+            $table->dropForeign(['restaurant_id']);            
         });
     }
 }
