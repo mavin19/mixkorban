@@ -77,6 +77,7 @@
         <div style="text-align: center;" class="pb-4">
             <button class="btn btn-default" style="background-color:white;">
                 <img src="/image/fb.png" width="150">
+                <a href="{{ url('/auth/facebook') }}" class="btn btn-facebook">
             </button>
             <button class="btn btn-default" style="background-color:white;">
                 <img src="/image/1gg.png" width="150" >
