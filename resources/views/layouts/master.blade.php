@@ -111,7 +111,7 @@
             <a href="{{url('/')}}">Home</a>
         </div>
         <div class="col-sm-4 menu">
-            <a href="{{url('/restaurant')}}">Restaurant</a>
+            <a href="{{url('/restaurants')}}">Restaurant</a>
         </div>
         <div class="col-sm menu">
             <a href="{{url('/home')}}">Food</a>

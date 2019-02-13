@@ -6,12 +6,23 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\RestaurantRequest;
 
+use App\models\Restaurant;
 class RestaurantController extends Controller
 {
     
     public function __construct()
     {
-        $this->middleware('auth');  
+        // $this->middleware('auth');  
+    }
+
+
+    public function index_restaurant()
+    {
+        $restaurants = Restaurant::all();
+        $data = [
+            'restaurants' => $restaurants
+        ];
+        return view('restaurant',$data);
     }
 
     public function create_restaurant()
@@ -42,7 +53,6 @@ class RestaurantController extends Controller
             'features' => $features
         ];
         
-
         return view('forms.restaurant_register', $data);
     }
 
@@ -77,6 +87,8 @@ class RestaurantController extends Controller
         $province_IDs = $this->getArrayOfIndex($province_table, $request->location, 'name');
         $feature_IDs = $this->getArrayOfIndex($feature_table, $request->feature, 'name');
 
+        // $fileNameToStore_arr = array();
+
         // dd();
         // dd(count($request->input('location')));
         $restaurant = new \App\models\Restaurant;
@@ -89,6 +101,8 @@ class RestaurantController extends Controller
         $restaurant->website = $request->website;
         $restaurant->owner_id = $owner_id;
 
+        $restaurant->save();
+
         // // saving the images
         if($request->hasFile('imgs'))
         {
@@ -99,20 +113,28 @@ class RestaurantController extends Controller
                 $extension = $file->getClientOriginalExtension();
                 $fileNameToStore = $fileName.'_'.time().'.'.$extension;
                 $path = $file->storeAs('public/restaurant_imgs', $fileNameToStore);
-
+                
+                // save image path 
+                $res_img = new \App\models\Restaurant_img;
+                $res_img->file_loc = $fileNameToStore;
+                $res_img->restaurant_id = $restaurant->id;
             }   
         }else
         {
             $fileNameToStore = 'no_restaurant_img.jpg';
+            $res_img = new \App\models\Restaurant_img;
+            $res_img->file_loc = $fileNameToStore;
+            $res_img->restaurant_id = $restaurant->id;
         }
 
         
-        $restaurant->save();
 
         // attach many to many 
         $restaurant->cuisines()->attach($cusine_IDs);
         $restaurant->meals()->attach($meal_IDs);
+        
         $restaurant->provinces()->attach($province_IDs);
+        
         $restaurant->features()->attach($feature_IDs);
 
         return redirect('');
