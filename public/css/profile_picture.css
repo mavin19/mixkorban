@@ -8,7 +8,7 @@
     cursor: pointer;
 }
 #profile-position{
-    text-align: center;
+    margin-left: 20%;
 }
 #profile-container {
     display: inline-block;
