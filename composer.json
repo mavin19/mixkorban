@@ -13,7 +13,9 @@
         "barryvdh/laravel-elfinder": "^0.4.1",
         "doctrine/dbal": "^2.9",
         "fideloper/proxy": "^4.0",
+        "laravel-validation-rules/credit-card": "^1.1",
         "laravel/framework": "5.7.*",
+        "laravel/socialite": "^4.0",
         "laravel/tinker": "^1.0"
     },
     "require-dev": {

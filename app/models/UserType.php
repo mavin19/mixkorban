@@ -1,12 +1,13 @@
 <?php
-	namespace App\Model;
+	namespace App\models;
 
 	use Illuminate\Database\Eloquent\Model;
 
-class UserType extends Model{
+    class UserType extends Model{
 
-    public function user(){
-        return $this->hasMany('App\User');
+        protected $fillable = ['name'];
+
+        public function user(){
+            return $this->hasMany('App\User');
+        }
     }
-}
-?>

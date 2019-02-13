@@ -1,10 +1,8 @@
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
-class CreateRatingIndividualTable extends Migration
+class CreateTimePricesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +11,16 @@ class CreateRatingIndividualTable extends Migration
      */
     public function up()
     {
-        Schema::create('rating_individual', function (Blueprint $table) {
+        Schema::create('time_prices', function (Blueprint $table) {
             $table->increments('id');
+            $table->float('minPrice')->nullable();
+            $table->float('maxPrice')->nullable();
+            $table->time('openTime');
+            $table->time('closeTime');
+            $table->unsignedInteger('restaurant_id');
             $table->timestamps();
-            $table->string('name');
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -27,6 +28,6 @@ class CreateRatingIndividualTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rating_individual');
+        Schema::dropIfExists('time_prices');
     }
 }

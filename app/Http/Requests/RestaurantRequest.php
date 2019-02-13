@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Http\Requests\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
 class RestaurantRequest extends FormRequest
@@ -14,8 +13,7 @@ class RestaurantRequest extends FormRequest
      */
     public function authorize()
     {
-        // only allow updates if the user is logged in
-        return backpack_auth()->check();
+        return true;
     }
 
     /**
@@ -26,31 +24,20 @@ class RestaurantRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
-        ];
-    }
-
-    /**
-     * Get the validation attributes that apply to the request.
-     *
-     * @return array
-     */
-    public function attributes()
-    {
-        return [
-            //
-        ];
-    }
-
-    /**
-     * Get the validation messages that apply to the request.
-     *
-     * @return array
-     */
-    public function messages()
-    {
-        return [
-            //
+            'restaurantName' => 'required',
+            'description' => 'required',
+            'cusine' => 'required|array|min:1',
+            'location' => 'required|array|min:1',
+            'feature' => 'required|array|min:1',
+            'meal' => 'required|array|min:1',
+            'from_khr' => 'numeric',
+            'to_khr' => 'numeric',
+            'from_time' => 'required|date_format:H:i',
+            'to_time' => 'required|date_format:H:i',
+            'phonenumber' => 'required|numeric|min:9',
+            'address' => 'required|min:7',
+            'website' => 'url|nullable',
+            'imgs.*'=> 'file|mimes:jpeg,png,webp'
         ];
     }
 }

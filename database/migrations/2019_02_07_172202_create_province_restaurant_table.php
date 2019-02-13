@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddForeignToFoodsTable extends Migration
+class CreateProvinceRestaurantTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class AddForeignToFoodsTable extends Migration
      */
     public function up()
     {
-        Schema::table('foods', function (Blueprint $table) {
+        Schema::create('province_restaurant', function (Blueprint $table) {
+            $table->unsignedInteger('province_id');
+            $table->unsignedInteger('restaurant_id');
+            $table->foreign('province_id')->references('id')->on('provinces');
             $table->foreign('restaurant_id')->references('id')->on('restaurants');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +29,6 @@ class AddForeignToFoodsTable extends Migration
      */
     public function down()
     {
-        Schema::table('foods', function (Blueprint $table) {
-            $table->dropForeign(['restaurant_id']);
-        });
+        Schema::dropIfExists('province_restaurant');
     }
 }

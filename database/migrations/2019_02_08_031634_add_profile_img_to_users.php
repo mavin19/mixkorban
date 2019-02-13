@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddForeignToFoodsTable extends Migration
+class AddProfileImgToUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddForeignToFoodsTable extends Migration
      */
     public function up()
     {
-        Schema::table('foods', function (Blueprint $table) {
-            $table->foreign('restaurant_id')->references('id')->on('restaurants');
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('profile_img')->nullable();
         });
     }
 
@@ -25,8 +25,8 @@ class AddForeignToFoodsTable extends Migration
      */
     public function down()
     {
-        Schema::table('foods', function (Blueprint $table) {
-            $table->dropForeign(['restaurant_id']);
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn(['profile_img']);
         });
     }
 }
