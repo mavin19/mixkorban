@@ -1,0 +1,123 @@
+
+
+:root{
+    font-size :12px;
+}
+
+*{
+    font-family: Arial, Tahoma, "Bitstream Vera Sans", sans-serif;
+}
+#navbarText a{font-size: 1rem !important;}
+
+.my-nav{
+    background: #EF7F08;
+    padding-right : 0;
+}
+.my-nav a{
+    color: white !important;
+    text-shadow: 2px 2px 2px rgb(87, 87, 87);
+    font-size: 18px;
+    text-decoration: none;
+}
+
+#logo{font-size: 22px;}
+#search-form{margin:0;}
+.search-box{
+    margin: 0;
+    position: unset !important;
+}
+
+.under-menu-wrapper{
+    max-width: 600px;
+}
+/* .top-menu a{
+    color: white !important;
+    text-shadow: 2px 2px 2px rgb(87, 87, 87);
+    font-size: 18px;
+} */
+.top-menu{display:none;}
+#login-signup-wrapper{
+    padding: 0;
+    list-style: none;
+    color: white;
+    margin: 0;
+    font-weight: 600;
+}
+#login-signup-wrapper li{
+    display: inline-block;
+    /* padding: 0.6rem 2.8rem; */
+    /* outline: 8px solid #EF7F08; */
+}
+
+#login-signup-wrapper li:last-child{
+    background: #B8620B;    
+    outline-color: #B8620B;
+}
+#login-signup-wrapper a{
+    padding: 7px 13px;
+    display: block;
+}
+#login-signup-wrapper > li:last-child a{
+    outline: 10px solid #b8620b;
+}
+
+.under-menu{
+    border-width : 0 1px 1px 1px;
+    border-style: solid;
+    border-color: rgb(171, 171, 171);
+    border-radius : 0 0 2px 2px;
+}
+.under-menu > div{
+    padding-top : 6px;
+    padding-bottom: 6px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.menu + .menu{
+    border-left: 1px solid rgb(171, 171, 171);
+}
+.under-menu a{
+    color :rgb(96, 96, 96);
+}
+
+
+@media only screen and (max-width: 576px){
+    :root{font-size: 10px;}
+    .under-menu{display: none;}
+    .top-menu{display: unset;}
+
+    #login-signup-wrapper{text-align: center;}
+    #login-signup-wrapper li{
+        border-radius: 3px;
+        width : 35%;
+        text-align: center;
+    }
+
+
+    #login-signup-wrapper > li:last-child a{outline : none;}
+
+    #login-signup-wrapper li:last-child{
+        background: #5BBE09;
+        margin-left :5px;
+    }
+    #login-signup-wrapper li:first-child{
+        background: #3A76BE;
+        margin-right: 5px;
+    }
+    
+    #login-signup-wrapper li a{
+        display: inline-block;
+        width : 100%;
+    }
+}
+
+
+/* footer */
+footer{background: #EF7F08; color:white;}
+footer h5 {font-size: 12px;font-weight: bold;}
+footer .container-fluid{padding-top: 30px;padding-bottom: 30px;}
+.footer-col + .footer-col{border-left: 1px solid;}
+.footer-col ul{list-style: none; padding-left: 10px;}
+.footer-col div{display:inline-block;}
+.footer-col div:first-child{}
