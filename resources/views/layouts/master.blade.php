@@ -56,7 +56,7 @@
         
         <ul id="login-signup-wrapper">
             @guest
-                <li class="nav-item">
+                <li class="nav-item" id="user_btn">
                     <a class="btn" data-toggle="modal" data-target=".bd-login-modal-md">{{ __('Login') }}</a>
                     <div class="modal fade bd-login-modal-md" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-md" role="document">
@@ -79,9 +79,14 @@
                 </li>
             @endif
             @else
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        <span class="caret">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</span>
+                <li class="nav-item">
+                    <a id="navbarDropdown" class="nav-link user-wrapper" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <div class="">
+                            <div class="image-cropper">
+                                <img src="https://uybor.uz/borless/uybor/img/user-images/user_no_photo_300x300.png" class="rounded" />
+                            </div> 
+                        </div>
+                        <div class="caret">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</div>
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="text-align:center">
