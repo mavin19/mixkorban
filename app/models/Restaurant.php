@@ -57,6 +57,6 @@ class Restaurant extends Model
 
     public function getOneImgLoc()
     {
-        return \App\models\Restaurant_img::where('restaurant_id',1)->first()->file_loc;
+        return \App\models\Restaurant_img::where('restaurant_id',$this->id)->first()->file_loc;
     }
 }

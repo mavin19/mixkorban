@@ -14,6 +14,17 @@ class BillInfoController extends Controller
         $this->middleware('auth');
     }
 
+    public function bill_info_create()
+    {
+        $owner_type_id = \App\models\UserType::where('name','Restaurant owner')->first()->id;
+        $owner_id = \App\models\Restaurant_owner::where('u_id',Auth::user()->id);
+        $owner_bill_info = \App\models\Bill_info::where('owner_id',$owner_id)->first();
+        if(Auth::user()->user_type_id != $owner_type_id && $owner_bill_info)
+            return redirect("\\");
+        return view('forms.payment_form');
+
+    }
+
     public function bill_info_store(BillInfoRequest $request)
     {
         $request->validated();
