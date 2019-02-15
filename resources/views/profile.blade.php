@@ -22,7 +22,7 @@ Profile
                 </button>
             </div>
             <div class="col-sm-4 pb-3 bg-light">
-                <label for="Last Name" class="col-form-label">{{ __('First Name') }}</label>
+                <label for="Last Name" class="col-form-label">{{ __('Last  Name') }}</label>
                 <input id="" type="name" class="form-control" name="name" >
                 <label for="Contact Phone" class="col-form-label">{{ __('Contact Phone') }}</label>
                 <input id="" type="name" class="form-control" name="name" >
