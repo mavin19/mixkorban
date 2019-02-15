@@ -76,7 +76,7 @@
     font-weight: 600;
 }
 #login-signup-wrapper li{display: inline-block;}
-#login-signup-wrapper #user_btn{margin-right: 15px;}
+#login-signup-wrapper #user_btn_li{margin-right: 15px;}
 
 #login-signup-wrapper li:last-child{
     background: #B8620B;    
@@ -86,7 +86,7 @@
     padding: 6px 13px;
     display: block;
 }
-#login-signup-wrapper .user-wrapper{
+#login-signup-wrapper .user_btn{
     outline: 11.5px solid #b8620b;
 }
 .dropdown-menu-right a{

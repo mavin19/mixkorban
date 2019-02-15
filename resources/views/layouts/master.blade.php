@@ -56,7 +56,7 @@
         
         <ul id="login-signup-wrapper">
             @guest
-                <li class="nav-item" id="user_btn">
+                <li class="nav-item" id="user_btn_li">
                     <a class="btn" data-toggle="modal" data-target=".bd-login-modal-md">{{ __('Login') }}</a>
                     <div class="modal fade bd-login-modal-md" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-md" role="document">
@@ -68,7 +68,7 @@
                 </li>
                 @if (Route::has('register'))
                 <li class="nav-item">
-                    <a class="btn" data-toggle="modal" data-target=".bd-register-modal-md">{{ __('Register') }}</a>                    
+                    <a class="btn user_btn" data-toggle="modal" data-target=".bd-register-modal-md">{{ __('Register') }}</a>                    
                     <div class="modal fade bd-register-modal-md" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-md" role="document">
                             <div class="modal-content">
@@ -80,7 +80,7 @@
             @endif
             @else
                 <li class="nav-item">
-                    <a id="navbarDropdown" class="nav-link user-wrapper" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <a id="navbarDropdown" class="nav-link user-wrapper user_btn" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         <div class="">
                             <div class="image-cropper">
                                 <img src="https://uybor.uz/borless/uybor/img/user-images/user_no_photo_300x300.png" class="rounded" />
