@@ -52,7 +52,8 @@ class RestaurantOwnerController extends Controller
 
         if(Auth::attempt($credential))
         {
-            return redirect()->intended('');
+            // jam ask kru
+            return redirect()->intended('/payment');
         }
     }
 

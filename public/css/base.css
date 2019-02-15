@@ -9,6 +9,38 @@
 }
 #navbarText a{font-size: 1rem !important;}
 
+#owner_register_btn{text-align: end;}
+#owner_register_btn a{
+    outline: none !important;
+    display: inline-block !important;
+    color:#007bff;
+    /* text-decoration: underline; */
+    text-shadow: none;
+}
+#owner_register_btn a:hover{text-decoration: underline;}
+.user-wrapper{display:table;}
+.user-wrapper >div:first-child{
+    width: 43px;
+}
+.user-wrapper > div {
+    display:table-cell;
+    /* text-align: center; */
+    vertical-align: middle;
+}
+.image-cropper {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.image-cropper img {
+    display: inline;
+    margin: 0 auto;
+    height: 100%;
+    width: auto;
+}
 .my-nav{
     background: #EF7F08;
     padding-right : 0;
@@ -44,20 +76,23 @@
     font-weight: 600;
 }
 #login-signup-wrapper li{display: inline-block;}
-#login-signup-wrapper li:first-child{margin-right: 15px;}
+#login-signup-wrapper #user_btn_li{margin-right: 15px;}
 
 #login-signup-wrapper li:last-child{
     background: #B8620B;    
     outline-color: #B8620B;
 }
 #login-signup-wrapper a{
-    padding: 8px 13px;
+    padding: 6px 13px;
     display: block;
 }
-#login-signup-wrapper > li:last-child a{
-    outline: 8.5px solid #b8620b;
+#login-signup-wrapper .user_btn{
+    outline: 11.5px solid #b8620b;
 }
-
+.dropdown-menu-right a{
+    outline: none;
+    text-shadow: none;
+}
 .under-menu{
     border-width : 0 1px 1px 1px;
     border-style: solid;

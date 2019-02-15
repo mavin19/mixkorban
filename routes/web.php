@@ -33,9 +33,6 @@ Route::get('/web', function(){
 Route::get('/review', function(){
     return view('review_form');
 });
-Route::get('/restaurant', function(){
-    return view('restaurant');
-});
 Route::get('/detail', function(){
     return view('review_pro');
 });
@@ -56,18 +53,14 @@ Route::post('/res-owner-store','RestaurantOwnerController@ownerRegisterStore')->
 
 
 // payment
-Route::get('/payment',function(){
-    return view('forms.payment_form');
-})->name('payment_form');
+Route::get('/payment','BiillInfoController@bill_info_create')->name('payment_form');
 Route::post('/payment-store','BillInfoController@bill_info_store')->name('payment_store');
 
 
 // restaurant 
+// Route::resource('restaurant','RestaurantController');
 Route::get('/restaurant-register','RestaurantController@create_restaurant')->name('res-register');
 Route::post('/restaurant-store','RestaurantController@store_restaurant')->name('res_store');
-
-
-
+Route::get('/restaurants', 'RestaurantController@index_restaurant')->name('res_index');
 
 Auth::routes();
-
