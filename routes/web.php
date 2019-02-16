@@ -53,7 +53,7 @@ Route::post('/res-owner-store','RestaurantOwnerController@ownerRegisterStore')->
 
 
 // payment
-Route::get('/payment','BiillInfoController@bill_info_create')->name('payment_form');
+Route::get('/payment','BillInfoController@bill_info_create')->name('payment_form');
 Route::post('/payment-store','BillInfoController@bill_info_store')->name('payment_store');
 
 

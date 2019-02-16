@@ -118,6 +118,7 @@ class RestaurantController extends Controller
                 $res_img = new \App\models\Restaurant_img;
                 $res_img->file_loc = $fileNameToStore;
                 $res_img->restaurant_id = $restaurant->id;
+                $res_img->save();
             }   
         }else
         {
@@ -125,6 +126,7 @@ class RestaurantController extends Controller
             $res_img = new \App\models\Restaurant_img;
             $res_img->file_loc = $fileNameToStore;
             $res_img->restaurant_id = $restaurant->id;
+            $res_img->save();
         }
 
         
