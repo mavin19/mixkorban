@@ -47,15 +47,7 @@ class ProfileController extends Controller
         $profile->name=$request->get('name');
         $profile->email=$request->get('email');
         $profile->password=$request->get('password');
-        // if($request->hasFile('photo')){
-        //     $profile_img=$request->file('photo');
-        //     $fileName=time().'.'.$profile_img->getClientOriginalExtension();
-        //     Image::make($profile_img)->resize(150,150)->save(public_path('/img/food_img/'.$fileName));
-        //     $profile->photo=$fileName;
-        // }
-        // // dd($profile);
-        // $profile->save();
-        // return redirect('/foods')->with('success','Food has been added to menu');
+        
     }
 
     /**
@@ -101,14 +93,7 @@ class ProfileController extends Controller
             $profile->name= $request->get('name');
             $profile->email= $request->get('email');
     
-            // if($request->hasFile('photo')){
-            //     $profile_img=$request->file('photo');
-            //     $fileName='/img/food_img/'.time().'.'.$profile_img->getClientOriginalExtension();
-            //     Image::make($profile_img)->resize(150,150)->save(public_path($fileName));
-            //     $profile->photo=$fileName;
-            // }
-            // $profile ->save();
-            // return redirect('/foods')->with('success', 'Food has been updated');
+           
     }
 
     /**

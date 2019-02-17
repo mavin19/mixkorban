@@ -54,6 +54,24 @@ class RestaurantOwnerController extends Controller
         {
             return redirect()->intended('');
         }
+        
     }
-
+    public function index()
+    {
+        // $userprofile = User::find($id);
+        $restaurant = Auth::user();
+        $data = [
+            'user'=> $restaurant
+        ];
+        return view('profile',$data);
+    }
+    public function updateForm(){
+        $user = Auth::user();
+        $restaurant_owner= \App\models\Restaurant_owner::where('u_id',$user->id )->first();
+        $data = [
+            'restaurant_owner'=>$restaurant_owner,
+            'user'=> $user
+        ];
+        return view('editProfileRestaurantOwner',$data);
+    }
 }

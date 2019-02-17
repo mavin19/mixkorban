@@ -4,11 +4,14 @@ namespace App\Http\Controllers\Test;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 class UserProfileController extends Controller {
+    
     public function index()
     {
         // $userprofile = User::find($id);
         $user = Auth::user();
+        $restaurant_owner= \App\models\Restaurant_owner::where('u_id',$user->id )->first();
         $data = [
+            'restaurant_owner'=>$restaurant_owner,
             'user'=> $user
         ];
         return view('profile',$data);

@@ -13,19 +13,29 @@
             <a href="{{ route('owner-register')}}">I am a restaurant owner</a>
             </div>
             <div class="form-group row">
-                <label for="name" class="col-sm-4 col-form-label">{{ __('Name') }}</label>
+                <label for="name" class="col-sm-4 col-form-label">{{ __('Firstname') }}</label>
 
                 <div class="col-sm-7">
-                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
-
+                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="first_name" value="{{ old('Firstname') }}" required autofocus>
                     @if ($errors->has('name'))
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $errors->first('name') }}</strong>
                         </span>
                     @endif
                 </div>
+           
             </div>
-
+            <div class="form-group row">
+                <label for="name" class="col-sm-4 col-form-label">{{ __('Lastname') }}</label>
+                    <div class="col-sm-7">
+                        <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="last_name" value="{{ old('Lastname') }}" required autofocus>
+                        @if ($errors->has('name'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('name') }}</strong>
+                        </span>
+                        @endif
+                    </div>
+            </div>
             <div class="form-group row">
                 <label for="email" class="col-sm-4 col-form-label">{{ __('E-Mail Address') }}</label>
 
