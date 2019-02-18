@@ -16,11 +16,11 @@ class AddAlterUIdToRestaurants extends Migration
         Schema::table('restaurants', function (Blueprint $table) {
             if(Schema::hasColumn('restaurants','user_id'))
             {
-                $table->dropForeign(['user_id']);
+                // $table->dropForeign(['user_id']);
                 $table->dropColumn(['user_id']);
             }
             $table->unsignedInteger('owner_id');
-            $table->foreign('owner_id')->references('id')->on('restaurant_owner')->onDelete('cascade');
+            $table->foreign('owner_id')->references('id')->on('restaurant_owners')->onDelete('cascade');
         });
     }
 

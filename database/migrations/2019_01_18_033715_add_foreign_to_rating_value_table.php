@@ -15,7 +15,7 @@ class AddForeignToRatingValueTable extends Migration
     {
         Schema::table('rating_value', function (Blueprint $table) {
             $table->foreign('review_id')->references('id')->on('reviews')->onDelete('cascade');
-            $table->foreign('rate_id')->references('id')->on('rating_individual')->onDelete('cascade');
+            $table->foreign('rating_individual_id')->references('id')->on('rating_individuals')->onDelete('cascade');
         });
     }
 
@@ -28,7 +28,7 @@ class AddForeignToRatingValueTable extends Migration
     {
         Schema::table('rating_value', function (Blueprint $table) {
             $table->dropForeign(['review_id']);
-            $table->dropForeign(['rate_id']);
+            $table->dropForeign(['rating_individual_id']);
         });
     }
 }
