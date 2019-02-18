@@ -25,6 +25,11 @@ class RestaurantController extends Controller
         return view('restaurant',$data);
     }
 
+    public function restaurant_detail($id)
+    {
+        return view('restaurant_detail');
+    }
+
     public function create_restaurant()
     {
         $owner_type_id = \App\models\UserType::where('name','Restaurant owner')->first()->id;

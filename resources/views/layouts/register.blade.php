@@ -10,7 +10,7 @@
         <form method="POST" action="{{ route('register') }}">
             @csrf
             <div id="owner_register_btn">
-                <a href="{{ route('owner-register')}}">I am a restaurant owner</a>
+                <a href="{{ route('owner_register')}}">I am a restaurant owner</a>
             </div>
             <div class="form-group row">
                 <label for="name" class="col-sm-4 col-form-label">{{ __('Name') }}</label>

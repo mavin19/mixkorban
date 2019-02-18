@@ -11,7 +11,7 @@ Owner Register
     <div class="container form-container">
         <div class="row justify-content-md-center">
             <div class="col-8">
-                <form method="POST" action="{{route('owner-reg-store')}}" >
+                <form method="POST" action="{{route('owner_reg_store')}}" >
                     @csrf
                     <h3>Register</h3>
                     @if ($errors->any())
@@ -37,7 +37,7 @@ Owner Register
                     </div>
                     <div>
                         <label><b>Phone Number</b></label>
-                        <input type="tel" pattern="[0-9]{3} [0-9]{3} [0-9]{3,4}" required class="form-control" name="phone" value="{{old('phone')}}" placeholder="012 456 7890">
+                        <input type="tel" required class="form-control" name="phone" value="{{old('phone')}}" placeholder="012 456 7890">
                     </div>
                     <div>
                         <label><b>Address</b></label>

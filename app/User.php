@@ -50,4 +50,11 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\models\Usertype');
     }
+
+    public function isRestaurantOwner()
+    {
+        $owner_type_id = \App\models\UserType::where('name','Restaurant owner')->first()->id;
+        $current_user_type_id = Auth::user()->user_type_id;
+        return $owner_type_id == $current_user_type_id;
+    }
 }

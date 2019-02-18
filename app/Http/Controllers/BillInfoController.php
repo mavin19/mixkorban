@@ -49,6 +49,6 @@ class BillInfoController extends Controller
         $bill->owner_id = $owner_id;
         $bill->save();
 
-        return redirect()->route('res-register');
+        return redirect()->route('res_register');
     }
 }

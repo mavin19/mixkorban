@@ -42,14 +42,15 @@ Route::get('/profile',function(){
 
 
 // restaurant owner
+Route::get('/my-restaurant','RestaurantOwnerController@getRestaurant')->name('my_restaurant');
 Route::get('/res-owner-register', function(){
     if(!Auth::check())
         // if owner is not login 
         return view('forms.owner_register');
     else
         return redirect('');
-})->name('owner-register');
-Route::post('/res-owner-store','RestaurantOwnerController@ownerRegisterStore')->name('owner-reg-store');
+})->name('owner_register');
+Route::post('/res-owner-store','RestaurantOwnerController@ownerRegisterStore')->name('owner_reg_store');
 
 
 // payment
@@ -59,7 +60,7 @@ Route::post('/payment-store','BillInfoController@bill_info_store')->name('paymen
 
 // restaurant 
 // Route::resource('restaurant','RestaurantController');
-Route::get('/restaurant-register','RestaurantController@create_restaurant')->name('res-register');
+Route::get('/restaurant-register','RestaurantController@create_restaurant')->name('res_register');
 Route::post('/restaurant-store','RestaurantController@store_restaurant')->name('res_store');
 Route::get('/restaurants', 'RestaurantController@index_restaurant')->name('res_index');
 

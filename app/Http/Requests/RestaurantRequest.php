@@ -34,7 +34,7 @@ class RestaurantRequest extends FormRequest
             'to_khr' => 'numeric',
             'from_time' => 'required|date_format:H:i',
             'to_time' => 'required|date_format:H:i',
-            'phonenumber' => 'required|numeric|min:9',
+            'phonenumber' => 'required||regex:/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\.0-9]*$/|min:9',
             'address' => 'required|min:7',
             'website' => 'url|nullable',
             'imgs.*'=> 'file|mimes:jpeg,png,webp'
