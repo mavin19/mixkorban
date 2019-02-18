@@ -31,14 +31,12 @@ Route::get('/web', function(){
 
 
 Route::get('/review', function(){
-    return view('review_form');
+    return view('forms.review_form');
 });
 Route::get('/detail', function(){
     return view('review_pro');
 });
-Route::get('/profile',function(){
-    return view('profile');
-});
+Route::get('/profile', "test\UserProfileController@index");
 
 
 // restaurant owner
@@ -65,3 +63,16 @@ Route::post('/restaurant-store','RestaurantController@store_restaurant')->name('
 Route::get('/restaurants', 'RestaurantController@index_restaurant')->name('res_index');
 
 Auth::routes();
+
+//restaurant ower edit
+Route::get('/ownerprofileupdate','RestaurantOwnerController@updateForm')->name('edit-restaurant-owner');
+
+Route::group(['prefix' => 'laravel-crud-image-gallery'], function () {
+    Route::get('/', 'RestaurantOwnerController@index');
+    Route::match(['get', 'post'], 'create', 'RestaurantOwnerController@create');
+    Route::match(['get', 'put'], 'update/{id}', 'RestaurantOwnerController@update');
+    Route::delete('delete/{id}', 'RestaurantOwnerController@delete');
+});
+
+Auth::routes();
+

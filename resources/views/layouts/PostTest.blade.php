@@ -13,14 +13,15 @@
 					<table class="table table-stripe">
 						<tr>
 							<th>title</th>
-							<th></h>
+							<th>
 						</tr>
 						@foreach($posts as $post)
 							<tr>
 							<th>{{$post->title}}</th>
-							<th><a href="/posts/{{$post->id}} class="btn btn-default"</th>
+							<th><a href="/posts/{{$post->id}} " class="btn btn-default"></th>
 							<th></th>
 						</tr>
+					
 						@endforeach
 					</table>
 					@endif
