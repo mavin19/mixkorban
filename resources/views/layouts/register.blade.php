@@ -31,7 +31,7 @@
                         <input id="name" type="text" class="form-control{{ $errors->has('last_name') ? ' is-invalid' : '' }}" name="last_name" value="{{ old('Lastname') }}" required autofocus>
                         @if ($errors->has('name'))
                         <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->first('name') }}</strong>
+                            <strong>{{ $errors->first('last_name') }}</strong>
                         </span>
                         @endif
                     </div>
