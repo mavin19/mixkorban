@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Backpack\CRUD\CrudTrait;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -49,5 +50,12 @@ class User extends Authenticatable
     public function usertype()
     {
         return $this->belongsTo('App\models\Usertype');
+    }
+
+    public function isRestaurantOwner()
+    {
+        $owner_type_id = \App\models\UserType::where('name','Restaurant owner')->first()->id;
+        $current_user_type_id = Auth::user()->user_type_id;
+        return $owner_type_id == $current_user_type_id;
     }
 }

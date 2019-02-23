@@ -25,6 +25,11 @@ class RestaurantController extends Controller
         return view('restaurant',$data);
     }
 
+    public function restaurant_detail($id)
+    {
+        return view('restaurant_detail');
+    }
+
     public function create_restaurant()
     {
         $owner_type_id = \App\models\UserType::where('name','Restaurant owner')->first()->id;
@@ -118,6 +123,7 @@ class RestaurantController extends Controller
                 $res_img = new \App\models\Restaurant_img;
                 $res_img->file_loc = $fileNameToStore;
                 $res_img->restaurant_id = $restaurant->id;
+                $res_img->save();
             }   
         }else
         {
@@ -125,6 +131,7 @@ class RestaurantController extends Controller
             $res_img = new \App\models\Restaurant_img;
             $res_img->file_loc = $fileNameToStore;
             $res_img->restaurant_id = $restaurant->id;
+            $res_img->save();
         }
 
         
