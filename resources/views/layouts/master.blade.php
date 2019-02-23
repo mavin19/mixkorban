@@ -167,7 +167,7 @@
                     </li>
                     <li>
                         <div><i class="fas fa-envelope"></i></div>
-                        <div> MixKorBan@gmail.com</div>
+                        <div> mixkorban@gmail.com</div>
                     </li>
                 </ul>
             </div>
