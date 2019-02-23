@@ -74,5 +74,7 @@ Route::group(['prefix' => 'laravel-crud-image-gallery'], function () {
     Route::delete('delete/{id}', 'RestaurantOwnerController@delete');
 });
 
+Route::get('/review_form','ReviewController@review_create')->name('review_form');
+
 Auth::routes();
 
