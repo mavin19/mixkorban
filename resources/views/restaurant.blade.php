@@ -3,6 +3,7 @@
 Restaurant	
 @endsection
 @section('staticfiles')
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css"/>
 	<link href="{{ asset('css/res-css.css') }}" rel="stylesheet">
 @stop('staticfiles')
 @section('body')	  	
@@ -30,11 +31,9 @@ Restaurant
 				</ul>
 				<hr>
 				<p>Price</p>
-				<ul type="none">
-					<li><input type="checkbox">&nbsp;&nbsp;&nbsp; 1$-20$</li>
-					<li><input type="checkbox">&nbsp;&nbsp;&nbsp; 50$-100$</li>
-					<li><input type="checkbox">&nbsp;&nbsp;&nbsp; 100$</li>
-				</ul>
+				<div>
+					<input type="text" class="js-range-slider" name="my_range" value="" />
+				</div>
 			</div>
 		</div>
 	  	<div class="col-sm" id="all_res_container">
@@ -211,3 +210,17 @@ Restaurant
 	</div>
 </div>	
 @endsection('body')
+
+@section('scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
+<script>
+	$(".js-range-slider").ionRangeSlider({
+		type: "double",
+        min: 0,
+        max: 1000,
+        from: 200,
+        to: 500,
+        // grid: true
+	});
+</script>
+@endsection

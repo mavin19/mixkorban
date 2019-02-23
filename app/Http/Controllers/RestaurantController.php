@@ -77,6 +77,7 @@ class RestaurantController extends Controller
 
     public function store_restaurant(RestaurantRequest $request)
     {
+        dd($request->file());
         $request->validated();
         $cuisine_table = \App\models\Cuisine::all();
         $meal_table = \App\models\Meal::all();

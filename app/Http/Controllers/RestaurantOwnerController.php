@@ -14,11 +14,11 @@ class RestaurantOwnerController extends Controller
 {
     public function getRestaurant()
     {
-        $owner_id = \App\models\Restaurant_owner::where('u_id',Auth::user()->id)->first()->id;
-        if($owner_id == null) // if the user is not a restaurant owner, redirect them to home page
+        $owner = \App\models\Restaurant_owner::where('u_id',Auth::user()->id)->first();
+        if($owner == null) // if the user is not a restaurant owner, redirect them to home page
             return redirect('');
         
-        $restaurant_instance = \App\models\Restaurant::where('owner_id',$owner_id)->first();
+        $restaurant_instance = \App\models\Restaurant::where('owner_id',$owner->id)->first();
         if($restaurant_instance == null) // if restaurant owner doesn't have restaurant yet, redirect them to restaurant register form
             return redirect()->route('res_register');
         
