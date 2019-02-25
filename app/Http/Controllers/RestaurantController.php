@@ -117,7 +117,11 @@ class RestaurantController extends Controller
                 $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
                 $extension = $file->getClientOriginalExtension();
                 $fileNameToStore = $fileName.'_'.time().'.'.$extension;
-                $path = $file->storeAs('public/restaurant_imgs', $fileNameToStore);
+                $path = $file->storeAs('public/restaurant_imgs'
+                
+                
+                
+                , $fileNameToStore);
                 
                 // save image path 
                 $res_img = new \App\models\Restaurant_img;

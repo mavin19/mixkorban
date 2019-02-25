@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 class UserProfileController extends Controller {
     
+   
+
     public function index()
     {
         // $userprofile = User::find($id);
@@ -20,4 +22,5 @@ class UserProfileController extends Controller {
 
         //return View::make('userprofile.index')->with('UserProfiles',UserProfile::get());
     }
+    
 }
