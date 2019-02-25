@@ -64,6 +64,10 @@ Route::get('/restaurants', 'RestaurantController@index_restaurant')->name('res_i
 
 Auth::routes();
 
+Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
+Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
+
+
 //restaurant ower edit
 Route::get('/ownerprofileupdate','RestaurantOwnerController@updateForm')->name('edit-restaurant-owner');
 
@@ -78,3 +82,4 @@ Route::get('/review_form','ReviewController@review_create')->name('review_form')
 
 Auth::routes();
 
+-
