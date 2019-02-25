@@ -65,12 +65,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $user_types_id = \App\models\UserType::where("name","Visitor")->first()->id;
         return User::create([
             'first_name' => $data['first_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'last_name'=> $data['last_name'],
-            'profile_img'=>'user_img/default_user_img.png'
+            'profile_img'=>'user_img/default_user_img.png',
+            'user_type_id'=>$user_types_id
             
         ]);
     }

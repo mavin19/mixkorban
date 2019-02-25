@@ -81,5 +81,3 @@ Route::group(['prefix' => 'laravel-crud-image-gallery'], function () {
 Route::get('/review_form','ReviewController@review_create')->name('review_form');
 
 Auth::routes();
-
--

@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\ Support\ Facades\ Log;
 
-// Models
 use App\models;
 
 class RestaurantOwnerController extends Controller

@@ -10,16 +10,8 @@ class Restaurant extends Model
     use CrudTrait;
     protected $model = "restaurants";
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    protected $fillable = ['name','detail','veganOpt'];
-=======
-    protected $fillable = ['name','detail','veganOpt','isPublish'];
->>>>>>> 6a973977e78ff5dced1be9e6cdf295a81bdfbd63
-=======
-    protected $fillable = ['name','detail','phoneNumber','address','website','veganOpt','isPublish'];
->>>>>>> e297dd49fb0ef5b0fa3c4d9e3ab30281a99218a9
 
+    protected $fillable = ['name','detail','phoneNumber','address','website','veganOpt','isPublish'];
     public $primaryKey='id';
  
     public function restaurant_owner(){

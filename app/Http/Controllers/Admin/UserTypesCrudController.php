@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\UsertypesRequest as StoreRequest;
-use App\Http\Requests\UsertypesRequest as UpdateRequest;
+use App\Http\Requests\UserTypesRequest as StoreRequest;
+use App\Http\Requests\UserTypesRequest as UpdateRequest;
 use Backpack\CRUD\CrudPanel;
 
 /**
@@ -14,7 +14,7 @@ use Backpack\CRUD\CrudPanel;
  * @package App\Http\Controllers\Admin
  * @property-read CrudPanel $crud
  */
-class UsertypesCrudController extends CrudController
+class UserTypesCrudController extends CrudController
 {
     public function setup()
     {
@@ -23,7 +23,7 @@ class UsertypesCrudController extends CrudController
         | CrudPanel Basic Information
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\Usertypes');
+        $this->crud->setModel('App\Models\UserTypes');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/usertypes');
         $this->crud->setEntityNameStrings('user_types', 'user_types');
 
