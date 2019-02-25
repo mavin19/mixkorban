@@ -11,8 +11,36 @@
 }
 
 #filter ul{padding-left : 12px;}
-#filter ul li {margin-bottom: 8px;}
-
+#filter ul li {
+	cursor: pointer;
+	margin-bottom: 8px;
+	display: grid;
+	grid-template-columns: 1fr 8fr;
+}
+.filter-each p{
+	font-weight: bold;
+}
+.filter-each ul li div{
+	display: inline-block;
+}
+.filter-each ul li div:last-child{
+	padding-left: 10px;
+}
+.filter-btn-wrapper {
+	text-align: end;
+}
+.filter-btn-wrapper button{
+	cursor: pointer;
+	background: #EF7F08;
+	color: white;
+	border-radius: 3px;
+	border: none;
+	padding: 3px 12px;
+	visibility: hidden;
+}
+.filter-btn-wrapper button:hover{
+	background :rgb(219, 117, 7);
+}
 .res_img_crop{
 	width: 235px;
 	height: 170px;

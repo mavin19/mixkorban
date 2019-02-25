@@ -1498,7 +1498,7 @@
  * ------------
  */
 .skin-purple .main-header .navbar {
-  background-color: #605ca8;
+  background-color: #EF7F08;
 }
 .skin-purple .main-header .navbar .nav > li > a {
   color: #ffffff;
@@ -1534,7 +1534,7 @@
     color: #fff;
   }
   .skin-purple .main-header .navbar .dropdown-menu li a:hover {
-    background: #555299;
+    background: #EF7F08;
   }
 }
 .skin-purple .main-header .logo {

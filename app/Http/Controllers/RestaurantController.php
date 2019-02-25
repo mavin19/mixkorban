@@ -19,8 +19,14 @@ class RestaurantController extends Controller
     public function index_restaurant()
     {
         $restaurants = Restaurant::all();
+        $features = \App\models\Feature::all();
+        $meals = \App\models\Meal::all();
+        $cuisines = \App\models\Cuisine::all();
         $data = [
-            'restaurants' => $restaurants
+            'restaurants' => $restaurants,
+            'features'    => $features,
+            'cuisines'    => $cuisines,
+            'meals'       => $meals
         ];
         return view('restaurant',$data);
     }
@@ -77,6 +83,7 @@ class RestaurantController extends Controller
 
     public function store_restaurant(RestaurantRequest $request)
     {
+        dd($request->file());
         $request->validated();
         $cuisine_table = \App\models\Cuisine::all();
         $meal_table = \App\models\Meal::all();
@@ -139,9 +146,7 @@ class RestaurantController extends Controller
         // attach many to many 
         $restaurant->cuisines()->attach($cusine_IDs);
         $restaurant->meals()->attach($meal_IDs);
-        
         $restaurant->provinces()->attach($province_IDs);
-        
         $restaurant->features()->attach($feature_IDs);
 
         return redirect('');
