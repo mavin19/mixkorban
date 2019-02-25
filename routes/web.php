@@ -34,7 +34,7 @@ Route::get('/review', function(){
     return view('forms.review_form');
 });
 Route::get('/detail', function(){
-    return view('review_pro');
+    return view('restaurant_detail');
 });
 Route::get('/profile', "test\UserProfileController@index");
 
@@ -49,12 +49,15 @@ Route::get('/res-owner-register', function(){
         return redirect('');
 })->name('owner_register');
 Route::post('/res-owner-store','RestaurantOwnerController@ownerRegisterStore')->name('owner_reg_store');
+Route::post('/restaurant_update','RestaurantOwnerController@update_restaurant')->name('update_restaurant_owner');
+Route::get('/ownerprofileupdate','RestaurantOwnerController@updateForm')->name('edit-restaurant-owner');
 
 
 // payment
 Route::get('/payment','BillInfoController@bill_info_create')->name('payment_form');
 Route::post('/payment-store','BillInfoController@bill_info_store')->name('payment_store');
-
+//User
+Route::get('/userprofileupdate','UserProfileController@updateForm')->name('edit-restaurant-owner');
 
 // restaurant 
 // Route::resource('restaurant','RestaurantController');
@@ -62,14 +65,10 @@ Route::get('/restaurant-register','RestaurantController@create_restaurant')->nam
 Route::post('/restaurant-store','RestaurantController@store_restaurant')->name('res_store');
 Route::get('/restaurants', 'RestaurantController@index_restaurant')->name('res_index');
 
-Auth::routes();
-
-Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
-Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
-
 
 //restaurant ower edit
 Route::get('/ownerprofileupdate','RestaurantOwnerController@updateForm')->name('edit-restaurant-owner');
+Auth::routes();
 
 Route::group(['prefix' => 'laravel-crud-image-gallery'], function () {
     Route::get('/', 'RestaurantOwnerController@index');

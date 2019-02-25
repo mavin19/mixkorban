@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\RestaurantRequest;
 
-use \App\models\Restaurant;
+use App\models\Restaurant;
 class RestaurantController extends Controller
 {
     
