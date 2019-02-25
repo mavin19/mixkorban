@@ -16,7 +16,7 @@ class CreateRatingValueTable extends Migration
         Schema::create('rating_value', function (Blueprint $table) {
             // $table->increments('id');  
             $table->unsignedInteger('review_id');
-            $table->unsignedInteger('rate_id');
+            $table->unsignedInteger('rating_individual_id');
             $table->timestamps();
             $table->integer('value');
         });

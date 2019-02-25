@@ -63,9 +63,9 @@ Profile
         </div>
     <div class="col-2" style="margin-top:60px;">
         {{-- <p> Name: koung </p> --}}
-        <p> Firstname: {{ $user->first_name }} </p>
+        <p> Firstname : {{ $user->first_name }} </p>
         <hr>
-        <p> Lastname: {{ $user->last_name }} </p>
+        <p> Lastname : {{ $user->last_name }} </p>
         <hr>
         <p> Email: {{ $user->email }}</p>
         <hr>

@@ -3,6 +3,7 @@
 Restaurant	
 @endsection
 @section('staticfiles')
+	<link rel="stylesheet" href="{{asset('snippets/css/ion.rangeSlider.css')  }}"/>
 	<link href="{{ asset('css/res-css.css') }}" rel="stylesheet">
 @stop('staticfiles')
 @section('body')	  	
@@ -12,30 +13,67 @@ Restaurant
 	</div>
 	<div class="row">
 		<div class="col-sm-2">
-			<div id="filter" >
-				<p>Cuisines and Dishes</p>
-				<ul type="none">
-					<li><input type="checkbox" name="khmer1">&nbsp;&nbsp;&nbsp; Khmer</li>
-					<li><input type="checkbox" name="Italian1">&nbsp;&nbsp;&nbsp; Italian</li>
-					<li><input type="checkbox" name="lao1">&nbsp;&nbsp;&nbsp; Lao</li>
-					<li><input type="checkbox" name="thai1" >&nbsp;&nbsp;&nbsp; Thailand</li>
-				</ul>
-				<hr>
-				<p>Meals</p>
-				<ul type="none">
-					<li><input type="checkbox" name="b1">&nbsp;&nbsp;&nbsp; Breakfast</li>
-					<li><input type="checkbox" name="l1">&nbsp;&nbsp;&nbsp; Launch</li>
-					<li><input type="checkbox" name="br1" >&nbsp;&nbsp;&nbsp; Brunch</li>
-					<li><input type="checkbox" name="d1">&nbsp;&nbsp;&nbsp; Dinner</li>
-				</ul>
-				<hr>
-				<p>Price</p>
-				<ul type="none">
-					<li><input type="checkbox">&nbsp;&nbsp;&nbsp; 1$-20$</li>
-					<li><input type="checkbox">&nbsp;&nbsp;&nbsp; 50$-100$</li>
-					<li><input type="checkbox">&nbsp;&nbsp;&nbsp; 100$</li>
-				</ul>
-			</div>
+			<form action="" method="get">
+				<div id="filter" >
+					<div class="filter-each">
+						<p>Cuisine</p>
+						<ul type="none">
+							@foreach ($cuisines as $cuisine)
+							
+								<li>									
+									<div><input type="checkbox" name="cuisines[]"></div>
+									<div>{{$cuisine->name}}</div>
+								</li>
+							@endforeach
+
+						</ul>
+						<div class="filter-btn-wrapper">
+							<button type="button">Submit</button>
+						</div>
+						<hr>
+					</div>
+					<div class="filter-each">
+						<p>Meals</p>
+						<ul type="none">
+								@foreach ($meals as $meal)
+							
+								<li>									
+									<div><input type="checkbox" name="meals[]"></div>
+									<div>{{$meal->name}}</div>
+								</li>
+							@endforeach
+						</ul>
+						<div class="filter-btn-wrapper">
+							<button type="button">Submit</button>
+						</div>
+						<hr>
+					</div>
+					<div class="filter-each">
+						<p>Feature</p>
+						<ul type="none">
+								@foreach ($features as $feature)
+								<li>
+									<div><input type="checkbox" name="features[]"></div>
+									<div>{{$feature->name}}</div>
+								</li>
+							@endforeach
+						</ul>
+						<div class="filter-btn-wrapper">
+							<button type="button">Submit</button>
+						</div>
+						<hr>
+					</div>
+					<div class="filter-each">
+						<p>Price</p>
+						<div>
+							<input type="text" class="js-range-slider" name="my_range" value="" />
+						</div>
+						<div class="filter-btn-wrapper">
+							<button type="button" id="range-btn">Submit</button>
+						</div>
+					</div>
+				</div>
+			</form>
 		</div>
 	  	<div class="col-sm" id="all_res_container">
 			@php($num_of_col = 1)
@@ -62,11 +100,11 @@ Restaurant
 						<p><a href="#">{{ $restaurant->name }}</a></p>
 						<div class="review_res">
 							<div>
+								<span class="fa fa-star checked"></span>
 								<span class="fa fa-star"></span>
+								<span class="fa fa-star checked"></span>
 								<span class="fa fa-star"></span>
-								<span class="fa fa-star"></span>
-								<span class="fa fa-star"></span>
-								<span class="fa fa-star"></span>
+								<span class="fa fa-star checked"></span>
 							</div>
 							<div>158 reviews</div>
 						</div>
@@ -74,140 +112,48 @@ Restaurant
 				</div>	
 			@endforeach
 			</div>
-			{{-- <div class="row">
-				<div class="col-sm-4">
-					<div class="res_container">
-						<div class="res_img_crop">
-							<img src="/image/1.jpg" width="300">
-						</div>
-						<p>We cheer restaurant and Bar</p>
-						<div class="review_res">
-							<div>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star"></span>
-								<span class="fa fa-star"></span>
-							</div>
-							<div>158 reviews</div>
-						</div>
-					</div>
+			<div class="row justify-content-center">
+				<div class="col-sm-5">
+					<nav aria-label="Page navigation example">
+						<ul class="pagination pagination-sm justify-content-center pt-5">
+							<li class="page-item">
+								<a class="page-link" href="#" aria-label="Previous">
+									<span aria-hidden="true">&laquo;</span>
+								</a>
+							</li>
+							<li class="page-item"><a class="page-link" href="#">1</a></li>
+							<li class="page-item"><a class="page-link" href="#">2</a></li>
+							<li class="page-item"><a class="page-link" href="#">3</a></li>
+							<li class="page-item">
+								<a class="page-link" href="#" aria-label="Next">
+									<span aria-hidden="true">&raquo;</span>
+								</a>
+							</li>
+						</ul>
+		
+					</nav>
 				</div>
-				<div class="col-sm-4">
-					<div class="res_container">
-						<div class="res_img_crop">
-							<img src="/image/1.jpg" width="300">
-						</div>
-						<p>We cheer restaurant and Bar</p>
-						<div class="review_res">
-							<div>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star"></span>
-								<span class="fa fa-star"></span>
-							</div>
-							<div>158 reviews</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="res_container">
-						<div class="res_img_crop">
-							<img src="/image/1.jpg" width="300">
-						</div>
-						<p>We cheer restaurant and Bar</p>
-						<div class="review_res">
-							<div>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star"></span>
-								<span class="fa fa-star"></span>
-							</div>
-							<div>158 reviews</div>
-						</div>
-					</div>
-				</div>
-			</div>	
-			<div class="row">
-				<div class="col-sm-4">
-					<div class="res_container">
-						<div class="res_img_crop">
-							<img src="/image/1.jpg" width="300">
-						</div>
-						<p>We cheer restaurant and Bar</p>
-						<div class="review_res">
-							<div>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star"></span>
-								<span class="fa fa-star"></span>
-							</div>
-							<div>158 reviews</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="res_container">
-						<div class="res_img_crop">
-							<img src="/image/1.jpg" width="300">
-						</div>
-						<p>We cheer restaurant and Bar</p>
-						<div class="review_res">
-							<div>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star"></span>
-								<span class="fa fa-star"></span>
-							</div>
-							<div>158 reviews</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="res_container">
-						<div class="res_img_crop">
-							<img src="/image/1.jpg" width="300">
-						</div>
-						<p>We cheer restaurant and Bar</p>
-						<div class="review_res">
-							<div>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star"></span>
-								<span class="fa fa-star"></span>
-							</div>
-							<div>158 reviews</div>
-						</div>
-					</div>
-				</div>
-			</div> --}}
-		</div>
-	</div>
-	<div class="row justify-content-center">
-		<div class="col-sm-5">
-			<nav aria-label="Page navigation example">
-				<ul class="pagination pagination-sm justify-content-center pt-5">
-					<li class="page-item">
-						<a class="page-link" href="#" aria-label="Previous">
-							<span aria-hidden="true">&laquo;</span>
-						</a>
-					</li>
-					<li class="page-item"><a class="page-link" href="#">1</a></li>
-					<li class="page-item"><a class="page-link" href="#">2</a></li>
-					<li class="page-item"><a class="page-link" href="#">3</a></li>
-					<li class="page-item">
-						<a class="page-link" href="#" aria-label="Next">
-							<span aria-hidden="true">&raquo;</span>
-						</a>
-					</li>
-				</ul>
-			</nav>
+			</div>
 		</div>
 	</div>
 </div>	
 @endsection('body')
+
+@section('scripts')
+<script src="{{ asset('js/restaurant.js') }}"></script>
+<script src="{{asset('snippets/js/ion.rangeSlider.js')  }}"></script>
+<script>
+
+	$(".js-range-slider").ionRangeSlider({
+		type: "double",
+        min: 0,
+        max: 1000,
+        from: 200,
+		to: 500,
+		onChange: function(data){
+			$('#range-btn').css('visibility','unset');
+		}
+        // grid: true
+	});
+</script>
+@endsection
