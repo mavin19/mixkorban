@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
-use Auth;
 use Socialite;
 use App\User;
 
@@ -49,9 +50,31 @@ class LoginController extends Controller
 
     public function handleProviderCallback()
     {
-        $user = Socialite::driver('facebook')->user();
+        $userSocial = Socialite::driver('facebook')->user();
 
-        // $user->token;
+        $userEmail= $userSocial->email;
+        
+        $user= User::where("email",$userEmail)->first();
+
+        if($user==NULL){
+            $user = new User;
+            $user->first_name=$userSocial->name;
+
+            $user->email=$userSocial->email;
+            $user->password = bcrypt(111111);
+            
+            $user->save();
+        }
+        // return $userSocial->name;
+        $credential = [
+            "email"=>$user->email, "password"=> 111111
+        ];
+
+        if(Auth::attempt($credential)){
+            // dd($credential);
+            return redirect()->intended(""); 
+        }
+
     }
 
     

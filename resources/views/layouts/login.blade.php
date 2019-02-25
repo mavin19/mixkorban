@@ -64,9 +64,10 @@
                 <label>Or Sign up with</label>
             </div>
             <div style="text-align: center;" class="pb-4">
-                <button class="btn btn-default" style="background-color:white;">
+                <a href="/login/facebook">
+                <button type="button" class="btn btn-default" style="background-color:white;">
                     <img src="/image/fb.png" width="150">
-                </button>
+                </button></a>
                 <button class="btn btn-default" style="background-color:white;">
                     <img src="/image/1gg.png" width="150" >
                 </button>
