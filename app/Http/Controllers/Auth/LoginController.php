@@ -42,9 +42,16 @@ class LoginController extends Controller
     }
     
 
-    public function redirectToProvider($provider)
+    public function redirectToProvider()
     {
-        return Socialite::driver($provider)->redirect();
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    public function handleProviderCallback()
+    {
+        $user = Socialite::driver('facebook')->user();
+
+        // $user->token;
     }
 
     
@@ -60,4 +67,5 @@ class LoginController extends Controller
             'provider' => $provider,
             'provider_id' => $user->id
         ]);
+    }
 }

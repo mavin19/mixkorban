@@ -27,7 +27,7 @@ class AddForeignToReviewsTable extends Migration
     public function down()
     {
         Schema::table('reviews', function (Blueprint $table) {
-            $table->dropForeign(['u_id']);            
+            $table->dropForeign(['user_id']);            
             $table->dropForeign(['restaurant_id']);            
         });
     }
