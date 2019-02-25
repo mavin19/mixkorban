@@ -7,3 +7,6 @@
 <li><a href='{{ backpack_url('provinces') }}'><i class='fa fa-provinces'></i> <span>Provinces</span></a></li>
 
 <li><a href='{{ backpack_url('usertypes') }}'><i class='fa fa-usertypes'></i> <span>UserTypes</span></a></li>
+<li><a href='{{ backpack_url('meals') }}'><i class='fa fa-Meals'></i> <span>Meals</span></a></li>
+<li><a href='{{ backpack_url('rating_individuals') }}'><i class='fa fa-Rating_individuals'></i> <span>Rating_individuals</span></a></li>
+<li><a href='{{ backpack_url('users') }}'><i class='fa fa-Users'></i> <span>Users</span></a></li>

@@ -56,7 +56,7 @@
         
         <ul id="login-signup-wrapper">
             @guest
-                <li class="nav-item">
+                <li class="nav-item" id="user_btn_li">
                     <a class="btn" data-toggle="modal" data-target=".bd-login-modal-md">{{ __('Login') }}</a>
                     <div class="modal fade bd-login-modal-md" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-md" role="document">
@@ -68,7 +68,7 @@
                 </li>
                 @if (Route::has('register'))
                 <li class="nav-item">
-                    <a class="btn" data-toggle="modal" data-target=".bd-register-modal-md">{{ __('Register') }}</a>                    
+                    <a class="btn user_btn" data-toggle="modal" data-target=".bd-register-modal-md">{{ __('Register') }}</a>                    
                     <div class="modal fade bd-register-modal-md" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-md" role="document">
                             <div class="modal-content">
@@ -79,13 +79,19 @@
                 </li>
             @endif
             @else
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        <span class="caret">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</span>
+                <li class="nav-item">
+                    <a id="navbarDropdown" class="nav-link user-wrapper user_btn" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <div class="">
+                            <div class="image-cropper">
+                                <img src="https://uybor.uz/borless/uybor/img/user-images/user_no_photo_300x300.png" class="rounded" />
+                            </div> 
+                        </div>
+                        <div class="caret">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</div>
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="text-align:center">
-                        <a class="dropdown-item" href="{{route('res-register') }}" style="color:black">Restaurant</a>
+                        {{-- @if(Auth::isRestaurantOwner()) --}}
+                        <a class="dropdown-item" href="{{route('my_restaurant') }}" style="color:black">Restaurant</a>
                         <a class="dropdown-item" href="{{ url('/profile') }}" style="color:black">
                             {{ __('Profile') }}
                         </a>
@@ -111,7 +117,7 @@
             <a href="{{url('/')}}">Home</a>
         </div>
         <div class="col-sm-4 menu">
-            <a href="{{url('/restaurant')}}">Restaurant</a>
+            <a href="{{url('/restaurants')}}">Restaurant</a>
         </div>
         <div class="col-sm menu">
             <a href="{{url('/home')}}">Food</a>
@@ -161,7 +167,7 @@
                     </li>
                     <li>
                         <div><i class="fas fa-envelope"></i></div>
-                        <div> MixKorBan@gmail.com</div>
+                        <div> mixkorban@gmail.com</div>
                     </li>
                 </ul>
             </div>

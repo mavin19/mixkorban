@@ -38,174 +38,154 @@ Restaurant
 			</div>
 		</div>
 	  	<div class="col-sm" id="all_res_container">
-	  		<div class="row">
+			@php($num_of_col = 1)
+			@php($first_loop = true)
+
+			<div class="row"> 		
+			@foreach ($restaurants as $restaurant)
+
+			{{-- handle creating new row if a row already has 3 column --}}
+				@if($num_of_col > 3)
+					{!! '</div>' !!}
+					{!! "<div class='row'>" !!} 
+					@php($num_of_col = 1)
+					@php($first_loop = false)
+				@endif
+				@php($num_of_col++)
+
+
 				<div class="col-sm-4">
 					<div class="res_container">
 						<div class="res_img_crop">
-							<img src="/image/1.jpg" width="300">
+							<a href="#"><img src="{{asset('storage/restaurant_imgs/'.$restaurant->getOneImgLoc()) }}" width="300"></a>
 						</div>
-						<p>We cheer restaurant and Bar</p>
+						<p><a href="#">{{ $restaurant->name }}</a></p>
 						<div class="review_res">
 							<div>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
 								<span class="fa fa-star"></span>
 								<span class="fa fa-star"></span>
 							</div>
 							<div>158 reviews</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="res_container">
-						<div class="res_img_crop">
-							<img src="/image/1.jpg" width="300">
-						</div>
-						<p>We cheer restaurant and Bar</p>
-						<div class="review_res">
-							<div>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star"></span>
-								<span class="fa fa-star"></span>
-							</div>
-							<div>158 reviews</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="res_container">
-						<div class="res_img_crop">
-							<img src="/image/1.jpg" width="300">
-						</div>
-						<p>We cheer restaurant and Bar</p>
-						<div class="review_res">
-							<div>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star"></span>
-								<span class="fa fa-star"></span>
-							</div>
-							<div>158 reviews</div>
-						</div>
-					</div>
-				</div>
-			</div>	
-			<div class="row">
-				<div class="col-sm-4">
-					<div class="res_container">
-						<div class="res_img_crop">
-							<img src="/image/1.jpg" width="300">
-						</div>
-						<p>We cheer restaurant and Bar</p>
-						<div class="review_res">
-							<div>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star"></span>
-								<span class="fa fa-star"></span>
-							</div>
-							<div>158 reviews</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="res_container">
-						<div class="res_img_crop">
-							<img src="/image/1.jpg" width="300">
-						</div>
-						<p>We cheer restaurant and Bar</p>
-						<div class="review_res">
-							<div>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star"></span>
-								<span class="fa fa-star"></span>
-							</div>
-							<div>158 reviews</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="res_container">
-						<div class="res_img_crop">
-							<img src="/image/1.jpg" width="300">
-						</div>
-						<p>We cheer restaurant and Bar</p>
-						<div class="review_res">
-							<div>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star"></span>
-								<span class="fa fa-star"></span>
-							</div>
-							<div>158 reviews</div>
-						</div>
-					</div>
-				</div>
-			</div>	
-			<div class="row">
-				<div class="col-sm-4">
-					<div class="res_container">
-						<div class="res_img_crop">
-							<img src="/image/1.jpg" width="300">
-						</div>
-						<p>We cheer restaurant and Bar</p>
-						<div class="review_res">
-							<div>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star"></span>
-								<span class="fa fa-star"></span>
-							</div>
-							<div>158 reviews</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="res_container">
-						<div class="res_img_crop">
-							<img src="/image/1.jpg" width="300">
-						</div>
-						<p>We cheer restaurant and Bar</p>
-						<div class="review_res">
-							<div>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star"></span>
-								<span class="fa fa-star"></span>
-							</div>
-							<div>158 reviews</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="res_container">
-						<div class="res_img_crop">
-							<img src="/image/1.jpg" width="300">
-						</div>
-						<p>We cheer restaurant and Bar</p>
-						<div class="review_res">
-							<div>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star"></span>
-								<span class="fa fa-star"></span>
-							</div>
-							<div>158 reviews</div>
-						</div>
-					</div>
-				</div>
+				</div>	
+			@endforeach
 			</div>
+			{{-- <div class="row">
+				<div class="col-sm-4">
+					<div class="res_container">
+						<div class="res_img_crop">
+							<img src="/image/1.jpg" width="300">
+						</div>
+						<p>We cheer restaurant and Bar</p>
+						<div class="review_res">
+							<div>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+							</div>
+							<div>158 reviews</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="res_container">
+						<div class="res_img_crop">
+							<img src="/image/1.jpg" width="300">
+						</div>
+						<p>We cheer restaurant and Bar</p>
+						<div class="review_res">
+							<div>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+							</div>
+							<div>158 reviews</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="res_container">
+						<div class="res_img_crop">
+							<img src="/image/1.jpg" width="300">
+						</div>
+						<p>We cheer restaurant and Bar</p>
+						<div class="review_res">
+							<div>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+							</div>
+							<div>158 reviews</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="res_container">
+						<div class="res_img_crop">
+							<img src="/image/1.jpg" width="300">
+						</div>
+						<p>We cheer restaurant and Bar</p>
+						<div class="review_res">
+							<div>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+							</div>
+							<div>158 reviews</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="res_container">
+						<div class="res_img_crop">
+							<img src="/image/1.jpg" width="300">
+						</div>
+						<p>We cheer restaurant and Bar</p>
+						<div class="review_res">
+							<div>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+							</div>
+							<div>158 reviews</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="res_container">
+						<div class="res_img_crop">
+							<img src="/image/1.jpg" width="300">
+						</div>
+						<p>We cheer restaurant and Bar</p>
+						<div class="review_res">
+							<div>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+							</div>
+							<div>158 reviews</div>
+						</div>
+					</div>
+				</div>
+			</div> --}}
 		</div>
 	</div>
 	<div class="row justify-content-center">

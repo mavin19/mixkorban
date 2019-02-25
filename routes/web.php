@@ -31,47 +31,55 @@ Route::get('/web', function(){
 
 
 Route::get('/review', function(){
-    return view('review_form');
-});
-Route::get('/restaurant', function(){
-    return view('restaurant');
+    return view('forms.review_form');
 });
 Route::get('/detail', function(){
     return view('review_pro');
 });
-Route::get('/profile',function(){
-    return view('profile');
-});
+Route::get('/profile', "test\UserProfileController@index");
 
 
 // restaurant owner
+Route::get('/my-restaurant','RestaurantOwnerController@getRestaurant')->name('my_restaurant');
 Route::get('/res-owner-register', function(){
     if(!Auth::check())
         // if owner is not login 
         return view('forms.owner_register');
     else
         return redirect('');
-})->name('owner-register');
-Route::post('/res-owner-store','RestaurantOwnerController@ownerRegisterStore')->name('owner-reg-store');
+})->name('owner_register');
+Route::post('/res-owner-store','RestaurantOwnerController@ownerRegisterStore')->name('owner_reg_store');
 
 
 // payment
-Route::get('/payment',function(){
-    return view('forms.payment_form');
-})->name('payment_form');
+Route::get('/payment','BillInfoController@bill_info_create')->name('payment_form');
 Route::post('/payment-store','BillInfoController@bill_info_store')->name('payment_store');
 
 
 // restaurant 
-Route::get('/restaurant-register','RestaurantController@create_restaurant')->name('res-register');
+// Route::resource('restaurant','RestaurantController');
+Route::get('/restaurant-register','RestaurantController@create_restaurant')->name('res_register');
 Route::post('/restaurant-store','RestaurantController@store_restaurant')->name('res_store');
+Route::get('/restaurants', 'RestaurantController@index_restaurant')->name('res_index');
 
+Auth::routes();
 
 Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
 Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
 
 
+//restaurant ower edit
+Route::get('/ownerprofileupdate','RestaurantOwnerController@updateForm')->name('edit-restaurant-owner');
 
+Route::group(['prefix' => 'laravel-crud-image-gallery'], function () {
+    Route::get('/', 'RestaurantOwnerController@index');
+    Route::match(['get', 'post'], 'create', 'RestaurantOwnerController@create');
+    Route::match(['get', 'put'], 'update/{id}', 'RestaurantOwnerController@update');
+    Route::delete('delete/{id}', 'RestaurantOwnerController@delete');
+});
+
+Route::get('/review_form','ReviewController@review_create')->name('review_form');
 
 Auth::routes();
 
+-

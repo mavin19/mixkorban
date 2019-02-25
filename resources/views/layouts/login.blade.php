@@ -54,11 +54,22 @@
                     </button>
 
                     @if (Route::has('password.request'))
-                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                        <a class="btn btn-link" href="{{ route('password.request') }}" style = "color: black">
                             {{ __('Forgot Your Password?') }}
                         </a>
                     @endif
                 </div>
+            </div>
+            <div style="text-align: center;">
+                <label>Or Sign up with</label>
+            </div>
+            <div style="text-align: center;" class="pb-4">
+                <button class="btn btn-default" style="background-color:white;">
+                    <img src="/image/fb.png" width="150">
+                </button>
+                <button class="btn btn-default" style="background-color:white;">
+                    <img src="/image/1gg.png" width="150" >
+                </button>
             </div>
         </form>
     </div>

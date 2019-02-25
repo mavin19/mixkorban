@@ -62,4 +62,9 @@ class Restaurant extends Model
     {
         return $this->belongsToMany('App\models\Province');
     }
+
+    public function getOneImgLoc()
+    {
+        return \App\models\Restaurant_img::where('restaurant_id',$this->id)->first()->file_loc;
+    }
 }

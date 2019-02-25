@@ -1,4 +1,3 @@
-
 @extends('layouts.master')
 @section('title')
 Owner Register
@@ -6,12 +5,13 @@ Owner Register
 
 @section('staticfiles')
 <link rel="stylesheet" href="{{asset('css/owner_register.css')}}">
+<link href="{{ asset('css/button.css') }}" rel="stylesheet">
 @endsection
 @section('body')
     <div class="container form-container">
         <div class="row justify-content-md-center">
             <div class="col-8">
-                <form method="POST" action="{{route('owner_reg_store')}}" >
+                <form method="POST" action="{{route('owner-reg-store')}}" >
                     @csrf
                     <h3>Register</h3>
                     @if ($errors->any())
@@ -25,23 +25,23 @@ Owner Register
                     @endif
                     <div>
                         <label><b>First Name</b></label>
-                        <input type="text" required class="form-control" name="firstname" value="{{old('firstname')}}" placeholder="">
+                        <input type="text" required class="form-control" name="firstname" value="{{ $user->first_name }}" placeholder="">
                     </div> 
                     <div>
                         <label ><b>Last Name</b></label>
-                        <input type="text" required class="form-control" name="lastname" value="{{old('lastname')}}" placeholder="">
+                        <input type="text" required class="form-control" name="lastname" value=" {{ $user->last_name }} " placeholder="">
                     </div>
                     <div>
                         <label ><b>Email</b></label>
-                        <input type="email" required class="form-control" name="email" value="{{old('email')}}" placeholder="">
+                        <input type="email" required class="form-control" name="email" value="{{ $user->email }}" placeholder="">
                     </div>
                     <div>
                         <label><b>Phone Number</b></label>
-                        <input type="tel" required class="form-control" name="phone" value="{{old('phone')}}" placeholder="012 456 7890">
+                        <input type="tel" pattern="[0-9]{3} [0-9]{3} [0-9]{3,4}" required class="form-control" name="phone" value=" {{$restaurant_owner->phone}}" placeholder="012 456 7890">
                     </div>
                     <div>
                         <label><b>Address</b></label>
-                        <input type="text" required class="form-control" name="address" value="{{old('address')}}" placeholder="">
+                        <input type="text" required class="form-control" name="address" value="{{$restaurant_owner->address}}" placeholder="">
                     </div>
                     <div >
                         <label><b>Password</b></label>
@@ -59,6 +59,9 @@ Owner Register
                         </div>
                         <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" required="" capture>
                     </div> --}}
+                    <div><input type="file" id="real-file" hidden="hidden" />
+                        <button type="button" id="custom-button"><i class="fas fa-camera"></i><span id="custom-text"style="color:white;">Choose your Photo</span></button>
+                    </div>
                     <div style="text-align: center;">
                         <button  class="btn btn-success button">Register</button>
                     </div>
@@ -90,5 +93,6 @@ Owner Register
                 $('#message').html('Not Matching').css('color', 'red');
         });
     </script>
+    <script src="{{ asset('js/button.js ') }}"></script> 
     @endsection
 @endsection
