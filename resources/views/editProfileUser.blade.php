@@ -11,7 +11,7 @@ Owner Register
     <div class="container form-container">
         <div class="row justify-content-md-center">
             <div class="col-8">
-                <form method="POST" action="{{route('owner_reg_store')}}" >
+                <form method="POST" enctype="multipart/form-data" action="{{route('update-user-owner')}}" >
                     @csrf
                     <h3>Profile</h3>
                     @if ($errors->any())
@@ -45,14 +45,8 @@ Owner Register
                         <input id="confirm_password" type="password" class="form-control" name="con-password" placeholder="">
                         <span id='message'></span>
                     </div>
-                    {{-- <div>
-                        <label><b>Profile</b></label>
-                        <div id="profile-container">
-                        <img id="profileImage" src="{{ asset('image/default-profile.png') }}" />
-                        </div>
-                        <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" required="" capture>
-                    </div> --}}
-                    <div><input type="file" name="img" id="real-file" hidden="hidden" />
+                    
+                    <div><input type="file" name="img" accept="image/*" id="real-file" hidden="hidden" />
                         <button type="button" id="custom-button"><i class="fas fa-camera"></i><span id="custom-text"style="color:white;">Choose your Photo</span></button>
                     </div>
                     <div style="text-align: center;">
