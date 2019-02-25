@@ -53,9 +53,10 @@ class UsersCrudController extends CrudController
     public function update(UpdateRequest $request)
     {
         // your additional operations before save here
+        $request['password'] = bcrypt($request->password);
         $redirect_location = parent::updateCrud($request);
         // your additional operations after save here
-        // use $this->data['entry'] or $this->crud->entry
+        
         return $redirect_location;
     }
 }

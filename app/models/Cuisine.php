@@ -7,7 +7,7 @@ namespace App\models;
 		protected $fillable = ['name'];	
 		
 		public function res(){
-        	return $this->hasMany('App\models\Restaurant');
+        	return $this->belongsToMany('App\models\Restaurant');
     	}
 	}
 ?>
