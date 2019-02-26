@@ -4,8 +4,9 @@ namespace App\models;
 use Illuminate\Database\Eloquent\Model;
 	
 class Review   extends Model
-{
-        protected $fillable = ['title', 'description', 'overallRating', 'review']; 
+
+	{
+	protected $fillable = ['title', 'description', 'overallRating', 'review']; 
 	
 	public function res(){
 		return $this->belongsTo('App\models\Restaurant');

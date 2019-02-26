@@ -5,16 +5,16 @@ namespace App\Http\Controllers\Admin;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\MealsRequest as StoreRequest;
-use App\Http\Requests\MealsRequest as UpdateRequest;
+use App\Http\Requests\ProvincesRequest as StoreRequest;
+use App\Http\Requests\ProvincesRequest as UpdateRequest;
 use Backpack\CRUD\CrudPanel;
 
 /**
- * Class MealsCrudController
+ * Class ProvincesCrudController
  * @package App\Http\Controllers\Admin
  * @property-read CrudPanel $crud
  */
-class MealsCrudController extends CrudController
+class ProvincesCrudController extends CrudController
 {
     public function setup()
     {
@@ -23,9 +23,9 @@ class MealsCrudController extends CrudController
         | CrudPanel Basic Information
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\models\Meal');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/meals');
-        $this->crud->setEntityNameStrings('meals', 'meals');
+        $this->crud->setModel('App\models\Province');
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/provinces');
+        $this->crud->setEntityNameStrings('provinces', 'provinces');
 
         /*
         |--------------------------------------------------------------------------
@@ -36,7 +36,7 @@ class MealsCrudController extends CrudController
         // TODO: remove setFromDb() and manually define Fields and Columns
         $this->crud->setFromDb();
 
-        // add asterisk for fields that are required in MealsRequest
+        // add asterisk for fields that are required in ProvincesRequest
         $this->crud->setRequiredFields(StoreRequest::class, 'create');
         $this->crud->setRequiredFields(UpdateRequest::class, 'edit');
     }

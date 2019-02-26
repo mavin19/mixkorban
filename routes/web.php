@@ -14,9 +14,7 @@
 // Rout::resource('/restaurant');
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/', function(){
-    return view('home');
-})->name('home');
+Route::get('/',"HomeController@slide_restaurant")->name('home');
 
 // Route::get('/', 'HomeController@index')->name('home');
 
@@ -34,8 +32,9 @@ Route::get('/review', function(){
     return view('forms.review_form');
 });
 Route::get('/detail', function(){
-    return view('review_pro');
+    return view('restaurant_detail');
 });
+
 Route::get('/profile', "test\UserProfileController@index");
 
 
@@ -83,4 +82,3 @@ Route::group(['prefix' => 'laravel-crud-image-gallery'], function () {
 
 
 Auth::routes();
-

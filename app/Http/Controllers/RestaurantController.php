@@ -33,7 +33,23 @@ class RestaurantController extends Controller
 
     public function restaurant_detail($id)
     {
-        return view('restaurant_detail');
+        $restaurant = Restaurant::find($id);
+        $restaurants = Restaurant::paginate(4);
+        $cuisines = $restaurant->cuisines()->getResults();
+        $meals = $restaurant->meals()->getResults();
+        $features = $restaurant->features()->getResults();
+        $time = $restaurant->time()->getResults();
+        $data = [
+            'cuisines' => $cuisines,
+            'restaurant' => $restaurant,
+            'meals' => $meals,
+            'features' => $features,
+            'time' => $time,
+            'restaurants' => $restaurants
+        ];
+
+
+        return view('restaurant_detail',$data);
     }
 
     public function create_restaurant()
@@ -83,7 +99,7 @@ class RestaurantController extends Controller
 
     public function store_restaurant(RestaurantRequest $request)
     {
-        dd($request->file());
+
         $request->validated();
         $cuisine_table = \App\models\Cuisine::all();
         $meal_table = \App\models\Meal::all();
@@ -124,11 +140,7 @@ class RestaurantController extends Controller
                 $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
                 $extension = $file->getClientOriginalExtension();
                 $fileNameToStore = $fileName.'_'.time().'.'.$extension;
-                $path = $file->storeAs('public/restaurant_imgs'
-                
-                
-                
-                , $fileNameToStore);
+                $path = $file->storeAs('public/restaurant_imgs', $fileNameToStore);
                 
                 // save image path 
                 $res_img = new \App\models\Restaurant_img;

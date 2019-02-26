@@ -4,8 +4,9 @@ use Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\ Support\ Facades\ Log;
+
 use Illuminate\Support\Facades\File;
-// Models
+use App\models\Restaurant;
 use App\models;
 class RestaurantOwnerController extends Controller
 {
@@ -16,10 +17,26 @@ class RestaurantOwnerController extends Controller
             return redirect('');
         
         $restaurant_instance = \App\models\Restaurant::where('owner_id',$owner->id)->first();
-        if($restaurant_instance == null) // if restaurant owner doesn't have restaurant yet, redirect them to restaurant register form
+        if($restaurant_instance == null) // if restaurant owner doesn't have restaurant yet, redirect them to restaurant register form    
             return redirect()->route('res_register');
-        
-        return view('restaurant_detail',['restaurant'=>$restaurant_instance]);
+
+        $restaurant = Restaurant::where("owner_id",$owner->id)->first();
+        $restaurants = Restaurant::paginate(4);
+        $cuisines = $restaurant->cuisines()->getResults();
+        $meals = $restaurant->meals()->getResults();
+        $features = $restaurant->features()->getResults();
+        $time = $restaurant->time()->getResults();
+        $data = [
+            'cuisines' => $cuisines,
+            'restaurant' => $restaurant,
+            'meals' => $meals,
+            'features' => $features,
+            'time' => $time,
+            'restaurants' => $restaurants
+        ];
+        return view('restaurant_detail',$data);
+
+
     }
     public function ownerRegisterStore(Request $request)
     {  
@@ -65,7 +82,7 @@ class RestaurantOwnerController extends Controller
     }
     public function index()
     {
-        // $userprofile = User::find($id);
+        $userprofile = User::find($id);
         $restaurant = Auth::user();
         $data = [
             'user'=> $restaurant
@@ -103,7 +120,7 @@ class RestaurantOwnerController extends Controller
             $path = $image->storeAs('public/user_img', $filename);
             $oldFilename=$user->profile_img;
             
-            if($oldFilename != 'default_user_img.png'){
+            if($oldFilename != 'IMG_8966.jpg'){
                 if(File::exists(public_path('storage\\'.$oldFilename))){
                     // delete & change img data in user table
                     File::delete(public_path('storage\\'.$oldFilename));

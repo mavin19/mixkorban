@@ -55,7 +55,7 @@ Owner Register
                     {{-- <div>
                         <label><b>Profile</b></label>
                         <div id="profile-container">
-                        <img id="profileImage" src="{{ asset('image/default-profile.png') }}" />
+                        <img id="profileImage" src="{{ asset('image/IMG_8966.jpg') }}" />
                         </div>
                         <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" required="" capture>
                     </div> --}}
