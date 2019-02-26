@@ -23,7 +23,7 @@ class FeaturesCrudController extends CrudController
         | CrudPanel Basic Information
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\Features');
+        $this->crud->setModel('App\models\Feature');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/features');
         $this->crud->setEntityNameStrings('features', 'features');
 

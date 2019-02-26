@@ -23,7 +23,7 @@ class UserTypesCrudController extends CrudController
         | CrudPanel Basic Information
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\UserTypes');
+        $this->crud->setModel('App\models\UserType');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/usertypes');
         $this->crud->setEntityNameStrings('user_types', 'user_types');
 

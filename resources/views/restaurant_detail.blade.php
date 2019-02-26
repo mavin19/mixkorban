@@ -52,7 +52,7 @@ Restaurant Detail
 @stop('staticfiles')
 @section('body')
 <div class="container">
-    <H1 class="p-5">Panorama</H1>
+    <H1 class="p-5">{{$restaurant->name}}</H1>
     <div class="row">
       <div class="col-4 ">
           <img class="img-responsive" src="/image/panorama.jpg" alt="Chania" width="500" height="355">
@@ -72,9 +72,32 @@ Restaurant Detail
      <div class="col-md-6">
         <h3>Overview</h3>
         <div class="overview">
-            <h6><i class="far fa-clock" style="color:red"></i> Close Now Hour | Cusine</h6>
-            <div>Cambodia, vegetarian, friendly, vegan options</div>
-            <div>Price | $$$$</div>
+            <h6>
+                <i class="far fa-clock" style="color:red">
+                    Close Now Hour |
+                </i>
+                @foreach($cuisines as $cuisine)
+                    <span>{{$cuisine->name}} ,</span>
+                @endforeach
+            </h6>
+            <div>
+                @if($restaurant->veganOpt)
+                    Vegantable
+                @endif
+            </div>
+            <div>
+                @foreach($meals as $meal)
+                    <span>{{$meal->name}} ,</span>
+                @endforeach
+            </div>
+            <div>
+                @foreach($features as $feature)
+                    <span>{{$feature->name}} ,</span>
+                @endforeach
+            </div>
+            <div>
+                Price | $$$$
+            </div>
             <div class="row">
                 <p style="padding-left:15px;">Rating </p>
                 <p class="overview">Food</p>
@@ -117,13 +140,17 @@ Restaurant Detail
                 </div>
             </div>
 
-            <h6 ><i class="fas fa-home" style="color:green;"></i>
-                Between Phsar Dey Hoy market and Angkor High School | Wat Damnak Villige, Sala Kamreuk
-                Commune Siem Reap 17000, Cambodia
-                All detail improve This Listing</h6>
-            <h6 ><i class="fas fa-phone"style="color:green; padding-right:10px;"></i>+885 12 546 784  
-                <i class="fas fa-globe-americas icon"></i>WWW.Mixkorban.com.kh 
-                <i class="fas fa-bars icon"></i>Menu</h6>
+            <h6><i class="fas fa-home" style="color:green;"></i>
+                {{$restaurant->address}}
+            </h6>
+            <h6 >
+                <i class="fas fa-phone"style="color:green; padding-right:10px;"></i>(+855) {{$restaurant->phoneNumber}}
+                @if($restaurant->website)
+                    
+                    <i class="fas fa-globe-americas icon"></i>
+                    <a href="{{$restaurant->website}}">{{$restaurant->website}}</a>
+                @endif
+            </h6>
         </div>
     </div>   
     <div class="col-3" style="float:right; margin-left:230px;"> 
@@ -140,19 +167,33 @@ Restaurant Detail
             <tbody>
                 <tr>
                     <th scope="col-md-3">Average Prices</th>
-                    <th scope="col-md-3">Average PricesAverage PricesAverage PricesAverage</th>
+                    <th scope="col-md-3">
+                       sss
+                    </th>
                 </tr>
                 <tr>
                     <th scope="col">Culsine</th>
-                    <th scope="col-md-3">Average PricesAverage PricesAverage PricesAverage</th>
+                    <th scope="col-md-3">
+                        @foreach($cuisines as $cuisine)
+                            <span>{{$cuisine->name}} ,</span>
+                        @endforeach
+                    </th>
                 </tr>
                 <tr>
                     <th scope="col">Meals</th>
-                    <th scope="col-md-3">Average PricesAverage PricesAverage PricesAverage</th>
+                    <th scope="col-md-3">
+                        @foreach($meals as $meal)
+                            <span>{{$meal->name}} ,</span>
+                        @endforeach
+                    </th>
                 </tr>
                 <tr>
                     <th scope="col">Restaurant Features</th>
-                    <th scope="col-md-3">Average PricesAverage PricesAverage PricesAverage</th>
+                    <th scope="col-md-3">
+                        @foreach($features as $feature)
+                            <span>{{$feature->name}} ,</span>
+                        @endforeach
+                    </th>
                 </tr>
                 <tr>
                     <th scope="col">Open Hours</th>
@@ -163,49 +204,19 @@ Restaurant Detail
     </div>
     <div class="container fluid">
         <h3 class="mt-4"><b>You may also like</b></h3>
-        <div class="row">
-            <div class="card" style="width: 15rem;">
-                <img src="/image/panorama.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Food</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <div class="row justify-content-center">
+             @foreach($restaurants as $restaurant)
+                <div class="card mr-5" style="width: 15rem;">
+                    <a href="{{route('restaurant_detail',['id'=>$restaurant->id]) }}"><img class="card-img-top" alt="..." src="{{asset('storage/restaurant_imgs/'.$restaurant->getOneImgLoc()) }}"></a>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                                <span><a href="{{route('restaurant_detail',['id'=>$restaurant->id]) }}">{{ $restaurant->name }}</a></span>
+                        </h5>
+                        <p class="card-text">{{$restaurant->detail}}</p>
+                    </div>
                 </div>
-            </div>
-            <div class="card" style="width: 15rem;">
-                <img src="/image/panorama.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Drink</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-            <div class="card" style="width: 15rem;">
-                <img src="/image/panorama.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Fry</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-            <div class="card" style="width: 15rem;">
-                <img src="/image/panorama.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Draft</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-            <div class="card" style="width: 15rem;">
-                <img src="/image/panorama.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Draft</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-            <div class="card" style="width: 15rem;">
-                <img src="/image/panorama.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Draft</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
+            @endforeach
+            
         </div>
         
     </div>

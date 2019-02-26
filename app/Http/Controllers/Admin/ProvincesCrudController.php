@@ -23,7 +23,7 @@ class ProvincesCrudController extends CrudController
         | CrudPanel Basic Information
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\Provinces');
+        $this->crud->setModel('App\models\Province');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/provinces');
         $this->crud->setEntityNameStrings('provinces', 'provinces');
 

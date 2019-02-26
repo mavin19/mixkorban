@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\ Support\ Facades\ Log;
 
 use Illuminate\Support\Facades\File;
+use App\models\Restaurant;
 use App\models;
 class RestaurantOwnerController extends Controller
 {
@@ -16,10 +17,26 @@ class RestaurantOwnerController extends Controller
             return redirect('');
         
         $restaurant_instance = \App\models\Restaurant::where('owner_id',$owner->id)->first();
-        if($restaurant_instance == null) // if restaurant owner doesn't have restaurant yet, redirect them to restaurant register form
+        if($restaurant_instance == null) // if restaurant owner doesn't have restaurant yet, redirect them to restaurant register form    
             return redirect()->route('res_register');
-        
-        return view('restaurant_detail',['restaurant'=>$restaurant_instance]);
+
+        $restaurant = Restaurant::where("owner_id",$owner->id)->first();
+        $restaurants = Restaurant::paginate(4);
+        $cuisines = $restaurant->cuisines()->getResults();
+        $meals = $restaurant->meals()->getResults();
+        $features = $restaurant->features()->getResults();
+        $time = $restaurant->time()->getResults();
+        $data = [
+            'cuisines' => $cuisines,
+            'restaurant' => $restaurant,
+            'meals' => $meals,
+            'features' => $features,
+            'time' => $time,
+            'restaurants' => $restaurants
+        ];
+        return view('restaurant_detail',$data);
+
+
     }
     public function ownerRegisterStore(Request $request)
     {  

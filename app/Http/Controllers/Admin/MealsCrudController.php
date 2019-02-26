@@ -23,7 +23,7 @@ class MealsCrudController extends CrudController
         | CrudPanel Basic Information
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\Meals');
+        $this->crud->setModel('App\models\Meal');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/meals');
         $this->crud->setEntityNameStrings('meals', 'meals');
 

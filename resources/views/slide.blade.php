@@ -11,7 +11,6 @@
 
 <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
-  
 </head>
 
 <body>
@@ -30,11 +29,11 @@
 				<!-- Start Demo -->
 
 				<div class="cache">
-					masks
-					<img src="https://tympanus.net/Tutorials/PrismEffectSlider/img/masks/cube-a.svg">
+					masks 
+					<img src="https://tympanus.net/Tutorials/PrismEffectSlider/img/masks/cube-a.svg"> -->
 					<img src="https://tympanus.net/Tutorials/PrismEffectSlider/img/masks/cube-b.svg">
 					<img src="ihttps://tympanus.net/Tutorials/PrismEffectSlider/img/masks/cube-c.svg">
-					<!-- photos -->
+					photos
 					<img src="/image/restaurant1.jpg">
 					<img src="/image/restaurant2.jpg">
 					<img src="/image/restaurant3.jpeg">
@@ -47,10 +46,9 @@
 					</div>
 					<div class="copy copy--left">
 						<article>
-							<h2>Nature Reveals</h2>
+							<h2>{{$restaurant->name}}</h2>
 							<p>
-								Our physical world, respect and explore,
-								Where water meets land; a beautiful shore.
+								{{$restaurant->detail}}
 							</p>
 						</article>
 					</div>
@@ -64,7 +62,7 @@
 
 	</body>
 </html>
-  <script src='https://tympanus.net/Tutorials/PrismEffectSlider/js/PrismSlider.js'></script>
+<script src='https://tympanus.net/Tutorials/PrismEffectSlider/js/PrismSlider.js'></script>
 <script src='https://tympanus.net/Tutorials/PrismEffectSlider/js/utils/easing.js'></script>
 <script src='https://tympanus.net/Tutorials/PrismEffectSlider/js/utils/rAF.js'></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
@@ -72,10 +70,6 @@
   
 
 <script src="{{ asset('js/index.js') }}"></script> 
-
-
-
-
 </body>
 
 </html>

@@ -14,9 +14,7 @@
 // Rout::resource('/restaurant');
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/', function(){
-    return view('home');
-})->name('home');
+Route::get('/',"HomeController@slide_restaurant")->name('home');
 
 // Route::get('/', 'HomeController@index')->name('home');
 
@@ -36,6 +34,7 @@ Route::get('/review', function(){
 Route::get('/detail', function(){
     return view('restaurant_detail');
 });
+
 Route::get('/profile', "test\UserProfileController@index");
 
 
