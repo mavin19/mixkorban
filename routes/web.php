@@ -72,6 +72,16 @@ Route::get('/review_form','ReviewController@review_create')->name('review_create
 Route::post('/review_form','ReviewController@review_store')->name('review_post');
 Auth::routes();
 
+Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
+Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
+
+Route::get('login/google', 'Auth\LoginController@redirectToProvider1');
+Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback1');
+
+
+//restaurant ower edit
+Route::get('/ownerprofileupdate','RestaurantOwnerController@updateForm')->name('edit-restaurant-owner');
+
 Route::group(['prefix' => 'laravel-crud-image-gallery'], function () {
     Route::get('/', 'RestaurantOwnerController@index');
     Route::match(['get', 'post'], 'create', 'RestaurantOwnerController@create');
@@ -81,4 +91,3 @@ Route::group(['prefix' => 'laravel-crud-image-gallery'], function () {
 
 
 
-Auth::routes();
