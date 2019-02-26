@@ -74,3 +74,12 @@
         </form>
     </div>
 </div>
+
+@if ($errors->has('email'))
+    <script>
+        $(document).ready(function(){
+            var a = $('#login_btn');
+            a.trigger('click');
+        })
+    </script>
+@endif

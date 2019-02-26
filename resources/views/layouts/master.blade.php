@@ -57,7 +57,7 @@
         <ul id="login-signup-wrapper">
             @guest
                 <li class="nav-item" id="user_btn_li">
-                    <a class="btn" data-toggle="modal" data-target=".bd-login-modal-md">{{ __('Login') }}</a>
+                    <a class="btn" id="login_btn" data-toggle="modal" data-target=".bd-login-modal-md">{{ __('Login') }}</a>
                     <div class="modal fade bd-login-modal-md" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-md" role="document">
                             <div class="modal-content">
@@ -128,6 +128,13 @@
     
 {{-- content --}}
 @yield('body')
+<script>
+
+    var a = $('#login_btn');
+    console.log(a);
+    a.trigger("click");
+
+</script>
 {{--  --}}
 @yield('scripts')
 {{-- footer --}}
@@ -174,6 +181,7 @@
         </div>
     </div>
 </div>
+
 </footer>
 {{--  --}}
 </body>
