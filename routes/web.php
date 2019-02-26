@@ -57,7 +57,9 @@ Route::get('/ownerprofileupdate','RestaurantOwnerController@updateForm')->name('
 Route::get('/payment','BillInfoController@bill_info_create')->name('payment_form');
 Route::post('/payment-store','BillInfoController@bill_info_store')->name('payment_store');
 //User
-Route::get('/userprofileupdate','UserProfileController@updateForm')->name('edit-restaurant-owner');
+Route::post('/user-store','UserProfileController@UserStore')->name('user_img_store');
+Route::post('/user_update','test\UserProfileController@update_user_profile')->name('update-user-owner');
+Route::get('/userprofileupdate','test\UserProfileController@updateForm')->name('edit-user-owner');
 
 // restaurant 
 // Route::resource('restaurant','RestaurantController');
@@ -66,9 +68,8 @@ Route::post('/restaurant-store','RestaurantController@store_restaurant')->name('
 Route::get('/restaurants', 'RestaurantController@index_restaurant')->name('res_index');
 Route::get('/restaurant/{id}', 'RestaurantController@restaurant_detail')->name('restaurant_detail');
 
-
-//restaurant ower edit
-Route::get('/ownerprofileupdate','RestaurantOwnerController@updateForm')->name('edit-restaurant-owner');
+//review form
+Route::post('/review_form','ReviewController@review_post')->name('review_post');
 Auth::routes();
 
 Route::group(['prefix' => 'laravel-crud-image-gallery'], function () {
@@ -78,6 +79,6 @@ Route::group(['prefix' => 'laravel-crud-image-gallery'], function () {
     Route::delete('delete/{id}', 'RestaurantOwnerController@delete');
 });
 
-Route::get('/review_form','ReviewController@review_create')->name('review_form');
+
 
 Auth::routes();

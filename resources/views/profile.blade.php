@@ -76,7 +76,6 @@ Profile
 </div>
 @endif
 @section('scripts')
-<script src="{{ asset('js/profile_picture.js') }}"></script>
 <script src="{{ asset('js/button.js ') }}"></script> 
 @endsection
 @endsection

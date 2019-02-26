@@ -33,6 +33,10 @@ class RestaurantController extends Controller
 
     public function restaurant_detail($id)
     {
+        $restaurant = Restaurant::find($id);
+        $cuisines = $restaurant->cuisines()->getResults();
+        
+
         return view('restaurant_detail');
     }
 

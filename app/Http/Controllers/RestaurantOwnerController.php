@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -9,7 +7,6 @@ use Illuminate\ Support\ Facades\ Log;
 
 use Illuminate\Support\Facades\File;
 use App\models;
-
 class RestaurantOwnerController extends Controller
 {
     public function getRestaurant()
@@ -24,8 +21,6 @@ class RestaurantOwnerController extends Controller
         
         return view('restaurant_detail',['restaurant'=>$restaurant_instance]);
     }
-
-
     public function ownerRegisterStore(Request $request)
     {  
         $validatedData = Validator::make($request->all(),[
@@ -36,12 +31,10 @@ class RestaurantOwnerController extends Controller
             'phone' => 'required|regex:/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\.0-9]*$/',
             'password' => 'required'
         ]);
-
         if($validatedData->fails())
         {
             return redirect('res-owner-register')->withErrors($validatedData)->withInput();
         }
-
         $user_type_id = \App\models\UserType::where('name','Restaurant owner')->first()->id;
         
         // first, create user 
@@ -50,7 +43,7 @@ class RestaurantOwnerController extends Controller
         $user->last_name = $request->lastname;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
-        $user->profile_img = 'IMG_8966.jpg';
+        $user->profile_img = 'default_user_img.png';
         $user->user_type_id = $user_type_id;
         $user->save();
         
@@ -63,7 +56,6 @@ class RestaurantOwnerController extends Controller
         
         // after the owner has register we login immedietly
         $credential = $request->only('email','password');
-
         if(Auth::attempt($credential))
         {
             // jam ask kru
@@ -80,7 +72,6 @@ class RestaurantOwnerController extends Controller
         ];
         return view('profile',$data);
     }
-
     public function updateForm(){
         $user = Auth::user();
         $restaurant_owner= \App\models\Restaurant_owner::where('u_id',$user->id )->first();
@@ -119,7 +110,6 @@ class RestaurantOwnerController extends Controller
                 }
             }
             $user->profile_img = $filename;
-
         }
         
         $user->first_name = $request->firstname;
@@ -134,5 +124,4 @@ class RestaurantOwnerController extends Controller
         $restaurant_owner->save();
         return redirect('/profile');
     }
-
 }

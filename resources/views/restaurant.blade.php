@@ -95,7 +95,7 @@ Restaurant
 				<div class="col-sm-4">
 					<div class="res_container">
 						<div class="res_img_crop">
-							<a href="#"><img src="{{asset('storage/restaurant_imgs/'.$restaurant->getOneImgLoc()) }}" width="300"></a>
+							<a href="{{route('restaurant_detail',['id'=>$restaurant->id]) }}"><img src="{{asset('storage/restaurant_imgs/'.$restaurant->getOneImgLoc()) }}" width="300"></a>
 						</div>
 						<p><a href="#">{{ $restaurant->name }}</a></p>
 						<div class="review_res">
