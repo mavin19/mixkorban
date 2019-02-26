@@ -90,8 +90,9 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="text-align:center">
-                        {{-- @if(Auth::isRestaurantOwner()) --}}
+                        @if(Auth::user()->isRestaurantOwner())
                         <a class="dropdown-item" href="{{route('my_restaurant') }}" style="color:black">Restaurant</a>
+                        @endif
                         <a class="dropdown-item" href="{{ url('/profile') }}" style="color:black">
                             {{ __('Profile') }}
                         </a>

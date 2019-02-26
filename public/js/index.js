@@ -44,7 +44,6 @@ var slideshow = (function(window, undefined) {
   var slides = [
     '/image/restaurant1.jpg',
     '/image/restaurant2.jpg',
-    '/image/restaurant3.jpeg',
     '/image/cocktail.jpg'
   ];
 

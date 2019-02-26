@@ -19,7 +19,6 @@ Restaurant
 						<p>Cuisine</p>
 						<ul type="none">
 							@foreach ($cuisines as $cuisine)
-							
 								<li>									
 									<div><input type="checkbox" name="cuisines[]"></div>
 									<div>{{$cuisine->name}}</div>
@@ -35,7 +34,7 @@ Restaurant
 					<div class="filter-each">
 						<p>Meals</p>
 						<ul type="none">
-								@foreach ($meals as $meal)
+							@foreach ($meals as $meal)
 							
 								<li>									
 									<div><input type="checkbox" name="meals[]"></div>
@@ -153,7 +152,6 @@ Restaurant
 		onChange: function(data){
 			$('#range-btn').css('visibility','unset');
 		}
-        // grid: true
 	});
 </script>
 @endsection

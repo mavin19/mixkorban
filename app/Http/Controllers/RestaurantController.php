@@ -99,7 +99,7 @@ class RestaurantController extends Controller
 
     public function store_restaurant(RestaurantRequest $request)
     {
-
+        // dd($request->all());
         $request->validated();
         $cuisine_table = \App\models\Cuisine::all();
         $meal_table = \App\models\Meal::all();
@@ -130,6 +130,17 @@ class RestaurantController extends Controller
         $restaurant->owner_id = $owner_id;
 
         $restaurant->save();
+
+        // tiime price
+        $time_price = new \App\models\Time_price;
+        $time_price->openTime = date("H:i", strtotime($request->from_time));
+        $time_price->closeTime = date("H:i", strtotime($request->to_time));
+        $time_price->minPrice = $request->from_khr;
+        $time_price->maxPrice = $request->to_khr;
+        $time_price->restaurant_id = $restaurant->id;
+        $time_price->save();
+
+
 
         // // saving the images
         if($request->hasFile('imgs'))
