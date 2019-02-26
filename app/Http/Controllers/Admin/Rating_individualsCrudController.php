@@ -23,7 +23,7 @@ class Rating_individualsCrudController extends CrudController
         | CrudPanel Basic Information
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\Rating_individuals');
+        $this->crud->setModel('App\models\Rating_individual');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/rating_individuals');
         $this->crud->setEntityNameStrings('rating_individuals', 'rating_individuals');
 

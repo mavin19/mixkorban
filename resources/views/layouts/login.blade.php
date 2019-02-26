@@ -6,12 +6,20 @@
         <span aria-hidden="true">&times;</span>
         </button>
     </div>
+
+    <script>
+        $(document).ready(function(){
+            a =$('#s');
+            a.trigger('click');
+        })
+        
+    </script>
     <div class="modal-body">
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
             <div class="form-group row">
-                <label for="email" class="col-sm-4 col-form-label">{{ __('E-Mail Address') }}</label>
+                <label for="email" class="col-sm-4 col-form-label">{{ __('E-Mail ') }}</label>
 
                 <div class="col-sm-6">
                     <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
@@ -31,6 +39,7 @@
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $errors->first('password') }}</strong>
                         </span>
+                        
                     @endif
                 </div>
             </div>
@@ -72,6 +81,7 @@
                 </button>
             </div>
         </form>
+
     </div>
 </div>
 

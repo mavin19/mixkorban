@@ -26,18 +26,18 @@ Review_form
         </div>
         <hr>
         <div>
-            <form>
+            <form method="POST" enctype="multipart/form-data" action="{{route('review_post')}}">
                 <p> <b>Overall Rate</b></p>
                     @include("star")
                 <div class="form-group">
                     <label for="review title"><b>Review's title</b></label>
-                    <input type="text" class="form-control" id="review title" >
+                    <input type="text" class="form-control" id="review title" name="title" >
                 </div>
                 
 
                 <div class="form-group">
                     <label for="your review"><b>Your Review</b></label>
-                    <textarea class="form-control" id="your review" rows="3"></textarea>
+                    <textarea class="form-control" id="your review" rows="3" name="description"></textarea>
                 </div>
                 <p><b>Select to rate</b></p>
                 <ul type=none class="list" >

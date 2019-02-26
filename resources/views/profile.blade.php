@@ -68,11 +68,14 @@ Profile
         <p> Lastname : {{ $user->last_name }} </p>
         <hr>
         <p> Email : {{ $user->email }}</p>
+        <hr>
+        <a class="btn-success" style="display:inline-block;border: 1px solid;padding: 5px 15px;" href="/ownerprofileupdate">Edit</a>
     </div>
+    
+    
 </div>
 @endif
 @section('scripts')
-<script src="{{ asset('js/profile_picture.js') }}"></script>
 <script src="{{ asset('js/button.js ') }}"></script> 
 @endsection
 @endsection

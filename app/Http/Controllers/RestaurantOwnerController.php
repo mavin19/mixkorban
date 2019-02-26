@@ -1,15 +1,13 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\ Support\ Facades\ Log;
 
-// Models
+use Illuminate\Support\Facades\File;
+use App\models\Restaurant;
 use App\models;
-
 class RestaurantOwnerController extends Controller
 {
     public function getRestaurant()
@@ -19,13 +17,27 @@ class RestaurantOwnerController extends Controller
             return redirect('');
         
         $restaurant_instance = \App\models\Restaurant::where('owner_id',$owner->id)->first();
-        if($restaurant_instance == null) // if restaurant owner doesn't have restaurant yet, redirect them to restaurant register form
+        if($restaurant_instance == null) // if restaurant owner doesn't have restaurant yet, redirect them to restaurant register form    
             return redirect()->route('res_register');
-        
-        return view('restaurant_detail',['restaurant'=>$restaurant_instance]);
+
+        $restaurant = Restaurant::where("owner_id",$owner->id)->first();
+        $restaurants = Restaurant::paginate(4);
+        $cuisines = $restaurant->cuisines()->getResults();
+        $meals = $restaurant->meals()->getResults();
+        $features = $restaurant->features()->getResults();
+        $time = $restaurant->time()->getResults();
+        $data = [
+            'cuisines' => $cuisines,
+            'restaurant' => $restaurant,
+            'meals' => $meals,
+            'features' => $features,
+            'time' => $time,
+            'restaurants' => $restaurants
+        ];
+        return view('restaurant_detail',$data);
+
+
     }
-
-
     public function ownerRegisterStore(Request $request)
     {  
         $validatedData = Validator::make($request->all(),[
@@ -36,12 +48,10 @@ class RestaurantOwnerController extends Controller
             'phone' => 'required|regex:/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\.0-9]*$/',
             'password' => 'required'
         ]);
-
         if($validatedData->fails())
         {
             return redirect('res-owner-register')->withErrors($validatedData)->withInput();
         }
-
         $user_type_id = \App\models\UserType::where('name','Restaurant owner')->first()->id;
         
         // first, create user 
@@ -50,7 +60,7 @@ class RestaurantOwnerController extends Controller
         $user->last_name = $request->lastname;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
-        $user->profile_img = 'Change this column to nullable later';
+        $user->profile_img = 'default_user_img.png';
         $user->user_type_id = $user_type_id;
         $user->save();
         
@@ -74,7 +84,7 @@ class RestaurantOwnerController extends Controller
     }
     public function index()
     {
-        // $userprofile = User::find($id);
+        $userprofile = User::find($id);
         $restaurant = Auth::user();
         $data = [
             'user'=> $restaurant
@@ -89,5 +99,48 @@ class RestaurantOwnerController extends Controller
             'user'=> $user
         ];
         return view('editProfileRestaurantOwner',$data);
+    }
+    
+    public function update_restaurant(Request $request){
+        $request->validate([
+            'firstname' => 'required',
+            'lastname'=>'required',
+            'email'=>'required  |email ',
+            'phone'=>'required |regex:/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\.0-9]*$/ ',
+            'address'=>'required',
+            'password'=>'nullable',
+            'img'=>'file|mimes:jpeg,png,webp|nullable'
+        ]);
+        
+        $user=Auth::user();
+        $restaurant_owner=\App\models\Restaurant_owner::where('u_id',$user->id)->first();
+            
+        if($request->hasFile('img')){
+            $image=$request->file('img');
+            $filename=time(). '.' .$image->getClientOriginalExtension();
+            // $location=public_path('user_img/' . $filename);
+            $path = $image->storeAs('public/user_img', $filename);
+            $oldFilename=$user->profile_img;
+            
+            if($oldFilename != 'IMG_8966.jpg'){
+                if(File::exists(public_path('storage\\'.$oldFilename))){
+                    // delete & change img data in user table
+                    File::delete(public_path('storage\\'.$oldFilename));
+                }
+            }
+            $user->profile_img = $filename;
+        }
+        
+        $user->first_name = $request->firstname;
+        $user->last_name = $request->lastname;
+        $user->email= $request->email;
+        if ($request->has('password')){
+            $user->password=bcrypt($request->password);
+        }
+        $restaurant_owner->phone=$request->phone;
+        $restaurant_owner->address=$request->address;
+        $user->save();
+        $restaurant_owner->save();
+        return redirect('/profile');
     }
 }

@@ -14,9 +14,7 @@
 // Rout::resource('/restaurant');
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/', function(){
-    return view('home');
-})->name('home');
+Route::get('/',"HomeController@slide_restaurant")->name('home');
 
 // Route::get('/', 'HomeController@index')->name('home');
 
@@ -34,8 +32,9 @@ Route::get('/review', function(){
     return view('forms.review_form');
 });
 Route::get('/detail', function(){
-    return view('review_pro');
+    return view('restaurant_detail');
 });
+
 Route::get('/profile', "test\UserProfileController@index");
 
 
@@ -49,12 +48,17 @@ Route::get('/res-owner-register', function(){
         return redirect('');
 })->name('owner_register');
 Route::post('/res-owner-store','RestaurantOwnerController@ownerRegisterStore')->name('owner_reg_store');
+Route::post('/restaurant_update','RestaurantOwnerController@update_restaurant')->name('update_restaurant_owner');
+Route::get('/ownerprofileupdate','RestaurantOwnerController@updateForm')->name('edit-restaurant-owner');
 
 
 // payment
 Route::get('/payment','BillInfoController@bill_info_create')->name('payment_form');
 Route::post('/payment-store','BillInfoController@bill_info_store')->name('payment_store');
-
+//User
+Route::post('/user-store','UserProfileController@UserStore')->name('user_img_store');
+Route::post('/user_update','test\UserProfileController@update_user_profile')->name('update-user-owner');
+Route::get('/userprofileupdate','test\UserProfileController@updateForm')->name('edit-user-owner');
 
 // restaurant 
 // Route::resource('restaurant','RestaurantController');
@@ -63,10 +67,9 @@ Route::post('/restaurant-store','RestaurantController@store_restaurant')->name('
 Route::get('/restaurants', 'RestaurantController@index_restaurant')->name('res_index');
 Route::get('/restaurant/{id}', 'RestaurantController@restaurant_detail')->name('restaurant_detail');
 
+//review form
+Route::post('/review_form','ReviewController@review_post')->name('review_post');
 Auth::routes();
-
-//restaurant ower edit
-Route::get('/ownerprofileupdate','RestaurantOwnerController@updateForm')->name('edit-restaurant-owner');
 
 Route::group(['prefix' => 'laravel-crud-image-gallery'], function () {
     Route::get('/', 'RestaurantOwnerController@index');
@@ -75,7 +78,6 @@ Route::group(['prefix' => 'laravel-crud-image-gallery'], function () {
     Route::delete('delete/{id}', 'RestaurantOwnerController@delete');
 });
 
-Route::get('/review_form','ReviewController@review_create')->name('review_form');
+
 
 Auth::routes();
-

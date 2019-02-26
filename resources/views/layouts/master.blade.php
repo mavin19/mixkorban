@@ -125,7 +125,9 @@
     </div>
 </div>
 
-    
+<script>
+
+</script>
 {{-- content --}}
 @yield('body')
 <script>

@@ -10,8 +10,8 @@ class Restaurant extends Model
     use CrudTrait;
     protected $model = "restaurants";
 
-    protected $fillable = ['name','detail','phoneNumber','address','website','veganOpt','isPublish'];
 
+    protected $fillable = ['name','detail','phoneNumber','address','website','veganOpt','isPublish'];
     public $primaryKey='id';
  
     public function restaurant_owner(){
@@ -57,6 +57,9 @@ class Restaurant extends Model
 
     public function getOneImgLoc()
     {
-        return \App\models\Restaurant_img::where('restaurant_id',$this->id)->first()->file_loc;
+        $img_instance = \App\models\Restaurant_img::where('restaurant_id',$this->id)->first();
+        if($img_instance != null)
+            return $img_instance->file_loc;
+        return null;
     }
 }
