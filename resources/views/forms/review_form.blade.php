@@ -27,6 +27,7 @@ Review_form
         <hr>
         <div>
             <form method="POST" enctype="multipart/form-data" action="{{route('review_post')}}">
+                @csrf
                 <p> <b>Overall Rate</b></p>
                     @include("star")
                 <div class="form-group">

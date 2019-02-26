@@ -10,14 +10,13 @@ class ReviewController extends Controller
 {
     
 
-    public function review_store(Request $request){
+    public function review_store(Request $request,$res_id){
        
         $request->validate([
-            'title' => 'require',
-            'description' => 'require'
+            'title' => 'required',
+            'description' => 'required'
         ]);
         $user_id= Auth::user()->id;
-        $owner = \App\models\Restaurant_owner::where('u_id',$user_id)->first();
         $restaurant = \App\models\Restaurant::where('owner_id',$owner->id)->first();
         
 
