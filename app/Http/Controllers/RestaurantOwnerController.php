@@ -73,6 +73,8 @@ class RestaurantOwnerController extends Controller
         
         // after the owner has register we login immedietly
         $credential = $request->only('email','password');
+
+
         if(Auth::attempt($credential))
         {
             // jam ask kru

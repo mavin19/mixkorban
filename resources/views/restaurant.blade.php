@@ -153,7 +153,6 @@ Restaurant
 		onChange: function(data){
 			$('#range-btn').css('visibility','unset');
 		}
-        // grid: true
 	});
 </script>
 @endsection
