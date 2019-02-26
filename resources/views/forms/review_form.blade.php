@@ -65,7 +65,7 @@ Review_form
                 </ul>
                 <div><input type="file" id="real-file" hidden="hidden" />
                     <button type="button" id="custom-button">Add Photo</button><span id="custom-text">(Optional)</span></div>
-                <div><button type="button" class="btn btn-info button">Submit</button></div>
+                <div><button type="submit" class="btn btn-info button">Submit</button></div>
             </form>
         </div>
     </div>

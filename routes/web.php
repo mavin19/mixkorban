@@ -69,7 +69,8 @@ Route::get('/restaurants', 'RestaurantController@index_restaurant')->name('res_i
 Route::get('/restaurant/{id}', 'RestaurantController@restaurant_detail')->name('restaurant_detail');
 
 //review form
-Route::post('/review_form','ReviewController@review_post')->name('review_post');
+Route::get('/review_form','ReviewController@review_create')->name('review_create');
+Route::post('/review_form','ReviewController@review_store')->name('review_post');
 Auth::routes();
 
 Route::group(['prefix' => 'laravel-crud-image-gallery'], function () {
