@@ -15,16 +15,11 @@ class HomeController extends Controller
     public function slide_restaurant()
     {
         $restaurant = Restaurant::find(2);
-        $cuisines = $restaurant->cuisines()->getResults();
-        $meals = $restaurant->meals()->getResults();
-        $features = $restaurant->features()->getResults();
-        $time = $restaurant->time()->getResults();
+        $restaurants = Restaurant::paginate(3);
+
         $data = [
-            // 'cuisines' => $cuisines,
             'restaurant' => $restaurant,
-            // 'meals' => $meals,
-            // 'features' => $features,
-            // 'time' => $time,
+            'restaurants' => $restaurants
         ];
         return view('home',$data);
     }
