@@ -68,9 +68,11 @@
                 <button type="button" class="btn btn-default" style="background-color:white;">
                     <img src="/image/fb.png" width="150">
                 </button></a>
-                <button class="btn btn-default" style="background-color:white;">
+
+                <a href="/login/google">
+                <button type="button" class="btn btn-default" style="background-color:white;">
                     <img src="/image/1gg.png" width="150" >
-                </button>
+                </button></a>
             </div>
         </form>
     </div>

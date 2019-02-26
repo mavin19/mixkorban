@@ -77,6 +77,40 @@ class LoginController extends Controller
 
     }
 
+    public function redirectToProvider1()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function handleProviderCallback1()
+    {
+        $userSocial = Socialite::driver('google')->user();
+
+        $userEmail= $userSocial->email;
+        
+        $user= User::where("email",$userEmail)->first();
+
+        if($user==NULL){
+            $user = new User;
+            $user->first_name=$userSocial->name;
+
+            $user->email=$userSocial->email;
+            $user->password = bcrypt(111111);
+            
+            $user->save();
+        }
+        // return $userSocial->name;
+        $credential = [
+            "email"=>$user->email, "password"=> 111111
+        ];
+
+        if(Auth::attempt($credential)){
+            // dd($credential);
+            return redirect()->intended(""); 
+        }
+
+    }
+
     
     public function findOrCreateUser($user, $provider)
     {
