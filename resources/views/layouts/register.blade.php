@@ -27,14 +27,14 @@
             </div>
             <div class="form-group row">
                 <label for="name" class="col-sm-4 col-form-label">{{ __('Lastname') }}</label>
-                    <div class="col-sm-7">
-                        <input id="name" type="text" class="form-control{{ $errors->has('last_name') ? ' is-invalid' : '' }}" name="last_name" value="{{ old('Lastname') }}" required autofocus>
-                        @if ($errors->has('name'))
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->first('last_name') }}</strong>
-                        </span>
-                        @endif
-                    </div>
+                <div class="col-sm-7">
+                    <input id="name" type="text" class="form-control{{ $errors->has('last_name') ? ' is-invalid' : '' }}" name="last_name" value="{{ old('Lastname') }}" required autofocus>
+                    @if ($errors->has('name'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('last_name') }}</strong>
+                    </span>
+                    @endif
+                </div>
             </div>
             <div class="form-group row">
                 <label for="email" class="col-sm-4 col-form-label">{{ __('E-Mail Address') }}</label>
@@ -86,13 +86,21 @@
             <label>Or Sign up with</label>
         </div>
         <div style="text-align: center;" class="pb-4">
-            <button class="btn btn-default" style="background-color:white;">
-                <img src="/image/fb.png" width="150">
-                <a href="{{ url('/auth/facebook') }}" class="btn btn-facebook">
-            </button>
+            <a href="{{ url('/auth/facebook') }}" class="btn btn-facebook">
+                <button class="btn btn-default" style="background-color:white;">
+                    <img src="/image/fb.png" width="150">
+                </button>
+            </a>
             <button class="btn btn-default" style="background-color:white;">
                 <img src="/image/1gg.png" width="150" >
             </button>
         </div>
     </div>
 </div>
+@if ($errors->has('email') || $errors->has('password'))
+<script>
+    $(document).ready(function(){
+        var a = $('#register_btn');
+        a.trigger('click');
+    })
+</script>

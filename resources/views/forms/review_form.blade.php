@@ -26,9 +26,9 @@ Review_form
         </div>
         <hr>
         <div>
-            <form method="POST" enctype="multipart/form-data" action="{{route('review_post')}}">
+            <form method="POST" enctype="multipart/form-data" action="{{route('review_store')}}">
                 <p> <b>Overall Rate</b></p>
-                    @include("star")
+                    
                 <div class="form-group">
                     <label for="review title"><b>Review's title</b></label>
                     <input type="text" class="form-control" id="review title" name="title" >
@@ -43,22 +43,26 @@ Review_form
                 <ul type=none class="list" >
                     <li><div>Service</div>
                         <div> 
-                            @include("star")
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star checked"></span>
                         </div>
                     </li>
                     <li><div>Food</div>
                         <div> 
-                            @include("star")
+
                         </div>
                     </li>
                     <li><div>Value</div>
                         <div> 
-                            @include("star")
+
                         </div>
                     </li>
                     <li><div>Environment</div>
                         <div>
-                            @include("star")
+
                         </div>
                     </li>
 

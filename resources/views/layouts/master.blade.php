@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MixKorBan | @yield('title')</title>
-
+    <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
@@ -22,7 +22,7 @@
 
 
 
-<meta charset="utf-8">
+
 <nav class="navbar navbar-dark navbar-expand-sm my-nav">
 
     <a class="navbar-brand" id="logo" href="{{url('/')}}">MixKorBan</a>
@@ -43,7 +43,7 @@
         <ul class="navbar-nav mr-auto"></ul>
         <ul class="navbar-nav mr-auto" id="top-menu">
             <li class="nav-item active">
-                <a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{url('/')}}">Home</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/restaurant')}}">Restaurant</a>
@@ -68,7 +68,7 @@
                 </li>
                 @if (Route::has('register'))
                 <li class="nav-item">
-                    <a class="btn user_btn" data-toggle="modal" data-target=".bd-register-modal-md">{{ __('Register') }}</a>                    
+                    <a id="register_btn" class="btn user_btn" data-toggle="modal" data-target=".bd-register-modal-md">{{ __('Register') }}</a>                    
                     <div class="modal fade bd-register-modal-md" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-md" role="document">
                             <div class="modal-content">
@@ -130,13 +130,7 @@
 </script>
 {{-- content --}}
 @yield('body')
-<script>
 
-    var a = $('#login_btn');
-    console.log(a);
-    a.trigger("click");
-
-</script>
 {{--  --}}
 @yield('scripts')
 {{-- footer --}}

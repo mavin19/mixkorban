@@ -8,10 +8,10 @@
     </div>
 
     <script>
-        $(document).ready(function(){
-            a =$('#s');
-            a.trigger('click');
-        })
+        // $(document).ready(function(){
+        //     a =$('#s');
+        //     a.trigger('click');
+        // })
         
     </script>
     <div class="modal-body">
@@ -84,8 +84,8 @@
 
     </div>
 </div>
-
-@if ($errors->has('email'))
+{{-- if there is error in login form,then we pop up the form again --}}
+@if ($errors->has('email') || $errors->has('password'))
     <script>
         $(document).ready(function(){
             var a = $('#login_btn');

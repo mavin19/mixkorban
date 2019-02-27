@@ -14,7 +14,7 @@ class AddForeignToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreign('user_type_id')->references('id')->on('users');
+            $table->foreign('user_type_id')->references('id')->on('user_types');
         });
     }
 

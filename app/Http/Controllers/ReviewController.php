@@ -10,7 +10,7 @@ class ReviewController extends Controller
 {
     
 
-    public function review_post(Request $request){
+    public function review_store(Request $request){
         $validatedData = Validator::make($request->all(),[
             'title' => 'require',
             'description' => 'require'
@@ -18,7 +18,6 @@ class ReviewController extends Controller
     }
     public function review_create()
     {
-
         return view('forms.review_form');
     }
 }

@@ -27,10 +27,6 @@ Route::get('/web', function(){
 // // test controler
 // Route::get('/controller/{id}', 'Test\TestController@routTesting');
 
-
-Route::get('/review', function(){
-    return view('forms.review_form');
-});
 Route::get('/detail', function(){
     return view('restaurant_detail');
 });
@@ -68,7 +64,8 @@ Route::get('/restaurants', 'RestaurantController@index_restaurant')->name('res_i
 Route::get('/restaurant/{id}', 'RestaurantController@restaurant_detail')->name('restaurant_detail');
 
 //review form
-Route::post('/review_form','ReviewController@review_post')->name('review_post');
+Route::get('/review_form','ReviewController@review_create')->name('review_create');
+Route::post('/review_store','ReviewController@review_store')->name('review_store');
 Auth::routes();
 
 Route::group(['prefix' => 'laravel-crud-image-gallery'], function () {
