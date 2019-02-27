@@ -53,7 +53,6 @@ class LoginController extends Controller
         $userSocial = Socialite::driver('facebook')->user();
 
         $userEmail= $userSocial->email;
-        
         $user= User::where("email",$userEmail)->first();
 
         if($user==NULL){
@@ -85,6 +84,7 @@ class LoginController extends Controller
     public function handleProviderCallback1()
     {
         $userSocial = Socialite::driver('google')->user();
+        dd("something");
 
         $userEmail= $userSocial->email;
         

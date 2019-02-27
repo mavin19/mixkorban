@@ -105,3 +105,4 @@
         a.trigger('click');
     })
 </script>
+@endif
