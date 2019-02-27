@@ -46,7 +46,8 @@
                 <a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{url('/restaurant')}}">Restaurant</a>
+            <a class="dropdown-item" href="{{route('my_restaurant') }}" style="color:black">Restaurant</a>
+                <!-- <a class="nav-link" href="{{route('my_restaurant') }}">Restaurant</a> -->
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Food</a>
