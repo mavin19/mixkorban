@@ -52,7 +52,15 @@ Restaurant Detail
 @stop('staticfiles')
 @section('body')
 <div class="container">
-    <H1 class="p-5">{{$restaurant->name}}</H1>
+    
+    <div class="row m-5">
+        <div class="col-6 ">
+            <H1>{{$restaurant->name}}</H1>
+        </div>
+        <div class="col-6" style="text-align: end">
+            <a class="btn-success" style="display:inline-block;border: 1px solid;padding: 5px 15px;" href="/userprofileupdate">Edit</a>
+        </div>
+    </div>
     <div class="row">
       <div class="col-4 ">
           <img class="img-responsive" src="/image/panorama.jpg" alt="Chania" width="500" height="355">

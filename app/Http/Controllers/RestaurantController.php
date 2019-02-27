@@ -177,4 +177,12 @@ class RestaurantController extends Controller
 
         return redirect('');
     }   
+    public function update_owner_restaurant(Request $request){
+        $owner_id = \App\models\Restaurant_owner::where('u_id',Auth::user()->id)->first()->id;
+        $request->validate([
+            'restaurantName' => 'required',
+            'description'=>'required',
+            
+        ]);
+    }
 }

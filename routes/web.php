@@ -36,6 +36,7 @@ Route::get('/profile', "test\UserProfileController@index");
 
 // restaurant owner
 Route::get('/my-restaurant','RestaurantOwnerController@getRestaurant')->name('my_restaurant');
+
 Route::get('/res-owner-register', function(){
     if(!Auth::check())
         // if owner is not login 
@@ -62,10 +63,14 @@ Route::get('/restaurant-register','RestaurantController@create_restaurant')->nam
 Route::post('/restaurant-store','RestaurantController@store_restaurant')->name('res_store');
 Route::get('/restaurants', 'RestaurantController@index_restaurant')->name('res_index');
 Route::get('/restaurant/{id}', 'RestaurantController@restaurant_detail')->name('restaurant_detail');
+//restaurant edit
+Route::post('/restaurant-store','RestaurantOwnerController@ownerRegisterStore')->name('owner_reg_store');
+Route::post('/restaurant_update','RestaurantOwnerController@update_restaurant')->name('update_restaurant_owner');
+Route::get('/ownerprofileupdate','RestaurantOwnerController@updateForm')->name('edit-restaurant-owner');
 
 //review form
 Route::get('/review_form','ReviewController@review_create')->name('review_create');
-Route::post('/review_store','ReviewController@review_store')->name('review_store');
+Route::post('/review_form','ReviewController@review_store')->name('review_post');
 Auth::routes();
 
 Route::group(['prefix' => 'laravel-crud-image-gallery'], function () {

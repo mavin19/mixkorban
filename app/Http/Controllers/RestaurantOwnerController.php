@@ -62,8 +62,10 @@ class RestaurantOwnerController extends Controller
         $user->password = bcrypt($request->password);
         $user->profile_img = 'default_user_img.png';
         $user->user_type_id = $user_type_id;
+
         $user->save();
-        
+
+
         // then restaurant owner
         $owner = \App\models\Restaurant_owner::create([
             'phone' => $request->phone,

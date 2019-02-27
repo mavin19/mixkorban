@@ -26,7 +26,8 @@ Review_form
         </div>
         <hr>
         <div>
-            <form method="POST" enctype="multipart/form-data" action="{{route('review_store')}}">
+            <form method="POST" enctype="multipart/form-data" action="{{route('review_post')}}">
+                @csrf
                 <p> <b>Overall Rate</b></p>
                     
                 <div class="form-group">
@@ -69,7 +70,7 @@ Review_form
                 </ul>
                 <div><input type="file" id="real-file" hidden="hidden" />
                     <button type="button" id="custom-button">Add Photo</button><span id="custom-text">(Optional)</span></div>
-                <div><button type="button" class="btn btn-info button">Submit</button></div>
+                <div><button type="submit" class="btn btn-info button">Submit</button></div>
             </form>
         </div>
     </div>
