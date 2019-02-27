@@ -22,7 +22,7 @@ Review_form
     <div class="container">
         <div style="margin-top:60px; margin-bottom:10px;">
             <img src="/image/panorama.jpg" width="250px" height="200px" alt="bar"> 
-            <h3 style="display: inline-block;">Panorama</h3>
+            <h3 style="display: inline-block;">{{$restaurant->name}}</h3>
         </div>
         <hr>
         <div>

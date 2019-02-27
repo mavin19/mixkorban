@@ -68,7 +68,7 @@ Route::get('/restaurants', 'RestaurantController@index_restaurant')->name('res_i
 Route::get('/restaurant/{id}', 'RestaurantController@restaurant_detail')->name('restaurant_detail');
 
 //review form
-Route::get('/review_form','ReviewController@review_create')->name('review_create');
+Route::get('/review_form/{res_id}','ReviewController@review_create')->name('review_create');
 Route::post('/review_form','ReviewController@review_store')->name('review_post');
 Auth::routes();
 

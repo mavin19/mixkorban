@@ -52,7 +52,7 @@ Restaurant Detail
 @stop('staticfiles')
 @section('body')
 <div class="container">
-    <H1 class="p-5">{{$restaurant->name}}</H1>
+    <H1 class="p-5">{{$restaurant->name}} {{$restaurant->id}} </H1>
     <div class="row">
       <div class="col-4 ">
           <img class="img-responsive" src="/image/panorama.jpg" alt="Chania" width="500" height="355">
@@ -205,14 +205,14 @@ Restaurant Detail
     <div class="container fluid">
         <h3 class="mt-4"><b>You may also like</b></h3>
         <div class="row justify-content-center">
-             @foreach($restaurants as $restaurant)
+             @foreach($restaurants as $res)
                 <div class="card mr-5" style="width: 15rem;">
-                    <a href="{{route('restaurant_detail',['id'=>$restaurant->id]) }}"><img class="card-img-top" alt="..." src="{{asset('storage/restaurant_imgs/'.$restaurant->getOneImgLoc()) }}"></a>
+                    <a href="{{route('restaurant_detail',['id'=>$res->id]) }}"><img class="card-img-top" alt="..." src="{{asset('storage/restaurant_imgs/'.$res->getOneImgLoc()) }}"></a>
                     <div class="card-body">
                         <h5 class="card-title">
-                                <span><a href="{{route('restaurant_detail',['id'=>$restaurant->id]) }}">{{ $restaurant->name }}</a></span>
+                                <span><a href="{{route('restaurant_detail',['id'=>$res->id]) }}">{{ $res->name }}</a></span>
                         </h5>
-                        <p class="card-text">{{$restaurant->detail}}</p>
+                        <p class="card-text">{{$res->detail}}</p>
                     </div>
                 </div>
             @endforeach
@@ -223,7 +223,9 @@ Restaurant Detail
     <div class="card container mt-3">
         <div class="card-body">
             <h5 class="card-title"><u><b>Review :</b></u></h5>
-            <button type="button" class="btn btn-success btn-sm float-right">Write a review</button>
+            <a href="{{route('review_create',['res_id'=>$restaurant->id])}}">
+                <button type="button" class="btn btn-success btn-sm float-right">Write a review</button>
+            </a>
             <p class="pl-5">5.0</p>
             <h4>Star Rating</h4>
             <span class="fa fa-star checked pl-2"></span>

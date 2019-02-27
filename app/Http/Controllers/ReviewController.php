@@ -10,17 +10,15 @@ class ReviewController extends Controller
 {
     
 
-    public function review_store(Request $request,$res_id){
+    public function review_store(Request $request){
        
         $request->validate([
             'title' => 'required',
             'description' => 'required'
         ]);
         $user_id= Auth::user()->id;
-        $restaurant = \App\models\Restaurant::where('owner_id',$owner->id)->first();
+        // $restaurant = \App\models\Restaurant::where('owner_id',$owner->id)->first();
         
-
-
         $review = new \App\Review;
         $review->title = $request->title;
         $review->description= $request->description;
@@ -28,9 +26,12 @@ class ReviewController extends Controller
         $review->u_id = $user_id;
         $review->save();
     }
-    public function review_create()
+    public function review_create($res_id)
     {
-
-        return view('forms.review_form');
+        $restaurant=\App\models\Restaurant::find($res_id);
+        $data = [
+            'restaurant'=> $restaurant
+        ];
+        return view('forms.review_form', $data);
     }
 }
